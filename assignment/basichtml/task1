@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Page</title>
+</head>
+<body>
+
+<h1>
+    this is the main heading
+</h1>
+
+<h2>
+    this is the second heading 
+</h2>
+
+<p>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+Aenean commodo ligula eget dolor.
+Aenean massa. Cum sociis natoque penabus et magnis
+dis parturient montes, nascetur ridiculus mus.
+</p>
+
+<h1>
+
+    and another heading
+</h1>
+
+<p>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+Aenean commodo ligula eget dolor.
+Aenean massa. Cum sociis natoque penabus et magnis
+dis parturient montes, nascetur ridiculus mus
+</p>
+
+</body>
+</html>
+
