@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+numbered list
+<ol type="1">
+
+<li> apples  </li>
+<li> bannas  </li>
+<li>  lemons </li>
+<li> oranges  </li>
+
+</ol>
+<hr>
+letters lists
+
+<ol type="A">
+
+<li> apples  </li>
+<li> bannas  </li>
+<li>  lemons </li>
+<li> oranges  </li>
+
+</ol>
+<hr>
+
+lowercase letters lists
+
+
+<ol type="a">
+
+<li> apples  </li>
+<li> bannas  </li>
+<li>  lemons </li>
+<li> oranges  </li>
+
+</ol>
+<hr>
+
+roman number lists
+
+<ol type="I">
+
+<li> apples  </li>
+<li> bannas  </li>
+<li>  lemons </li>
+<li> oranges  </li>
+
+</ol>
+<hr>
+  lowercase roman number lists
+
+<ol type="i">
+
+<li> apples  </li>
+<li> bannas  </li>
+<li>  lemons </li>
+<li> oranges  </li>
+
+</ol>
+<hr>
+
+
+
+
+</body>
+</html>

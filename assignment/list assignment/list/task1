@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    disc bullet list
+<ul type="disc">
+
+<li> apples  </li>
+<li> bannas  </li>
+<li>  lemons </li>
+<li> oranges  </li>
+
+</ul>
+<hr>
+circle bullet lists
+
+<ul type="circle">
+
+<li> apples  </li>
+<li> bannas  </li>
+<li>  lemons </li>
+<li> oranges  </li>
+
+</ul>
+<hr>
+
+square bullet lists
+
+
+<ul type="square">
+
+<li> apples  </li>
+<li> bannas  </li>
+<li>  lemons </li>
+<li> oranges  </li>
+
+</ul>
+
+
+
+
+
+</body>
+</html>

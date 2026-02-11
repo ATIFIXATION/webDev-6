@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+
+<body>
+<br>
+  <b>fruits and vegetables</b>
+  <br>
+
+  <br>
+
+A.   vegetables
+
+<ul>
+
+
+<li>  onion</li>
+
+<li>tomato  </li>
+
+<li> radish </li>
+
+<li> potato </li>
+
+<li>  carrot </li>
+
+
+
+</ul>
+
+<hr>
+
+
+<br>
+
+B.   fruits
+
+<ul>
+
+
+<li>  apple</li>
+
+<li>bannas </li>
+
+<li> water melon</li>
+
+<li> mango </li>
+
+<li>  grapes </li>
+
+</ul>
+
+<hr>
+
+NEWSPAPERS AND MAGAZINES
+
+<h1>NEWSPAPERS</h1>
+
+<ol start="5">
+
+<li>the times of india</li>
+<li>hindustan times</li>
+<li>navbharat times</li>
+<li>punjan kesari</li>
+<li>danik jagran</li>
+
+
+
+</ol>
+<hr>
+<br>
+<h1>magazine</h1>
+
+<ol type="i">
+
+<li> businees times  </li>
+<li> the week  </li>
+<li> india today </li>
+<li> harvard business revview </li>
+<li>computer world</li>
+
+
+</ol>
+<hr>
+<br>
+
+
+</body>
+</html>
+
+
+
+
+
+
+
