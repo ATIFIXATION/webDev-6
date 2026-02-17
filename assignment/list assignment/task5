@@ -1,0 +1,76 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+ <h1>learning web development</h1>
+ 
+ <ol>
+<li type="I">
+    background skills
+    <ol type="A">
+        <li>unix commands</li>
+        <li>vim text editor</li>
+    </ol>
+</li>
+
+<li>HTML</li>
+<OL type="A">
+    <li>minimal page</li>
+    <li>headings</li>
+    <li>tags</li>
+    <li>lists</li>
+    <ol type="I">
+        <li>unordered</li>
+        <li>ordered</li>
+        <li>definition</li>
+        <li>nested</li>
+        
+    </ol>
+    <li> E links</li>
+    <ol type="I">
+        <li>absolute</li>
+        <li>relative</li>
+    </ol>
+    <li>images</li>
+</OL>
+
+<li>css</li>
+<ol>
+    <li>
+        A anaatomy
+    </li>
+    <li>basic selectors</li>
+    <ol type="I">
+
+<li> elements</li>
+<li>class</li>
+<li>id</li>
+<li>group</li>
+
+    </ol>
+    <li>
+        the dom
+    </li>
+    <li> advanced selectors</li>
+    <li>box model</li>
+</ol>
+<li>programming
+</li>
+<ol type="A">
+
+    <li>python</li>
+    <li>javascript</li>
+</ol>
+<li>database</li>
+<ol type="A">
+    <li>flat file</li>
+    <li>relational</li>
+</ol>
+ </ol>
+
+</body>
+</html>
