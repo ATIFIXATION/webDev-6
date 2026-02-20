@@ -1,0 +1,74 @@
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+ </head>
+ <body>
+    <OL type="1">
+
+<LI> LIST ITEM </LI>
+<OL type="A">
+<LI> NESTED ITEM 1.1 </LI>
+<LI> NESTED ITEM 1.2 </LI>
+
+</OL>
+
+<LI> LIST ITEM 2 </LI>
+<OL type="I">
+
+<LI> NESTED ITEM 2.1 </LI>
+
+<LI> NESTED ITEM 2.2 </LI>
+<ul type="circle">
+
+<li> nested item 2.2.1 </li>
+
+<li> nested item 2.2.2 </li>
+
+<ul type="disc"> 
+
+   <li> nested item 2.2.2.1 </li>
+     
+
+  <li> nested item 2.2.2.2    </li>
+
+
+</ul>
+
+
+</ul>
+<li> nested item 2.3
+
+</OL>
+
+<li> list item 3</li>
+<ul type="circle">
+
+   <li>item 1</li>
+   <li>2</li>
+   <li>3</li>
+</ul>
+
+
+    </OL>
+
+commp 376
+<ul>
+
+   <Li>intro to game programmminng</Li>
+</ul>
+
+soen287
+
+<UL>
+   <li> web programmingt</li>
+</UL>
+
+this is a test9 for assignment 1
+
+<b>figure 1.</b> list illustration in html
+    
+ </body>
+ </html>
