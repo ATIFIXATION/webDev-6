@@ -1,0 +1,42 @@
+/* universal selector */
+*{
+
+  background-color: rgb(130, 104, 156);
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+
+
+ }
+/* this is tag selector */
+
+ div
+ {
+
+background-color:aqua ;
+
+ }
+
+ /* class selector */
+
+ .abc{
+
+    background-color: burlywood;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+ }
+
+ h1{
+
+    background-color: blueviolet;
+    color: red;
+
+
+ }
+
+#acb
+{
+
+    background-color: chartreuse;
+    color: black;
+    border: 100px double black;
+    border-radius: 5px;
+}
