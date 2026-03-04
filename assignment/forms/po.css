@@ -1,0 +1,138 @@
+/* CLASSIC RETRO ACADEMIC THEME */
+
+body{
+    background-color:#f4efe6;
+    font-family: Georgia, "Times New Roman", serif;
+    color:#3a2f2f;
+    margin:0;
+    padding:40px;
+}
+
+
+/* TABLE */
+
+table{
+    width:80%;
+    margin:auto;
+
+    border-collapse:collapse;
+
+    background-color:#fffdf8;
+
+    border:2px solid #8b6f47;
+
+}
+
+
+/* HEADER */
+
+th{
+    background-color:#d9c6a5;
+
+    color:#3b2f1d;
+
+    padding:12px;
+
+    font-size:16px;
+
+    border:1px solid #8b6f47;
+
+    letter-spacing:1px;
+}
+
+
+/* CELLS */
+
+td{
+    padding:10px;
+
+    text-align:center;
+
+    border:1px solid #c8b79c;
+}
+
+
+/* ROW COLORS */
+
+tr:nth-child(even){
+    background-color:#f2e8d9;
+}
+
+tr:hover{
+    background-color:#e6d8c3;
+}
+
+
+/* TEXT INPUT */
+
+input[type="text"]{
+    background-color:#faf7f0;
+
+    border:1px solid #a08a6a;
+
+    padding:4px;
+
+    font-family:Georgia, serif;
+}
+
+
+/* CHECKBOX */
+
+input[type="checkbox"]{
+    transform:scale(1.1);
+}
+
+
+/* LINKS */
+
+a{
+    color:#5a3e2b;
+
+    text-decoration:none;
+
+    font-weight:bold;
+}
+
+a:hover{
+    text-decoration:underline;
+}
+
+
+/* FOOTER */
+
+footer{
+    margin-top:50px;
+
+    background-color:#e8dcc8;
+
+    padding:25px;
+
+    border-top:2px solid #8b6f47;
+}
+
+
+/* PROFILE IMAGE */
+
+footer img{
+    border-radius:50%;
+
+    border:2px solid #8b6f47;
+}
+
+
+/* FOOTER TEXT */
+
+footer p{
+    margin:6px;
+}
+
+footer h3{
+    color:#4a3724;
+}
+
+
+/* HR */
+
+hr{
+    border:1px solid #8b6f47;
+}
