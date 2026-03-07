@@ -1,0 +1,25 @@
+#div
+{
+    background-color: burlywood;
+    width: 200px;
+    height: 200px;
+    border: 4px solid black;
+    border-radius: 80px;
+    padding: 20px;
+    padding-top: 20px;
+    margin: 0 auto;
+    text-align: center;
+   
+}
+
+#submitButton
+{
+    
+    padding: 5px 15px;
+    border: 2px solid rgb(223, 193, 101);
+    border-radius: 40px;
+    background-color: bisque;
+    color: rgb(40, 29, 14);
+    margin: 0 auto;
+    
+}

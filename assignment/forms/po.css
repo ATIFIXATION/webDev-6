@@ -1,4 +1,4 @@
-/* CLASSIC RETRO ACADEMIC THEME */
+/* main body of my taskss */
 
 body{
     background-color:#f4efe6;
@@ -9,7 +9,8 @@ body{
 }
 
 
-/* TABLE */
+
+/* TABLE  of all the tasks*/
 
 table{
     width:80%;
@@ -24,7 +25,7 @@ table{
 }
 
 
-/* HEADER */
+/* HEADER  of all the tasks */
 
 th{
     background-color:#d9c6a5;
@@ -41,7 +42,7 @@ th{
 }
 
 
-/* CELLS */
+/* CELLS of the tasks which include table*/
 
 td{
     padding:10px;
@@ -52,7 +53,8 @@ td{
 }
 
 
-/* ROW COLORS */
+/* ROW COLORS with hovering pseudo classes */
+
 
 tr:nth-child(even){
     background-color:#f2e8d9;
