@@ -1,0 +1,100 @@
+/* #mydiv
+{
+
+color: blueviolet;
+width: 10px;
+height: 5px;
+border: 2px solid beige;
+background-color: cadetblue;
+
+
+
+
+
+}
+#mydiv2
+{
+
+color: blueviolet;
+width: 10px;
+
+height: 5px;
+border: 2px solid beige;
+
+
+background-color: cadetblue;
+
+
+
+
+
+} */
+
+
+*
+{
+
+    margin: 0;
+    padding: 0;
+
+
+
+
+
+}
+#mydiv,#mydiv2
+{
+color: blueviolet;
+width: 200px;
+height:200px;
+border: 2px solid beige;
+background-color: cadetblue;
+
+
+
+}
+
+#mydiv3
+{
+
+color: blueviolet;
+width: 200px;
+height:200px;
+border: 2px solid beige;
+background-color: cadetblue;
+display: inline;
+
+
+}
+
+
+/* inline seedhe aaa jata  */
+.abc
+{
+
+color: blueviolet;
+width: 200px;
+height:200px;
+border: 2px solid beige;
+background-color: cadetblue;
+
+display: inline;
+
+
+
+
+
+}
+
+.deb,.feb
+{
+
+
+
+display: inline block;
+
+
+
+
+
+}

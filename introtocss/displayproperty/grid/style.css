@@ -1,0 +1,67 @@
+
+#outerbox
+
+{
+
+
+height: 700px;
+width: 700px;
+border: 3px solid black;
+
+
+
+}
+
+*
+{
+
+margin :0px;
+padding: 0px;
+
+
+}
+
+
+
+
+#parent1
+{
+
+/* height: 500px;
+width: 700px;
+border: 3px solid black; */
+
+display: grid;
+
+grid-template-columns: 150px 200px 150px 200px;
+
+
+justify-items: center;
+align-items: center;
+
+row-gap: 20px;
+
+
+
+
+
+}
+
+.p1child
+{
+
+
+height: 50px;
+width: 50px;
+border: 3px solid #0000;
+background-color: blue;
+
+color: white;
+
+font-size: larger;
+
+
+
+
+
+}
