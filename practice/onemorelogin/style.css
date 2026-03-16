@@ -1,0 +1,56 @@
+
+
+.abc
+{
+
+background-color: #d6cfcf;
+color: bisque;
+
+
+
+
+border: 10px;
+color: blueviolet;
+width: 300px;
+height: 300px;
+
+
+}
+
+input
+{
+
+
+border-radius: 10px;
+background-color: #51bf7f;
+width: auto;
+height: inherit;
+
+
+
+}
+
+form
+{
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 20px;
+
+
+}
+
+.oi
+{
+
+    padding: 100px;
+    border: 10px solid blanchedalmond;
+    margin: 50px;
+
+
+
+
+
+}
+
