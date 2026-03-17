@@ -1,0 +1,141 @@
+*
+{
+
+
+
+margin: 0;
+padding: 0;
+
+
+
+
+}
+
+#main
+{
+
+background-color: #816cd3;
+display: flex;
+justify-content: center;
+gap: 100px;
+height: 70vh;
+align-items: end;
+padding-bottom: 30vh;
+
+border: 1px solid skyblue ;
+
+}
+
+.card
+{
+
+background-color: #cccff3;
+max-height: fit-content;
+padding: 20px;
+border-radius: 10px;
+display: grid;
+gap: 20px;
+width: 300px;
+
+
+}
+
+
+
+.formfield
+{
+
+ /* display: flex; */
+gap: 10px;
+
+align-items: center;
+border-bottom: 1px solid grey;
+
+
+}
+
+.formfield input 
+{
+
+border: none;
+background-color: transparent;
+outline: none;
+/* width: 100%; */
+
+padding-bottom: 5px;
+
+}
+
+.terms
+{
+
+    display: flex;
+    justify-content: space-between;
+
+
+
+
+}
+
+.submitbutton button
+
+{
+
+
+background-color: #362a86;
+width: 100%;
+padding: 7px;
+width: 100%;
+border-radius: 10px;
+color: aliceblue;
+
+
+}
+
+.referencelink
+{
+
+text-align: center;
+
+
+
+}
+
+.submitbutton button:hover
+{
+
+
+
+background-color: #37a3de;
+
+color: skyblue;
+
+
+
+
+
+
+}
+
+.submitbutton button:active
+
+{
+
+
+background-color: aliceblue;
+color: skyblue;
+border: 2px solid skyblue;
+font-weight: bolder;
+
+
+
+}
+
+.formfield input:focus
+{
+
+border: 2px solid skyblue;
+
+
+
+}
