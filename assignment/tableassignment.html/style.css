@@ -1,0 +1,42 @@
+:root {
+ 
+ --primary-color: #334155;   
+  --secondary-color: #0f172a;
+  --prime-bgc: #e2e8f0;       
+  --sec-bgc: #f1f5f9;          
+
+  --primary-font: 'Poppins', sans-serif;
+  --secondary-font: 'Roboto', sans-serif;
+
+}
+
+* {
+  padding: 15px;
+
+  background-color: rgb(205, 237, 228);
+  margin: 14px;
+}
+
+
+th{
+
+color: var(--primary-color);
+background-color: var(--prime-bgc);
+font-family: var(--primary-font);
+
+}
+td
+{
+
+
+
+    background-color: var(--sec-bgc);
+    color: var(--secondary-color);
+    font-family: var(--secondary-font);
+
+}
+
+table
+{
+    box-shadow: saddlebrown;
+}

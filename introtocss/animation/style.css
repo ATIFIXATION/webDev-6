@@ -1,0 +1,73 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+@keyframes nayan {
+    0%{
+        top:0;
+        left:0;
+        background-color: yellow;
+    }
+    25%{
+        top:0;
+        left:500px;
+        background-color: pink;
+    }
+    50%{
+        top:500px;
+        left:500px;
+        background-color: green;
+    }
+    75%{
+        top:500px;
+        left:0;
+        background-color: brown;
+    }
+    100%{
+        top:0;
+        left:0;
+        background-color: red;
+    }
+}
+
+#div2{
+    width: 100px;
+    height: 100px;
+    border: 1px solid blue;
+
+    color: aliceblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    animation: nayan 8s infinite linear;
+}
+
+#img{
+    width: 100px;
+    height: 100px;
+    border: 1px solid blue;
+
+    color: aliceblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    animation: nayan 5s infinite linear;
+   
+}
+
+#card
+{
+
+   
+ padding: 80px;
+    margin:11x lid black;
+
+
+
+
+
+}
+

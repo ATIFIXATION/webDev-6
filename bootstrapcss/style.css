@@ -1,0 +1,41 @@
+.w-100 {
+  width: 100px;
+}
+
+.w-500 {
+  width: 500px;
+}
+.h-100 {
+  height: 100px;
+}
+
+.h-500 {
+  height: 500px;
+}
+
+.box-border {
+  border: 1px solid black;
+}
+
+.red-color {
+  background-color: red;
+}
+
+.green-color {
+  background-color: green;
+}
+
+.white-text {
+  color: whitesmoke;
+}
+
+.dark-text {
+  color: rgb(44, 44, 44);
+}
+
+.abcd {
+  border: 1px solid black;
+  width: 500px;
+  height: 500px;
+  background-color: red;
+}

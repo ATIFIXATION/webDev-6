@@ -1,0 +1,32 @@
+:root {
+  --primary-color: #c8a8fc;
+  --secondary-color: #c389de;
+  --prime-bgc: #7997c7;
+  --sec-bgc: #90c73f;
+
+  --primary-font: "Poppins", sans-serif;
+  --secondary-font: "Roboto", sans-serif;
+}
+
+* {
+  padding: 15px;
+
+  background-color: rgb(205, 237, 228);
+  margin: 29px;
+}
+
+p {
+  color: var(--primary-color);
+  font: var(--primary-font);
+  background-color: var(--sec-bgc);
+}
+
+h1 {
+  color: var(--primary-font);
+  background-color: var(--sec-bgc);
+}
+
+h2 {
+  color: var(--prime-bgc);
+  background-color: var(--prime-bgc);
+}
