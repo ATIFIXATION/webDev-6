@@ -1,0 +1,114 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* BODY */
+body {
+  font-family: Arial, sans-serif;
+  background: #dfe5e8;
+
+  /* 👇 vh used here */
+  min-height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* FORM CONTAINER */
+form {
+  width: 90%;
+  max-width: 900px;
+  background: #a8bbd4;
+
+  padding: 30px;
+  border-radius: 15px;
+
+  /* 👇 vh spacing */
+  margin: 5vh 0;
+}
+
+/* HEADING */
+h1 {
+  text-align: center;
+  margin-bottom: 2vh;
+}
+
+/* TABLE */
+table {
+  width: 100%;
+}
+
+/* TABLE CELLS */
+td {
+  padding: 10px;
+  font-size: 14px;
+  vertical-align: top;
+}
+
+/* INPUT FIELDS */
+input[type="text"],
+input[type="email"],
+select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #9aa7b1;
+  border-radius: 8px;
+  background: #f4f6f8;
+}
+
+/* CHECKBOX */
+input[type="checkbox"] {
+  margin-right: 8px;
+}
+
+/* SUBMIT BUTTON */
+input[type="submit"] {
+  width: 100%;
+  background: #0d1f2d;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 25px;
+  font-size: 16px;
+  cursor: pointer;
+
+  margin-top: 2vh;
+}
+
+/* HOVER EFFECT */
+input[type="submit"]:hover {
+  background: #08141d;
+}
+
+/* 🔥 RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+
+  body {
+    align-items: flex-start;
+    padding-top: 3vh;
+  }
+
+  form {
+    padding: 20px;
+  }
+
+  table tr {
+    display: block;
+    margin-bottom: 2vh;
+  }
+
+  td {
+    display: block;
+    width: 100%;
+    padding: 6px 0;
+  }
+
+  input[type="submit"] {
+    font-size: 14px;
+    padding: 10px;
+  }
+}
