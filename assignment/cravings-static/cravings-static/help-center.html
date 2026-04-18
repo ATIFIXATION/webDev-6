@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Help Center — Cravings</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar navbar-expand-lg navbar-cravings sticky-top">
+    <div class="container">
+      <a class="navbar-brand fw-bold fs-4 d-flex align-items-center gap-2" href="index.html">
+        <i class="bi bi-fire"></i> Cravings
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-3 gap-1">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="order-now.html">Order Now</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+        <div class="d-flex align-items-center gap-3">
+          <a href="login.html" class="text-white fw-500">Login</a>
+          <a href="register.html" class="btn-register">Register</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero-help" style="background-image:url('https://images.unsplash.com/photo-1521790361543-f645cf042ec4?w=1600&q=80');">
+    <div class="overlay"></div>
+    <div class="content px-3">
+      <i class="bi bi-headset fs-1 mb-3 d-block" style="color:var(--color-primary);"></i>
+      <h1 class="display-5 fw-800" style="font-weight:800;">Help Center</h1>
+      <p class="fs-5 mt-2" style="opacity:0.9;">Get answers to your questions</p>
+    </div>
+  </section>
+
+  <!-- ===== FAQ ACCORDION ===== -->
+  <section class="py-5" style="background:var(--color-base-100);">
+    <div class="container">
+      <h2 class="text-center fw-800 mb-4" style="font-weight:800;">Frequently Asked Questions</h2>
+      <div class="accordion mx-auto" id="faqAccordion" style="max-width:700px;">
+
+        <div class="accordion-item border mb-2 rounded-3 overflow-hidden">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed fw-600" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+              <i class="bi bi-map me-2" style="color:var(--color-primary);"></i>
+              How do I track my order?
+            </button>
+          </h2>
+          <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+            <div class="accordion-body text-secondary">
+              Go to your dashboard → Orders and click on the active order to see live tracking.
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item border mb-2 rounded-3 overflow-hidden">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed fw-600" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+              <i class="bi bi-arrow-counterclockwise me-2" style="color:var(--color-primary);"></i>
+              How do I get a refund?
+            </button>
+          </h2>
+          <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+            <div class="accordion-body text-secondary">
+              Submit a ticket below with your Order ID and our team will process it within 2–3 business days.
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item border mb-2 rounded-3 overflow-hidden">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed fw-600" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+              <i class="bi bi-clock me-2" style="color:var(--color-primary);"></i>
+              My rider is late. What do I do?
+            </button>
+          </h2>
+          <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+            <div class="accordion-body text-secondary">
+              You can contact your rider directly via the order page or raise a support ticket below.
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item border mb-2 rounded-3 overflow-hidden">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed fw-600" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+              <i class="bi bi-person-gear me-2" style="color:var(--color-primary);"></i>
+              How do I update my account info?
+            </button>
+          </h2>
+          <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+            <div class="accordion-body text-secondary">
+              Navigate to your dashboard → Settings to update your profile details.
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SUPPORT TICKET FORM ===== -->
+  <section class="py-5" style="background:var(--color-base-200);">
+    <div class="container">
+      <div class="mx-auto bg-white rounded-4 shadow-sm p-4 p-md-5" style="max-width:600px;">
+        <h4 class="fw-700 mb-1" style="color:var(--color-primary);">Submit a Support Ticket</h4>
+        <p class="text-secondary small mb-4">Our team will get back to you within 24 hours.</p>
+
+        <div class="mb-3">
+          <label class="form-label small fw-600">Full Name</label>
+          <input type="text" class="form-control" placeholder="Jane Doe" />
+        </div>
+        <div class="mb-3">
+          <label class="form-label small fw-600">Email</label>
+          <input type="email" class="form-control" placeholder="jane@example.com" />
+        </div>
+        <div class="mb-3">
+          <label class="form-label small fw-600">Issue Category</label>
+          <select class="form-select">
+            <option value="">Select a category</option>
+            <option>Order Issue</option>
+            <option>Payment Problem</option>
+            <option>Delivery Complaint</option>
+            <option>Account Access</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label class="form-label small fw-600">Order ID <span class="text-secondary fw-400">(optional)</span></label>
+          <input type="text" class="form-control" placeholder="#ORD-000000" />
+        </div>
+        <div class="mb-4">
+          <label class="form-label small fw-600">Description</label>
+          <textarea class="form-control" rows="4" placeholder="Describe your issue in detail..."></textarea>
+        </div>
+        <button class="btn w-100 btn-primary-cravings">Submit Ticket</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer-cravings pt-5 pb-3">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-12 col-md-4 col-lg-2">
+          <div class="fw-bold fs-5 text-white d-flex align-items-center gap-2 mb-2">
+            <i class="bi bi-fire" style="color:var(--color-primary)"></i> Cravings
+          </div>
+          <p class="small" style="opacity:0.65;">Connecting hungry hearts with amazing food.</p>
+        </div>
+        <div class="col-6 col-md-4 col-lg-2">
+          <h6 class="text-white fw-600 mb-3">Quick Links</h6>
+          <ul class="list-unstyled">
+            <li><a href="index.html">Home</a></li>
+            <li class="mt-2"><a href="about.html">About</a></li>
+            <li class="mt-2"><a href="order-now.html">Order Now</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-md-4 col-lg-2">
+          <h6 class="text-white fw-600 mb-3">For Restaurants</h6>
+          <ul class="list-unstyled"><li><a href="register.html">Partner With Us</a></li></ul>
+        </div>
+        <div class="col-6 col-md-4 col-lg-2">
+          <h6 class="text-white fw-600 mb-3">For Riders</h6>
+          <ul class="list-unstyled"><li><a href="register.html">Become a Rider</a></li></ul>
+        </div>
+        <div class="col-6 col-md-4 col-lg-3">
+          <h6 class="text-white fw-600 mb-3">Feedback & Support</h6>
+          <ul class="list-unstyled">
+            <li><a href="feedback.html">Give Feedback</a></li>
+            <li class="mt-2"><a href="help-center.html">Help Center</a></li>
+            <li class="mt-2"><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+      </div>
+      <hr class="mt-4 mb-3" />
+      <div class="d-flex flex-wrap justify-content-between align-items-center small gap-2" style="opacity:0.65;">
+        <span>© 2026 Cravings. All rights reserved.</span>
+        <div class="d-flex gap-3">
+          <a href="privacy-policy.html">Privacy Policy</a>
+          <a href="terms-of-service.html">Terms of Service</a>
+          <a href="sitemap.html">Site Map</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

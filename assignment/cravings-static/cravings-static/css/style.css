@@ -1,0 +1,504 @@
+/* ============================================================
+   CRAVINGS — Custom Stylesheet
+   ============================================================ */
+
+/* ---------- CSS Variables ---------- */
+:root {
+  --color-primary:         #c2410c;
+  --color-primary-content: #ffffff;
+  --color-secondary:       #6b7280;
+  --color-neutral:         #3f3f46;
+  --color-neutral-content: #f4f4f5;
+  --color-base-100:        #fff8f1;
+  --color-base-200:        #f5ede5;
+  --color-base-300:        #e7d9c9;
+  --color-base-content:    #2d1b10;
+  --color-error:           #ef4444;
+  --color-success:         #22c55e;
+}
+
+/* ---------- Global ---------- */
+* { box-sizing: border-box; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--color-base-100);
+  color: var(--color-base-content);
+  margin: 0;
+}
+
+a { text-decoration: none; }
+
+/* ---------- Navbar ---------- */
+.navbar-cravings {
+  background-color: var(--color-primary) !important;
+  min-height: 64px;
+}
+
+.navbar-cravings .nav-link,
+.navbar-cravings .navbar-brand {
+  color: #fff !important;
+}
+
+.navbar-cravings .nav-link:hover {
+  opacity: 0.85;
+}
+
+.navbar-cravings .btn-register {
+  color: #fff !important;
+  border: 2px solid #fff;
+  border-radius: 999px;
+  padding: 4px 18px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.navbar-cravings .btn-register:hover {
+  background: #fff;
+  color: var(--color-primary) !important;
+}
+
+.navbar-toggler-icon {
+  filter: invert(1);
+}
+
+.navbar-toggler {
+  border-color: rgba(255,255,255,0.5);
+}
+
+/* ---------- Footer ---------- */
+.footer-cravings {
+  background-color: var(--color-neutral);
+  color: var(--color-neutral-content);
+}
+
+.footer-cravings a {
+  color: rgba(244,244,245,0.65);
+  transition: color 0.2s;
+  text-decoration: none;
+}
+
+.footer-cravings a:hover {
+  color: var(--color-primary);
+}
+
+.footer-cravings hr {
+  border-color: rgba(255,255,255,0.12);
+}
+
+/* ---------- Hero — Full Page ---------- */
+.hero-full {
+  min-height: 85vh;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-full .hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.42);
+}
+
+.hero-full .hero-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  color: #fff;
+  width: 100%;
+}
+
+/* ---------- Search Bar ---------- */
+.search-bar {
+  max-width: 700px;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  padding: 6px 16px;
+  gap: 8px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+
+.search-bar input {
+  border: none;
+  outline: none;
+  flex: 1;
+  font-size: 0.95rem;
+  color: var(--color-base-content);
+  background: transparent;
+}
+
+.search-bar .bi {
+  color: var(--color-secondary);
+  font-size: 1.1rem;
+}
+
+/* ---------- Restaurant Cards ---------- */
+.restaurant-card {
+  background: var(--color-base-100);
+  border: 1px solid var(--color-base-300);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
+}
+
+.restaurant-card:hover {
+  transform: translateY(-5px) scale(1.01);
+  box-shadow: 0 8px 28px rgba(0,0,0,0.13);
+}
+
+.restaurant-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.restaurant-card .card-body {
+  padding: 14px 16px 16px;
+}
+
+.restaurant-card .cuisine-badge {
+  background: var(--color-base-200);
+  color: var(--color-base-content);
+  border-radius: 999px;
+  font-size: 0.72rem;
+  padding: 2px 10px;
+  font-weight: 500;
+}
+
+/* ---------- Featured Section Gradient ---------- */
+.featured-section {
+  background: linear-gradient(to bottom, var(--color-primary) 0%, var(--color-base-100) 340px);
+  padding: 60px 0 70px;
+}
+
+/* ---------- Stats Bar ---------- */
+.stats-bar {
+  background-color: var(--color-neutral);
+  color: var(--color-neutral-content);
+  padding: 48px 0;
+}
+
+.stats-bar .stat-number {
+  font-size: 2.4rem;
+  font-weight: 800;
+  color: var(--color-primary);
+  line-height: 1;
+}
+
+.stats-bar .stat-label {
+  font-size: 0.85rem;
+  color: var(--color-neutral-content);
+  opacity: 0.85;
+  margin-top: 4px;
+}
+
+/* ---------- About — Icon Cards ---------- */
+.icon-card {
+  background: var(--color-base-100);
+  border: 1px solid var(--color-base-300);
+  border-radius: 12px;
+  padding: 18px;
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+
+.icon-card .icon-wrap {
+  width: 44px;
+  height: 44px;
+  background: var(--color-base-200);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-primary);
+  font-size: 1.3rem;
+  flex-shrink: 0;
+}
+
+/* ---------- Value Cards ---------- */
+.value-card {
+  background: var(--color-base-100);
+  border: 1px solid var(--color-base-300);
+  border-radius: 16px;
+  padding: 32px 24px;
+  text-align: center;
+  transition: box-shadow 0.2s;
+}
+
+.value-card:hover {
+  box-shadow: 0 6px 24px rgba(0,0,0,0.1);
+}
+
+.value-card .value-icon {
+  font-size: 2.4rem;
+  color: var(--color-primary);
+  margin-bottom: 14px;
+}
+
+/* ---------- Team Card ---------- */
+.team-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin: 0 auto 12px;
+}
+
+/* ---------- CTA Banner ---------- */
+.cta-banner {
+  background-color: var(--color-neutral);
+  color: var(--color-neutral-content);
+  padding: 64px 24px;
+  text-align: center;
+}
+
+/* ---------- Category Pills ---------- */
+.category-pill {
+  border-radius: 999px;
+  padding: 7px 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  border: 2px solid var(--color-primary);
+  color: var(--color-primary);
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.18s;
+}
+
+.category-pill.active,
+.category-pill:hover {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+/* ---------- Full-Screen Form Pages (Contact / Feedback) ---------- */
+.fullscreen-bg {
+  min-height: 90vh;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  padding: 40px 20px;
+}
+
+.form-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 36px 32px;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.18);
+  max-height: 85vh;
+  overflow-y: auto;
+  width: 100%;
+  max-width: 420px;
+}
+
+.form-card h4 {
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+/* ---------- Auth Pages ---------- */
+.auth-deco {
+  background-color: var(--color-primary);
+  color: #fff;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px;
+}
+
+.auth-form-col {
+  background: var(--color-base-100);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 24px;
+}
+
+.auth-form-wrap {
+  width: 100%;
+  max-width: 400px;
+}
+
+/* ---------- User Type Selector (Register) ---------- */
+.user-type-selector {
+  display: flex;
+  border: 2px solid var(--color-primary);
+  border-radius: 999px;
+  overflow: hidden;
+  margin-bottom: 24px;
+}
+
+.user-type-selector button {
+  flex: 1;
+  border: none;
+  padding: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  background: transparent;
+  color: var(--color-primary);
+  transition: all 0.18s;
+}
+
+.user-type-selector button.active {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+/* ---------- Password Eye Icon ---------- */
+.password-wrapper {
+  position: relative;
+}
+
+.password-wrapper .eye-icon {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--color-secondary);
+  cursor: default;
+}
+
+/* ---------- Help Center ---------- */
+.hero-help {
+  min-height: 52vh;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-help .overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+}
+
+.hero-help .content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  color: #fff;
+}
+
+/* ---------- Accordion Custom ---------- */
+.accordion-button:not(.collapsed) {
+  color: var(--color-primary);
+  background-color: var(--color-base-200);
+  box-shadow: none;
+}
+
+.accordion-button:focus {
+  box-shadow: none;
+}
+
+/* ---------- Privacy / TOS Hero ---------- */
+.policy-hero {
+  background-color: var(--color-neutral);
+  color: var(--color-neutral-content);
+  padding: 80px 24px;
+  text-align: center;
+}
+
+/* ---------- Sitemap Grid ---------- */
+.sitemap-col-heading {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-primary);
+  font-weight: 700;
+  border-bottom: 2px solid var(--color-base-300);
+  padding-bottom: 8px;
+  margin-bottom: 16px;
+}
+
+.sitemap-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--color-secondary);
+  margin-bottom: 10px;
+  transition: color 0.18s;
+  font-size: 0.9rem;
+}
+
+.sitemap-link:hover {
+  color: var(--color-primary);
+}
+
+.sitemap-link .bi {
+  opacity: 0.6;
+  font-size: 0.85rem;
+}
+
+/* ---------- Buttons ---------- */
+.btn-primary-cravings {
+  background-color: var(--color-primary);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 24px;
+  font-weight: 600;
+  transition: opacity 0.18s;
+}
+
+.btn-primary-cravings:hover {
+  opacity: 0.88;
+  color: #fff;
+}
+
+.btn-outline-light-cravings {
+  background: #fff;
+  color: var(--color-base-content);
+  border: none;
+  border-radius: 8px;
+  padding: 10px 24px;
+  font-weight: 600;
+  transition: opacity 0.18s;
+}
+
+.btn-outline-light-cravings:hover {
+  opacity: 0.88;
+}
+
+/* ---------- Star Rating ---------- */
+.star-rating .bi-star {
+  color: var(--color-secondary);
+  font-size: 1.3rem;
+  cursor: default;
+}
+
+/* ---------- Page Header (Order Now) ---------- */
+.page-header {
+  background-color: var(--color-base-200);
+  padding: 60px 24px 48px;
+  text-align: center;
+}
+
+/* ---------- Responsive Tweaks ---------- */
+@media (max-width: 768px) {
+  .hero-full { min-height: 70vh; }
+  .form-card { max-width: 100%; }
+  .auth-deco { min-height: auto; padding: 48px 24px; }
+  .auth-form-col { min-height: auto; padding: 48px 24px; }
+  .featured-section { background: linear-gradient(to bottom, var(--color-primary) 0%, var(--color-base-100) 220px); }
+}
