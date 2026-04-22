@@ -29,3 +29,24 @@ let y="10";
 console.log(x==y);
 
 console.log(x===y);
+
+let e = 10;
+let y = '10';
+
+console.log(e == y);
+
+// variables-practice.js
+
+let a = 15;
+let b = 4;
+
+console.log("Addition:", a + b);
+console.log("Subtraction:", a - b);
+console.log("Multiplication:", a * b);
+console.log("Division:", a / b);
+console.log("Remainder:", a % b);
+
+// comparison
+console.log(a > b);
+console.log(a == "15");
+console.log(a === "15");
