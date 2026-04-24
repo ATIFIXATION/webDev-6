@@ -50,3 +50,33 @@ console.log("Remainder:", a % b);
 console.log(a > b);
 console.log(a == "15");
 console.log(a === "15");
+
+
+
+
+
+
+
+
+// student-result.js
+
+let name = "Atif";
+let marks = 68;
+let attendance = 82;
+
+console.log("Student:", name);
+console.log("Marks:", marks);
+console.log("Attendance:", attendance);
+
+if (marks >= 40 && attendance >= 75) {
+    console.log("Status: Pass");
+} else {
+    console.log("Status: Fail");
+}
+
+let total = 0;
+for (let i = 1; i <= 5; i++) {
+    total += i;
+}
+
+console.log("Sum of 1 to 5:", total);
