@@ -80,3 +80,111 @@ for (let i = 1; i <= 5; i++) {
 }
 
 console.log("Sum of 1 to 5:", total);
+
+// student-analysis.js
+
+let name = "Atif";
+let marks = [75, 82, 68, 90, 55];
+
+let total = 0;
+
+for (let i = 0; i < marks.length; i++) {
+    total += marks[i];
+}
+
+let average = total / marks.length;
+
+console.log("Student:", name);
+console.log("Total Marks:", total);
+console.log("Average:", average);
+
+if (average >= 90) {
+    console.log("Grade: A");
+} else if (average >= 70) {
+    console.log("Grade: B");
+} else if (average >= 40) {
+    console.log("Grade: Pass");
+} else {
+    console.log("Grade: Fail");
+}
+
+function checkTopper(avg) {
+    if (avg >= 85) {
+        return "Topper";
+    } else {
+        return "Not Topper";
+    }
+}
+
+console.log("Status:", checkTopper(average));
+
+
+// simple JS practice file
+
+// variables
+let name = "Atif";
+let age = 19;
+let isStudent = true;
+
+console.log("Name is: " + name);
+console.log("Age is: " + age);
+
+// if-else condition
+if (age >= 18) {
+    console.log("You are an adult");
+} else {
+    console.log("You are not an adult");
+}
+
+// array example
+let marks = [70, 85, 90, 60, 75];
+
+// loop through array
+for (let i = 0; i < marks.length; i++) {
+    console.log("Marks: " + marks[i]);
+}
+
+// calculate total marks
+let total = 0;
+for (let i = 0; i < marks.length; i++) {
+    total = total + marks[i];
+}
+
+console.log("Total Marks: " + total);
+
+// average calculation
+let avg = total / marks.length;
+console.log("Average Marks: " + avg);
+
+// function example
+function checkResult(avg) {
+    if (avg >= 75) {
+        return "Distinction";
+    } else if (avg >= 50) {
+        return "Pass";
+    } else {
+        return "Fail";
+    }
+}
+
+let result = checkResult(avg);
+console.log("Result is: " + result);
+
+// another loop example
+for (let i = 1; i <= 5; i++) {
+    console.log("Number: " + i);
+}
+
+// string comparison
+let x = 10;
+let y = "10";
+
+if (x == y) {
+    console.log("Equal (==)");
+}
+
+if (x === y) {
+    console.log("Strict Equal (===)");
+} else {
+    console.log("Not Strict Equal");
+}
