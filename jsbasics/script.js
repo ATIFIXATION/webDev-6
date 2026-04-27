@@ -188,3 +188,45 @@ if (x === y) {
 } else {
     console.log("Not Strict Equal");
 }
+// Simple student marks analyzer
+
+let studentName = "Atif";
+let marks = [78, 85, 62, 90, 55];
+
+// function to calculate total marks
+function getTotal(arr) {
+    let total = 0;
+    for (let i = 0; i < arr.length; i++) {
+        total = total + arr[i];
+    }
+    return total;
+}
+
+// function to calculate average
+function getAverage(total, count) {
+    return total / count;
+}
+
+// function to check grade
+function getGrade(avg) {
+    if (avg >= 80) {
+        return "A";
+    } else if (avg >= 60) {
+        return "B";
+    } else if (avg >= 40) {
+        return "C";
+    } else {
+        return "Fail";
+    }
+}
+
+// main logic
+let totalMarks = getTotal(marks);
+let averageMarks = getAverage(totalMarks, marks.length);
+let grade = getGrade(averageMarks);
+
+// output
+console.log("Student Name: " + studentName);
+console.log("Total Marks: " + totalMarks);
+console.log("Average: " + averageMarks);
+console.log("Grade: " + grade);
