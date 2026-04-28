@@ -230,3 +230,36 @@ console.log("Student Name: " + studentName);
 console.log("Total Marks: " + totalMarks);
 console.log("Average: " + averageMarks);
 console.log("Grade: " + grade);
+
+// Simple Number Guessing Game
+
+let secretNumber = Math.floor(Math.random() * 10) + 1;
+let attempts = 3;
+
+console.log("Guess a number between 1 to 10");
+
+while (attempts > 0) {
+    let userGuess = prompt("Enter your guess:");
+
+    // convert string to number
+    userGuess = Number(userGuess);
+
+    if (userGuess === secretNumber) {
+        console.log("🎉 Correct! You guessed the number.");
+        break;
+    } else if (userGuess > secretNumber) {
+        console.log("Too high!");
+    } else if (userGuess < secretNumber) {
+        console.log("Too low!");
+    } else {
+        console.log("Invalid input");
+    }
+
+    attempts--;
+
+    if (attempts > 0) {
+        console.log("Attempts left: " + attempts);
+    } else {
+        console.log("Game Over! The number was: " + secretNumber);
+    }
+}
