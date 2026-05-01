@@ -82,7 +82,7 @@
 // }
 
 // switch case
-let choice=-2;
+let choice = -2;
 
 switch (choice) {
   case 1: {
