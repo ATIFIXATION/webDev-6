@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Test Cafe | Menu</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,300;1,9..144,400;1,9..144,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #121212;
+  --surface: #1a1a1a;
+  --surface2: #222222;
+  --surface3: #2a2a2a;
+  --gold: #C5A358;
+  --gold-light: #dfc07a;
+  --gold-dim: rgba(197,163,88,0.15);
+  --gold-border: rgba(197,163,88,0.25);
+  --gold-border-strong: rgba(197,163,88,0.45);
+  --ivory: #f2ead8;
+  --ivory-muted: #a89f88;
+  --veg: #4caf7d;
+  --nonveg: #e05252;
+  --border: rgba(255,255,255,0.07);
+  --border-strong: rgba(255,255,255,0.13);
+  --transition: 0.35s cubic-bezier(0.4,0,0.2,1);
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-body);background:#0a0a0a;color:var(--ivory);display:flex;justify-content:center;min-height:100vh;overflow-x:hidden}
+.app{width:100%;max-width:480px;background:var(--bg);min-height:100vh;position:relative;overflow:hidden}
+
+/* Grain overlay */
+.app::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");opacity:0.5}
+
+/* PAGE SYSTEM */
+.page{position:absolute;inset:0;opacity:0;transform:translateY(14px);pointer-events:none;transition:opacity var(--transition),transform var(--transition);overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch;min-height:100vh}
+.page.active{opacity:1;transform:translateY(0);pointer-events:all;position:relative}
+
+/* OVERLAY + DRAWER */
+.overlay{position:fixed;inset:0;background:rgba(0,0,0,0.75);z-index:900;opacity:0;pointer-events:none;transition:opacity .3s;backdrop-filter:blur(3px)}
+.overlay.open{opacity:1;pointer-events:all}
+.drawer{position:fixed;top:0;left:0;width:72%;max-width:300px;height:100%;background:var(--surface);z-index:1000;transform:translateX(-100%);transition:transform .38s cubic-bezier(.4,0,.2,1);display:flex;flex-direction:column;border-right:1px solid var(--gold-border)}
+.drawer.open{transform:translateX(0)}
+.drawer-header{padding:52px 28px 28px;border-bottom:1px solid var(--gold-border)}
+.drawer-logo{font-family:var(--font-display);font-size:1.6rem;font-weight:600;color:var(--gold);letter-spacing:.04em}
+.drawer-sub{font-size:.65rem;color:var(--ivory-muted);letter-spacing:.2em;text-transform:uppercase;margin-top:5px;font-family:var(--font-body)}
+.drawer-nav{flex:1;padding:28px 28px;display:flex;flex-direction:column;gap:2px}
+.drawer-link{display:flex;align-items:center;gap:14px;padding:13px 0;color:var(--ivory-muted);text-decoration:none;font-size:.85rem;font-weight:400;letter-spacing:.04em;border-bottom:1px solid var(--border);transition:color .2s;cursor:pointer;background:none;border-left:none;border-right:none;border-top:none;text-align:left;font-family:var(--font-body)}
+.drawer-link:last-child{border-bottom:none}
+.drawer-link:hover{color:var(--gold)}
+.drawer-link svg{opacity:.45;flex-shrink:0;transition:opacity .2s}
+.drawer-link:hover svg{opacity:1}
+.drawer-close{position:absolute;top:18px;right:18px;background:none;border:none;cursor:pointer;padding:8px;color:var(--ivory-muted);transition:color .2s}
+.drawer-close:hover{color:var(--ivory)}
+.drawer-footer{padding:18px 28px;font-size:.65rem;color:var(--ivory-muted);opacity:.4;font-family:var(--font-body)}
+
+/* NAVBAR */
+.navbar{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;position:sticky;top:0;background:var(--bg);z-index:100;border-bottom:1px solid var(--border)}
+.navbar-logo{font-family:var(--font-display);font-size:1.05rem;font-weight:600;letter-spacing:.12em;color:var(--ivory);text-transform:uppercase}
+.icon-btn{background:none;border:none;cursor:pointer;padding:8px;color:var(--ivory);border-radius:6px;display:flex;align-items:center;justify-content:center;transition:background .2s;font-family:var(--font-body)}
+.icon-btn:hover{background:var(--surface2)}
+
+/* LANDING */
+.hero{padding:52px 28px 40px;text-align:center;position:relative}
+.hero::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:1px;height:44px;background:linear-gradient(to bottom,transparent,var(--gold-light))}
+.hero-eyebrow{font-family:var(--font-body);font-size:.6rem;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;display:block}
+.hero-title{font-family:var(--font-display);font-size:3.8rem;font-weight:300;line-height:1;color:var(--ivory);letter-spacing:.02em}
+.hero-title em{font-style:italic;color:var(--gold-light)}
+.hero-sub{margin-top:16px;font-size:.75rem;color:var(--ivory-muted);letter-spacing:.1em;font-weight:300}
+.divider{display:flex;align-items:center;gap:12px;padding:0 28px;margin:6px 0 30px}
+.divider-line{flex:1;height:.5px;background:var(--gold-border)}
+.divider-gem{font-size:.5rem;color:var(--gold);opacity:.5}
+
+/* CATEGORY CARDS */
+.categories{padding:0 20px 40px;display:flex;flex-direction:column;gap:14px}
+.cat-card{position:relative;height:210px;border-radius:14px;overflow:hidden;cursor:pointer;border:1px solid var(--border);transition:border-color .25s,transform .2s}
+.cat-card:hover{border-color:var(--gold-border-strong)}
+.cat-card:active{transform:scale(.97)}
+.cat-img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .55s ease,filter .3s ease;filter:brightness(.38) saturate(.7)}
+.cat-card:hover .cat-img{transform:scale(1.07);filter:brightness(.5) saturate(.85)}
+.cat-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(18,18,18,.7) 0%,transparent 60%)}
+.cat-content{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;pointer-events:none}
+.cat-label{font-family:var(--font-display);font-size:2.8rem;font-weight:300;letter-spacing:.28em;color:#fff;text-transform:uppercase}
+.cat-time{font-family:var(--font-body);font-size:.65rem;letter-spacing:.2em;color:var(--gold-light);text-transform:uppercase;opacity:.9}
+.cat-cta{margin-top:8px;padding:6px 18px;border:1px solid rgba(197,163,88,.4);border-radius:50px;font-family:var(--font-body);font-size:.65rem;letter-spacing:.15em;color:rgba(197,163,88,.85);text-transform:uppercase;transition:border-color .2s,color .2s}
+.cat-card:hover .cat-cta{border-color:var(--gold);color:var(--gold)}
+
+/* MENU PAGE */
+.menu-navbar{display:flex;align-items:center;gap:12px;padding:13px 16px;position:sticky;top:0;background:var(--bg);z-index:100;border-bottom:1px solid var(--border)}
+.menu-title-bar{flex:1;display:flex;flex-direction:column}
+.menu-title-main{font-family:var(--font-display);font-size:1.05rem;font-weight:600;color:var(--ivory);letter-spacing:.04em}
+.menu-title-sub{font-family:var(--font-body);font-size:.6rem;color:var(--ivory-muted);letter-spacing:.14em;text-transform:uppercase}
+.search-bar{display:flex;align-items:center;gap:8px;padding:10px 16px;background:var(--surface);border-bottom:1px solid var(--border);position:sticky;top:61px;z-index:99}
+.search-input-wrap{flex:1;display:flex;align-items:center;gap:8px;background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:8px 12px;transition:border-color .2s}
+.search-input-wrap:focus-within{border-color:var(--gold-border-strong)}
+.search-input-wrap svg{color:var(--ivory-muted);flex-shrink:0}
+.search-input{flex:1;background:none;border:none;outline:none;color:var(--ivory);font-family:var(--font-body);font-size:.82rem;caret-color:var(--gold)}
+.search-input::placeholder{color:var(--ivory-muted);opacity:.45}
+.filter-btn{padding:8px 12px;border-radius:7px;border:1px solid var(--border);background:transparent;color:var(--ivory-muted);font-family:var(--font-body);font-size:.68rem;font-weight:500;letter-spacing:.06em;cursor:pointer;white-space:nowrap;transition:all .2s;display:flex;align-items:center;gap:5px}
+.filter-btn.active-veg{border-color:var(--veg);color:var(--veg);background:rgba(76,175,125,.08)}
+.filter-btn.active-nonveg{border-color:var(--nonveg);color:var(--nonveg);background:rgba(224,82,82,.08)}
+.section-pills{display:flex;gap:7px;padding:10px 16px;overflow-x:auto;scrollbar-width:none;border-bottom:1px solid var(--border);background:var(--bg);position:sticky;top:109px;z-index:98}
+.section-pills::-webkit-scrollbar{display:none}
+.pill{flex-shrink:0;padding:5px 14px;border-radius:50px;border:1px solid var(--border);font-family:var(--font-body);font-size:.68rem;font-weight:400;letter-spacing:.06em;color:var(--ivory-muted);cursor:pointer;transition:all .2s;white-space:nowrap;background:none}
+.pill.active,.pill:hover{border-color:var(--gold);color:var(--gold);background:var(--gold-dim)}
+
+/* MENU ITEMS */
+.menu-body{padding:0 16px 110px}
+.menu-section{margin-top:32px}
+.section-heading{font-family:var(--font-display);font-size:1.4rem;font-weight:600;color:var(--ivory);letter-spacing:.03em;padding-bottom:10px;border-bottom:1px solid var(--gold-border-strong);display:flex;align-items:baseline;gap:10px;margin-bottom:4px}
+.section-heading-count{font-family:var(--font-body);font-size:.6rem;font-weight:400;color:var(--ivory-muted);letter-spacing:.1em}
+
+.menu-item{display:flex;align-items:flex-start;gap:12px;padding:16px 0;border-bottom:1px solid var(--border);animation:fadeItem .32s ease both}
+.menu-item:last-child{border-bottom:none}
+@keyframes fadeItem{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
+
+.item-img{width:72px;height:72px;border-radius:10px;object-fit:cover;flex-shrink:0;border:1px solid var(--border);background:var(--surface2)}
+.item-type-dot{flex-shrink:0;margin-top:3px;width:12px;height:12px;border-radius:2px;border:1.5px solid currentColor;display:flex;align-items:center;justify-content:center}
+.item-type-dot.veg{color:var(--veg)}
+.item-type-dot.non-veg{color:var(--nonveg)}
+.item-type-dot::after{content:'';width:5px;height:5px;border-radius:50%;background:currentColor}
+.item-main{flex:1;min-width:0}
+.item-tags{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:4px}
+.tag{font-size:.58rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;padding:2px 7px;border-radius:2px;font-family:var(--font-body)}
+.tag-popular{background:rgba(197,163,88,.1);color:var(--gold);border:1px solid rgba(197,163,88,.22)}
+.tag-new{background:rgba(76,175,125,.1);color:var(--veg);border:1px solid rgba(76,175,125,.22)}
+.tag-spicy{background:rgba(224,82,82,.08);color:var(--nonveg);border:1px solid rgba(224,82,82,.18)}
+.item-name{font-family:var(--font-display);font-size:1.05rem;font-weight:600;color:var(--ivory);line-height:1.2}
+.item-desc{font-family:var(--font-body);font-size:.75rem;color:var(--ivory-muted);line-height:1.45;margin-top:3px;font-weight:300}
+.item-right{flex-shrink:0;text-align:right;display:flex;flex-direction:column;align-items:flex-end;gap:8px}
+.item-price{font-family:var(--font-display);font-size:1.05rem;font-weight:600;color:var(--ivory)}
+.item-price span{font-family:var(--font-body);font-size:.68rem;color:var(--ivory-muted);font-weight:300}
+
+.no-results{text-align:center;padding:60px 20px;display:none}
+.no-results.show{display:block}
+.no-results-icon{font-size:2.2rem;margin-bottom:14px;opacity:.25}
+.no-results-text{font-family:var(--font-display);font-size:1.25rem;color:var(--ivory-muted);margin-bottom:6px}
+.no-results-sub{font-family:var(--font-body);font-size:.75rem;color:var(--ivory-muted);opacity:.45}
+
+/* SWITCH BAR */
+.switch-bar{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:480px;padding:14px 16px;background:linear-gradient(to top,var(--bg) 80%,transparent);border-top:1px solid var(--border);display:none;gap:10px;z-index:100}
+.switch-bar.show{display:flex}
+.switch-btn{flex:1;padding:12px;border-radius:9px;font-family:var(--font-body);font-size:.75rem;font-weight:500;letter-spacing:.08em;cursor:pointer;transition:all .2s;border:1px solid var(--border);color:var(--ivory-muted);background:var(--surface);text-transform:uppercase}
+.switch-btn.primary{background:var(--gold);border-color:var(--gold);color:#0f0e0c;font-weight:600}
+.switch-btn:hover{opacity:.85}
+
+/* INFO PAGE */
+.info-hero{padding:52px 28px 38px;text-align:center;border-bottom:1px solid var(--gold-border)}
+.info-logo{font-family:var(--font-display);font-size:2.9rem;font-weight:300;letter-spacing:.06em;color:var(--ivory);line-height:1}
+.info-logo em{font-style:italic;color:var(--gold-light)}
+.info-tagline{font-family:var(--font-body);font-size:.65rem;letter-spacing:.22em;color:var(--gold);text-transform:uppercase;margin-top:10px}
+.info-section{padding:26px;border-bottom:1px solid var(--border)}
+.info-section-title{font-family:var(--font-body);font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:18px}
+.hours-grid{display:grid;grid-template-columns:1fr auto;gap:9px 20px}
+.hours-day{font-family:var(--font-body);font-size:.82rem;color:var(--ivory)}
+.hours-time{font-family:var(--font-body);font-size:.8rem;color:var(--ivory-muted);text-align:right;font-weight:300}
+.hours-day.today,.hours-time.today{color:var(--gold)}
+.contact-links{display:flex;flex-direction:column;gap:9px}
+.contact-link-item{display:flex;align-items:center;gap:13px;padding:13px 15px;background:var(--surface);border:1px solid var(--border);border-radius:10px;text-decoration:none;color:var(--ivory);font-family:var(--font-body);font-size:.85rem;transition:border-color .2s,background .2s;cursor:pointer}
+.contact-link-item:hover{border-color:var(--gold-border-strong);background:var(--surface2)}
+.contact-link-item svg{color:var(--gold);flex-shrink:0}
+.contact-link-item span{flex:1}
+.contact-link-item .arrow{color:var(--ivory-muted);font-size:.75rem}
+.back-btn{display:block;margin:22px 26px;padding:13px;border-radius:9px;border:1px solid var(--gold-border-strong);background:transparent;color:var(--gold);font-family:var(--font-body);font-size:.75rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;text-align:center;transition:background .2s}
+.back-btn:hover{background:var(--surface)}
+
+/* ORDER TRACKING */
+.order-track{padding:22px 26px}
+.track-title{font-family:var(--font-body);font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:18px}
+.track-steps{display:flex;flex-direction:column;gap:0}
+.track-step{display:flex;align-items:flex-start;gap:14px;padding:10px 0;position:relative}
+.track-step-icon{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;position:relative;z-index:1}
+.track-step-icon.done{background:var(--gold);border:2px solid var(--gold)}
+.track-step-icon.active{background:var(--surface2);border:2px solid var(--gold);animation:pulseGold 1.8s ease infinite}
+.track-step-icon.pending{background:var(--surface2);border:2px solid var(--border)}
+@keyframes pulseGold{0%,100%{box-shadow:0 0 0 0 rgba(197,163,88,.5)}50%{box-shadow:0 0 0 6px rgba(197,163,88,0)}}
+.track-step-icon svg{width:14px;height:14px}
+.track-step-icon.done svg{color:#0f0e0c}
+.track-step-icon.active svg{color:var(--gold)}
+.track-step-icon.pending svg{color:var(--ivory-muted);opacity:.4}
+.track-connector{position:absolute;left:15px;top:42px;width:2px;height:20px;background:var(--border)}
+.track-connector.done-line{background:var(--gold);opacity:.6}
+.track-step-info{flex:1;padding-top:4px}
+.track-step-label{font-family:var(--font-body);font-size:.82rem;font-weight:500;color:var(--ivory)}
+.track-step-label.pending-txt{color:var(--ivory-muted);font-weight:400}
+.track-step-time{font-family:var(--font-body);font-size:.68rem;color:var(--ivory-muted);margin-top:2px}
+.track-eta{display:flex;align-items:center;gap:10px;margin-top:14px;padding:12px 16px;background:var(--surface);border:1px solid var(--gold-border);border-radius:9px}
+.track-eta-label{font-family:var(--font-body);font-size:.7rem;color:var(--ivory-muted)}
+.track-eta-time{font-family:var(--font-display);font-size:1.5rem;font-weight:600;color:var(--gold);margin-left:auto}
+.eta-bar{height:3px;background:var(--surface2);border-radius:2px;margin-top:10px;overflow:hidden}
+.eta-bar-fill{height:100%;width:62%;background:var(--gold);border-radius:2px;animation:etaProgress 2.5s ease-in-out infinite alternate}
+@keyframes etaProgress{from{width:58%}to{width:66%}}
+
+/* ADMIN PANEL */
+.admin-panel{padding:22px 26px}
+.admin-title{font-family:var(--font-body);font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:18px}
+.stats-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:18px}
+.stat-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:14px 16px}
+.stat-label{font-family:var(--font-body);font-size:.62rem;color:var(--ivory-muted);text-transform:uppercase;letter-spacing:.1em;margin-bottom:6px}
+.stat-value{font-family:var(--font-display);font-size:1.7rem;font-weight:600;color:var(--ivory);line-height:1}
+.stat-sub{font-family:var(--font-body);font-size:.65rem;color:var(--gold);margin-top:3px}
+.bar-chart{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:16px}
+.bar-chart-title{font-family:var(--font-body);font-size:.65rem;color:var(--ivory-muted);letter-spacing:.1em;text-transform:uppercase;margin-bottom:14px}
+.bars{display:flex;align-items:flex-end;gap:6px;height:70px}
+.bar-wrap{flex:1;display:flex;flex-direction:column;align-items:center;gap:4px}
+.bar{width:100%;border-radius:3px 3px 0 0;background:var(--surface3);position:relative;transition:background .2s;animation:growBar .7s ease both}
+@keyframes growBar{from{transform:scaleY(0);transform-origin:bottom}to{transform:scaleY(1);transform-origin:bottom}}
+.bar.gold{background:var(--gold);opacity:.9}
+.bar-lbl{font-family:var(--font-body);font-size:.55rem;color:var(--ivory-muted)}
+
+/* DEV DOCS */
+.dev-toggle{display:flex;align-items:center;justify-content:space-between;padding:14px 26px;cursor:pointer;border-top:1px solid var(--border);transition:background .2s}
+.dev-toggle:hover{background:var(--surface)}
+.dev-toggle-label{font-family:var(--font-body);font-size:.7rem;color:var(--ivory-muted);letter-spacing:.1em;text-transform:uppercase;display:flex;align-items:center;gap:8px}
+.dev-toggle-label svg{color:var(--gold);opacity:.6}
+.dev-chevron{color:var(--ivory-muted);font-size:.8rem;transition:transform .25s}
+.dev-chevron.open{transform:rotate(180deg)}
+.dev-docs{display:none;padding:0 26px 24px;border-top:1px solid var(--border);background:var(--surface)}
+.dev-docs.open{display:block}
+.dev-docs-inner{padding-top:18px}
+.dev-section-lbl{font-family:var(--font-body);font-size:.58rem;color:var(--gold);letter-spacing:.18em;text-transform:uppercase;margin-bottom:8px;margin-top:16px}
+.dev-section-lbl:first-child{margin-top:0}
+.code-block{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:12px 14px;font-family:'Courier New',monospace;font-size:.72rem;color:var(--ivory-muted);line-height:1.6;overflow-x:auto}
+.code-block .hl{color:var(--gold)}
+.dev-desc{font-family:var(--font-body);font-size:.75rem;color:var(--ivory-muted);line-height:1.6;margin-bottom:10px;font-weight:300}
+.folder-tree{font-family:'Courier New',monospace;font-size:.72rem;color:var(--ivory-muted);line-height:1.8;background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:12px 14px}
+.folder-tree .dir{color:var(--gold)}
+
+/* SCROLLBAR */
+.page::-webkit-scrollbar{width:2px}
+.page::-webkit-scrollbar-track{background:transparent}
+.page::-webkit-scrollbar-thumb{background:var(--gold-border-strong);border-radius:2px}
+</style>
+</head>
+<body>
+
+<div class="overlay" id="overlay" onclick="closeDrawer()"></div>
+
+<div class="drawer" id="drawer">
+  <button class="drawer-close" onclick="closeDrawer()">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 6L6 18M6 6l12 12"/></svg>
+  </button>
+  <div class="drawer-header">
+    <div class="drawer-logo">Test Cafe</div>
+    <div class="drawer-sub">Est. 2024 · Indore</div>
+  </div>
+  <nav class="drawer-nav">
+    <button class="drawer-link" onclick="go('landing');closeDrawer()">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 12l9-9 9 9M5 10v9a1 1 0 001 1h4v-5h4v5h4a1 1 0 001-1v-9"/></svg>
+      Menu Home
+    </button>
+    <button class="drawer-link" onclick="go('info');closeDrawer()">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+      Timings & Info
+    </button>
+    <button class="drawer-link" onclick="go('order');closeDrawer()">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+      Track Order
+    </button>
+    <button class="drawer-link" onclick="openLocation()">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      Our Location
+    </button>
+    <a class="drawer-link" href="tel:+919201717609">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.63A2 2 0 012 .92h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+      Call Us
+    </a>
+  </nav>
+  <div class="drawer-footer">© 2024 Test Cafe · All rights reserved.</div>
+</div>
+
+<div class="app">
+
+<!-- LANDING PAGE -->
+<div class="page active" id="page-landing">
+  <div class="navbar">
+    <button class="icon-btn" onclick="openDrawer()">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 6h16M4 12h16M4 18h10"/></svg>
+    </button>
+    <div class="navbar-logo">Test Cafe</div>
+    <a href="tel:+919201717609" class="icon-btn">
+      <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.63A2 2 0 012 .92h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+    </a>
+  </div>
+
+  <div class="hero">
+    <span class="hero-eyebrow">Welcome to</span>
+    <h1 class="hero-title">Test<br><em>Cafe</em></h1>
+    <p class="hero-sub">Indore's finest brews &amp; bites</p>
+  </div>
+
+  <div class="divider">
+    <div class="divider-line"></div>
+    <div class="divider-gem">◆</div>
+    <div class="divider-line"></div>
+  </div>
+
+  <div class="categories">
+    <div class="cat-card" onclick="loadMenu('drink')" role="button" tabindex="0">
+      <img class="cat-img" src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=800&q=80" alt="Coffee drinks" loading="eager" onerror="this.src='https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=800&q=80'">
+      <div class="cat-overlay"></div>
+      <div class="cat-content">
+        <div class="cat-label">Drink</div>
+        <div class="cat-time">8 AM – 12 AM</div>
+        <div class="cat-cta">Explore Menu →</div>
+      </div>
+    </div>
+    <div class="cat-card" onclick="loadMenu('eat')" role="button" tabindex="0">
+      <img class="cat-img" src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=800&q=80" alt="Food menu" loading="eager" onerror="this.src='https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=800&q=80'">
+      <div class="cat-overlay"></div>
+      <div class="cat-content">
+        <div class="cat-label">Eat</div>
+        <div class="cat-time">12 PM – 12 AM</div>
+        <div class="cat-cta">Explore Menu →</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MENU PAGE -->
+<div class="page" id="page-menu">
+  <div class="menu-navbar">
+    <button class="icon-btn" onclick="go('landing')">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+    </button>
+    <div class="menu-title-bar">
+      <div class="menu-title-main" id="menu-title-main">Menu</div>
+      <div class="menu-title-sub" id="menu-title-sub">Loading…</div>
+    </div>
+    <button class="icon-btn" onclick="openDrawer()">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 6h16M4 12h16M4 18h10"/></svg>
+    </button>
+  </div>
+
+  <div class="search-bar">
+    <div class="search-input-wrap">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+      <input class="search-input" id="search-input" type="search" placeholder="Search items…" oninput="filterMenu()" autocomplete="off">
+    </div>
+    <button class="filter-btn" id="veg-filter" onclick="toggleFilter('veg')">
+      <span style="width:7px;height:7px;border-radius:50%;background:var(--veg);display:inline-block;flex-shrink:0"></span>Veg
+    </button>
+    <button class="filter-btn" id="nonveg-filter" onclick="toggleFilter('nonveg')">
+      <span style="width:7px;height:7px;border-radius:50%;background:var(--nonveg);display:inline-block;flex-shrink:0"></span>Non
+    </button>
+  </div>
+
+  <div class="section-pills" id="section-pills"></div>
+  <div class="menu-body" id="menu-body">
+    <div class="no-results" id="no-results">
+      <div class="no-results-icon">☕</div>
+      <div class="no-results-text">Nothing found</div>
+      <div class="no-results-sub">Try a different search</div>
+    </div>
+  </div>
+
+  <div class="switch-bar show" id="switch-bar">
+    <button class="switch-btn" onclick="go('landing')">← Back</button>
+    <button class="switch-btn primary" id="switch-cat-btn" onclick="switchCategory()">Switch to Food</button>
+  </div>
+</div>
+
+<!-- INFO PAGE -->
+<div class="page" id="page-info">
+  <div class="navbar">
+    <button class="icon-btn" onclick="go('landing')">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+    </button>
+    <div class="navbar-logo">Info</div>
+    <div style="width:36px"></div>
+  </div>
+
+  <div class="info-hero">
+    <div class="info-logo">Test <em>Cafe</em></div>
+    <div class="info-tagline">Good coffee · Good food · Good times</div>
+  </div>
+
+  <div class="info-section">
+    <div class="info-section-title">Opening Hours</div>
+    <div class="hours-grid" id="hours-grid">
+      <span class="hours-day">Monday</span><span class="hours-time">8:00 AM – 11:00 PM</span>
+      <span class="hours-day">Tuesday</span><span class="hours-time">8:00 AM – 11:00 PM</span>
+      <span class="hours-day">Wednesday</span><span class="hours-time">8:00 AM – 11:00 PM</span>
+      <span class="hours-day">Thursday</span><span class="hours-time">8:00 AM – 11:00 PM</span>
+      <span class="hours-day">Friday</span><span class="hours-time">8:00 AM – 11:00 PM</span>
+      <span class="hours-day">Saturday</span><span class="hours-time">8:00 AM – 11:59 PM</span>
+      <span class="hours-day">Sunday</span><span class="hours-time">8:00 AM – 11:00 PM</span>
+    </div>
+  </div>
+
+  <div class="info-section">
+    <div class="info-section-title">Get in Touch</div>
+    <div class="contact-links">
+      <a href="tel:+919201717609" class="contact-link-item">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.63A2 2 0 012 .92h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+        <span>+91 92017 17609</span><span class="arrow">↗</span>
+      </a>
+      <div class="contact-link-item" onclick="openLocation()">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <span>Get Directions</span><span class="arrow">↗</span>
+      </div>
+      <a href="https://wa.me/919201717609" class="contact-link-item" target="_blank" rel="noopener">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
+        <span>WhatsApp Us</span><span class="arrow">↗</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- ADMIN PANEL -->
+  <div class="admin-panel info-section">
+    <div class="admin-title">Dashboard</div>
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-label">Today's Orders</div>
+        <div class="stat-value" id="live-orders">47</div>
+        <div class="stat-sub">↑ 12% vs yesterday</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Revenue</div>
+        <div class="stat-value" id="live-revenue">₹18k</div>
+        <div class="stat-sub">↑ 8% vs yesterday</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Avg. Wait</div>
+        <div class="stat-value">12<span style="font-size:.9rem;font-weight:300">m</span></div>
+        <div class="stat-sub" style="color:var(--veg)">On track</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Rating</div>
+        <div class="stat-value">4.8</div>
+        <div class="stat-sub">★ 214 reviews</div>
+      </div>
+    </div>
+    <div class="bar-chart">
+      <div class="bar-chart-title">Hourly Orders Today</div>
+      <div class="bars" id="bar-chart-bars"></div>
+    </div>
+  </div>
+
+  <!-- ORDER TRACKING -->
+  <div class="order-track info-section">
+    <div class="track-title">Live Order · #TC-2847</div>
+    <div class="track-steps">
+      <div class="track-step">
+        <div class="track-step-icon done">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <div class="track-step-info">
+          <div class="track-step-label">Order Received</div>
+          <div class="track-step-time">2:14 PM</div>
+        </div>
+        <div class="track-connector done-line"></div>
+      </div>
+      <div class="track-step">
+        <div class="track-step-icon done">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <div class="track-step-info">
+          <div class="track-step-label">Payment Confirmed</div>
+          <div class="track-step-time">2:15 PM</div>
+        </div>
+        <div class="track-connector done-line"></div>
+      </div>
+      <div class="track-step">
+        <div class="track-step-icon active">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a8 8 0 018 8c0 6-8 14-8 14S4 16 4 10a8 8 0 018-8z"/><circle cx="12" cy="10" r="2.5"/></svg>
+        </div>
+        <div class="track-step-info">
+          <div class="track-step-label">Being Prepared</div>
+          <div class="track-step-time">In progress…</div>
+        </div>
+        <div class="track-connector"></div>
+      </div>
+      <div class="track-step">
+        <div class="track-step-icon pending">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 12h6M12 9v6"/></svg>
+        </div>
+        <div class="track-step-info">
+          <div class="track-step-label pending-txt">Ready for Pickup</div>
+          <div class="track-step-time" style="color:var(--ivory-muted);opacity:.4">Soon</div>
+        </div>
+      </div>
+    </div>
+    <div class="track-eta">
+      <div>
+        <div class="track-eta-label">Estimated Ready</div>
+        <div class="eta-bar"><div class="eta-bar-fill"></div></div>
+      </div>
+      <div class="track-eta-time" id="eta-display">~8 min</div>
+    </div>
+  </div>
+
+  <!-- DEV DOCS TOGGLE -->
+  <div class="dev-toggle" onclick="toggleDev()">
+    <div class="dev-toggle-label">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+      Developer Docs
+    </div>
+    <span class="dev-chevron" id="dev-chevron">▾</span>
+  </div>
+  <div class="dev-docs" id="dev-docs">
+    <div class="dev-docs-inner">
+      <div class="dev-section-lbl">Architecture</div>
+      <div class="dev-desc">Single-file SPA. All menu data lives in the <code style="font-size:.7rem;background:var(--surface2);padding:1px 5px;border-radius:3px;color:var(--gold)">MENU</code> constant. Pages are toggled with CSS transitions — no framework needed.</div>
+      <div class="folder-tree">
+<span class="dir">testcafe/</span>
+├── <span class="dir">assets/</span>
+│   ├── logo.svg
+│   └── favicon.png
+├── index.html       ← you are here
+├── README.md
+└── data/
+    └── menu.json    ← optional static export</div>
+
+      <div class="dev-section-lbl">Menu Data Shape</div>
+      <div class="code-block"><span class="hl">MENU</span>[<span class="hl">'drink'</span>] = {
+  title: <span class="hl">'Coffee & Drinks'</span>,
+  sub:   <span class="hl">'Served 8 AM – 12 AM'</span>,
+  sections: [{
+    id:    <span class="hl">'espresso'</span>,
+    label: <span class="hl">'Espresso Classics'</span>,
+    items: [{
+      name:    <span class="hl">'Americano'</span>,
+      price:   190,
+      desc:    <span class="hl">'Bold hot coffee'</span>,
+      type:    <span class="hl">'veg'</span>,   // or 'non-veg'
+      popular: true,
+      img:     <span class="hl">'https://…'</span>
+    }]
+  }]
+}</div>
+
+      <div class="dev-section-lbl">Adding a New Page</div>
+      <div class="dev-desc">Create a <code style="font-size:.7rem;background:var(--surface2);padding:1px 5px;border-radius:3px;color:var(--gold)">&lt;div class="page" id="page-foo"&gt;</code>, then call <code style="font-size:.7rem;background:var(--surface2);padding:1px 5px;border-radius:3px;color:var(--gold)">go('foo')</code> from any button.</div>
+
+      <div class="dev-section-lbl">Customisation Vars</div>
+      <div class="code-block">--gold:     <span class="hl">#C5A358</span>;  /* brand accent  */
+--bg:       <span class="hl">#121212</span>;  /* page base     */
+--surface:  <span class="hl">#1a1a1a</span>;  /* card bg       */
+--font-display: <span class="hl">'Fraunces'</span>;
+--font-body:    <span class="hl">'Inter'</span>;</div>
+    </div>
+  </div>
+
+  <button class="back-btn" onclick="go('landing')">← Back to Menu</button>
+</div>
+
+<!-- ORDER TRACKING PAGE (standalone) -->
+<div class="page" id="page-order">
+  <div class="navbar">
+    <button class="icon-btn" onclick="go('landing')">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+    </button>
+    <div class="navbar-logo">Track Order</div>
+    <div style="width:36px"></div>
+  </div>
+  <div style="padding:28px 26px 0">
+    <div style="font-family:var(--font-body);font-size:.6rem;color:var(--ivory-muted);letter-spacing:.14em;text-transform:uppercase;margin-bottom:6px">Order ID</div>
+    <div style="font-family:var(--font-display);font-size:1.8rem;font-weight:600;color:var(--gold)">#TC-2847</div>
+    <div style="font-family:var(--font-body);font-size:.75rem;color:var(--ivory-muted);margin-top:4px;font-weight:300">Placed today · 2 items · ₹490</div>
+  </div>
+  <div class="order-track" style="padding-top:22px">
+    <div class="track-steps">
+      <div class="track-step">
+        <div class="track-step-icon done">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <div class="track-step-info">
+          <div class="track-step-label">Order Received</div>
+          <div class="track-step-time">2:14 PM · Espresso + Avocado Toast</div>
+        </div>
+        <div class="track-connector done-line"></div>
+      </div>
+      <div class="track-step">
+        <div class="track-step-icon done">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <div class="track-step-info">
+          <div class="track-step-label">Payment Confirmed</div>
+          <div class="track-step-time">2:15 PM · UPI ₹490</div>
+        </div>
+        <div class="track-connector done-line"></div>
+      </div>
+      <div class="track-step">
+        <div class="track-step-icon active">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a8 8 0 018 8c0 6-8 14-8 14S4 16 4 10a8 8 0 018-8z"/><circle cx="12" cy="10" r="2.5"/></svg>
+        </div>
+        <div class="track-step-info">
+          <div class="track-step-label">Being Prepared</div>
+          <div class="track-step-time">In progress — barista at work</div>
+        </div>
+        <div class="track-connector"></div>
+      </div>
+      <div class="track-step">
+        <div class="track-step-icon pending">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 12h6M12 9v6"/></svg>
+        </div>
+        <div class="track-step-info">
+          <div class="track-step-label pending-txt">Ready for Pickup</div>
+          <div class="track-step-time" style="color:var(--ivory-muted);opacity:.4">Coming up soon</div>
+        </div>
+      </div>
+    </div>
+    <div class="track-eta" style="margin-top:20px">
+      <div style="flex:1">
+        <div class="track-eta-label">Estimated ready in</div>
+        <div class="eta-bar" style="margin-top:8px"><div class="eta-bar-fill"></div></div>
+      </div>
+      <div class="track-eta-time">~8 min</div>
+    </div>
+  </div>
+  <button class="back-btn" onclick="go('landing')">← Back to Menu</button>
+</div>
+
+</div><!-- /app -->
+
+<script>
+const IMAGES = {
+  'Americano': 'https://images.unsplash.com/photo-1521302080334-4bebac2763a6?auto=format&fit=crop&w=200&q=70',
+  'Iced Americano': 'https://images.unsplash.com/photo-1529892485617-25f63cd7b1e9?auto=format&fit=crop&w=200&q=70',
+  'Cappuccino': 'https://images.unsplash.com/photo-1534778101976-62847782c213?auto=format&fit=crop&w=200&q=70',
+  'Flat White': 'https://images.unsplash.com/photo-1522125670776-3c7abb882bc2?auto=format&fit=crop&w=200&q=70',
+  'Café Latte': 'https://images.unsplash.com/photo-1541167760496-1628856ab772?auto=format&fit=crop&w=200&q=70',
+  'Iced Latte': 'https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=200&q=70',
+  'Mocha': 'https://images.unsplash.com/photo-1572442388796-11668a67e53d?auto=format&fit=crop&w=200&q=70',
+  'Cold Brew': 'https://images.unsplash.com/photo-1509785307050-d4066910ec1e?auto=format&fit=crop&w=200&q=70',
+  'Matcha Latte': 'https://images.unsplash.com/photo-1515823064-d6e0c04616a7?auto=format&fit=crop&w=200&q=70',
+  'Avocado Toast': 'https://images.unsplash.com/photo-1541519227354-08fa5d50c820?auto=format&fit=crop&w=200&q=70',
+  'Shakshuka': 'https://images.unsplash.com/photo-1565299585323-38d6b0865b47?auto=format&fit=crop&w=200&q=70',
+  'Egg Benedict': 'https://images.unsplash.com/photo-1608039829572-78524f79c4c7?auto=format&fit=crop&w=200&q=70',
+  'Classic Pancakes': 'https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?auto=format&fit=crop&w=200&q=70',
+  'French Toast': 'https://images.unsplash.com/photo-1484723091739-30a097e8f929?auto=format&fit=crop&w=200&q=70',
+  'Chicken Wings': 'https://images.unsplash.com/photo-1527477396000-e27163b481c2?auto=format&fit=crop&w=200&q=70',
+  'Loaded Fries': 'https://images.unsplash.com/photo-1630431342073-1f0c8e0dc84d?auto=format&fit=crop&w=200&q=70',
+  'Burrata Salad': 'https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?auto=format&fit=crop&w=200&q=70',
+  'Chicken Club': 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=200&q=70',
+};
+
+const MENU = {
+  drink: {
+    title: 'Coffee & Drinks',
+    sub: 'Served 8 AM – 12 AM',
+    sections: [
+      { id:'espresso', label:'Espresso Classics', items: [
+        { name:'Espresso', price:175, desc:'Pure, intense single-origin dark roast', type:'veg' },
+        { name:'Macchiato', price:175, desc:'Dry or wet — your choice', type:'veg' },
+        { name:'Long Black', price:190, desc:'Double shot pulled over hot water', type:'veg' },
+        { name:'Americano', price:190, desc:'Classic bold hot coffee', type:'veg', popular:true },
+        { name:'Iced Americano', price:200, desc:'Chilled espresso poured over ice', type:'veg' },
+        { name:'Piccolo Latte', price:190, desc:'Small but mighty — strong and creamy', type:'veg', popular:true },
+        { name:'Cortado', price:190, desc:'Equal parts espresso and steamed milk', type:'veg' },
+        { name:'Flat White', price:240, desc:'Velvety microfoam milk, rich espresso', type:'veg', popular:true },
+        { name:'Cappuccino', price:240, desc:'Classic frothy cappuccino', type:'veg' },
+      ]},
+      { id:'milk-based', label:'Milk Drinks', items: [
+        { name:'Café Latte', price:250, desc:'Smooth espresso with steamed milk', type:'veg' },
+        { name:'Iced Latte', price:260, desc:'Cold espresso, milk over ice', type:'veg', popular:true },
+        { name:'Mocha', price:280, desc:'Espresso, chocolate, steamed milk', type:'veg' },
+        { name:'Iced Mocha', price:290, desc:'Chocolate and espresso over ice', type:'veg' },
+        { name:'Caramel Latte', price:290, desc:'House caramel syrup, steamed milk', type:'veg' },
+        { name:'Matcha Latte', price:280, desc:'Ceremonial grade matcha, oat milk', type:'veg', new:true },
+      ]},
+      { id:'cold-brew', label:'Cold Brew & More', items: [
+        { name:'Cold Brew', price:260, desc:'18-hour steeped, smooth and bold', type:'veg', popular:true },
+        { name:'Cold Brew Tonic', price:280, desc:'Cold brew over sparkling tonic water', type:'veg', new:true },
+        { name:'Nitro Cold Brew', price:300, desc:'Nitrogen-infused, creamy texture', type:'veg' },
+        { name:'Iced Tea — Peach', price:180, desc:'House-brewed peach iced tea', type:'veg' },
+        { name:'Iced Tea — Lemon Mint', price:180, desc:'Refreshing lemon mint blend', type:'veg' },
+        { name:'Fresh Lime Soda', price:150, desc:'Sweet, salt or mixed', type:'veg' },
+      ]}
+    ]
+  },
+  eat: {
+    title: 'Food & Snacks',
+    sub: 'Served 12 PM – 12 AM',
+    sections: [
+      { id:'mains', label:'Bistro Mains', items: [
+        { name:'Avocado Toast', price:450, desc:'Sourdough, smashed avo, chili flakes, microgreens', type:'veg', popular:true },
+        { name:'Shakshuka', price:420, desc:'Spiced tomato, two eggs, feta, pita', type:'non-veg', popular:true },
+        { name:'Egg Benedict', price:480, desc:'Smoked salmon or ham, hollandaise, toasted muffin', type:'non-veg' },
+        { name:'Truffle Omelette', price:450, desc:'Mushrooms, swiss cheese, truffle oil', type:'non-veg' },
+        { name:'Chicken Club', price:480, desc:'Grilled chicken, turkey bacon, lettuce, aioli', type:'non-veg', popular:true },
+        { name:'Sourdough Sandwich', price:420, desc:'Pesto, buffalo mozzarella, sun-dried tomato', type:'veg' },
+      ]},
+      { id:'breakfast', label:'Breakfast & Brunch', items: [
+        { name:'Classic Pancakes', price:380, desc:'Buttermilk stack, maple syrup, seasonal berries', type:'veg', popular:true },
+        { name:'French Toast', price:400, desc:'Brioche, cinnamon custard, mascarpone', type:'veg' },
+        { name:'Greek Yogurt Bowl', price:350, desc:'Granola, local honey, seasonal fruits', type:'veg' },
+        { name:'Banana Bread', price:200, desc:'Warm slice with salted butter', type:'veg' },
+        { name:'Croissant', price:180, desc:'Buttery and flaky, served fresh', type:'veg' },
+      ]},
+      { id:'bites', label:'Small Bites', items: [
+        { name:'Burrata Salad', price:380, desc:'Fresh burrata, heirloom tomatoes, basil oil', type:'veg', new:true },
+        { name:'Garden Salad', price:320, desc:'Mixed greens, seeds, lemon vinaigrette', type:'veg' },
+        { name:'Chicken Wings', price:380, desc:'Glazed — BBQ or buffalo style, 6 pcs', type:'non-veg', spicy:true },
+        { name:'Garlic Focaccia', price:220, desc:'House-baked, rosemary, olive oil', type:'veg' },
+        { name:'Loaded Fries', price:290, desc:'Truffle salt, parmesan, herbs', type:'veg', popular:true },
+        { name:'Chicken Caesar Wrap', price:360, desc:'Romaine, grilled chicken, parmesan, house dressing', type:'non-veg' },
+      ]}
+    ]
+  }
+};
+
+let currentCat = 'drink';
+let filterState = null;
+
+function go(page) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  const target = document.getElementById('page-' + page);
+  target.classList.add('active');
+  target.scrollTop = 0;
+  document.getElementById('switch-bar').classList.toggle('show', page === 'menu');
+  if (page === 'info') { highlightToday(); buildBarChart(); startEtaCountdown(); }
+  if (page === 'order') startEtaCountdown();
+}
+
+function openDrawer() {
+  document.getElementById('drawer').classList.add('open');
+  document.getElementById('overlay').classList.add('open');
+}
+function closeDrawer() {
+  document.getElementById('drawer').classList.remove('open');
+  document.getElementById('overlay').classList.remove('open');
+}
+function openLocation() {
+  window.open('https://maps.google.com/?q=Test+Cafe+Indore', '_blank');
+}
+
+function loadMenu(cat) {
+  currentCat = cat;
+  filterState = null;
+  document.getElementById('veg-filter').className = 'filter-btn';
+  document.getElementById('nonveg-filter').className = 'filter-btn';
+  document.getElementById('search-input').value = '';
+  const data = MENU[cat];
+  document.getElementById('menu-title-main').textContent = data.title;
+  document.getElementById('menu-title-sub').textContent = data.sub;
+  document.getElementById('switch-cat-btn').textContent = cat === 'drink' ? 'Switch to Food →' : 'Switch to Drinks →';
+  buildPills(data.sections);
+  renderMenu(data.sections);
+  go('menu');
+}
+
+function switchCategory() { loadMenu(currentCat === 'drink' ? 'eat' : 'drink'); }
+
+function buildPills(sections) {
+  document.getElementById('section-pills').innerHTML = sections.map((s, i) =>
+    `<button class="pill ${i===0?'active':''}" id="pill-${s.id}" onclick="scrollToSection('${s.id}')">${s.label}</button>`
+  ).join('');
+}
+
+function scrollToSection(id) {
+  const el = document.getElementById('sec-' + id);
+  if (el) {
+    const page = document.getElementById('page-menu');
+    page.scrollTo({ top: el.offsetTop - 185, behavior: 'smooth' });
+  }
+}
+
+function renderMenu(sections, query = '', filter = null) {
+  const body = document.getElementById('menu-body');
+  const noRes = document.getElementById('no-results');
+  const q = query.toLowerCase().trim();
+  let total = 0;
+  body.innerHTML = '';
+  body.appendChild(noRes);
+
+  sections.forEach(section => {
+    const items = section.items.filter(item => {
+      if (filter === 'veg' && item.type !== 'veg') return false;
+      if (filter === 'nonveg' && item.type !== 'non-veg') return false;
+      if (q && !item.name.toLowerCase().includes(q) && !item.desc.toLowerCase().includes(q)) return false;
+      return true;
+    });
+    if (!items.length) return;
+    total += items.length;
+    const sec = document.createElement('div');
+    sec.className = 'menu-section';
+    sec.id = 'sec-' + section.id;
+    sec.innerHTML = `
+      <div class="section-heading">${section.label}
+        <span class="section-heading-count">${items.length} item${items.length!==1?'s':''}</span>
+      </div>
+      ${items.map((item, idx) => {
+        const imgSrc = IMAGES[item.name];
+        return `<div class="menu-item" style="animation-delay:${idx*30}ms">
+          <div class="item-type-dot ${item.type}"></div>
+          ${imgSrc ? `<img class="item-img" src="${imgSrc}" alt="${item.name}" loading="lazy" onerror="this.style.display='none'">` : ''}
+          <div class="item-main">
+            ${(item.popular||item.new||item.spicy)?`<div class="item-tags">
+              ${item.popular?'<span class="tag tag-popular">Popular</span>':''}
+              ${item.new?'<span class="tag tag-new">New</span>':''}
+              ${item.spicy?'<span class="tag tag-spicy">Spicy</span>':''}
+            </div>`:''}
+            <div class="item-name">${item.name}</div>
+            <div class="item-desc">${item.desc}</div>
+          </div>
+          <div class="item-right">
+            <div class="item-price"><span>₹</span>${item.price}</div>
+          </div>
+        </div>`;
+      }).join('')}
+    `;
+    body.appendChild(sec);
+  });
+
+  noRes.classList.toggle('show', total === 0);
+}
+
+function filterMenu() {
+  renderMenu(MENU[currentCat].sections, document.getElementById('search-input').value, filterState);
+}
+
+function toggleFilter(type) {
+  const vb = document.getElementById('veg-filter');
+  const nb = document.getElementById('nonveg-filter');
+  filterState = filterState === type ? null : type;
+  vb.className = 'filter-btn' + (filterState === 'veg' ? ' active-veg' : '');
+  nb.className = 'filter-btn' + (filterState === 'nonveg' ? ' active-nonveg' : '');
+  filterMenu();
+}
+
+function highlightToday() {
+  const days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+  const today = days[new Date().getDay()];
+  document.querySelectorAll('.hours-day').forEach(el => {
+    if (el.textContent.trim() === today) {
+      el.classList.add('today');
+      el.nextElementSibling && el.nextElementSibling.classList.add('today');
+    }
+  });
+}
+
+function buildBarChart() {
+  const el = document.getElementById('bar-chart-bars');
+  if (!el) return;
+  const hours = ['8','9','10','11','12','1','2','3','4','5'];
+  const vals  = [4, 7, 12, 9, 18, 22, 15, 11, 8, 6];
+  const max   = Math.max(...vals);
+  el.innerHTML = hours.map((h, i) => `
+    <div class="bar-wrap">
+      <div class="bar ${i === 5 ? 'gold' : ''}" style="height:${Math.round(vals[i]/max*65)}px;animation-delay:${i*60}ms"></div>
+      <div class="bar-lbl">${h}</div>
+    </div>
+  `).join('');
+}
+
+let etaMinutes = 8;
+let etaInterval = null;
+function startEtaCountdown() {
+  clearInterval(etaInterval);
+  etaMinutes = 8;
+  const els = document.querySelectorAll('#eta-display');
+  const update = () => { els.forEach(e => { if(e) e.textContent = `~${etaMinutes} min`; }); };
+  update();
+  etaInterval = setInterval(() => {
+    if (etaMinutes > 1) { etaMinutes--; update(); }
+    else clearInterval(etaInterval);
+  }, 12000);
+}
+
+function toggleDev() {
+  const docs = document.getElementById('dev-docs');
+  const chevron = document.getElementById('dev-chevron');
+  docs.classList.toggle('open');
+  chevron.classList.toggle('open');
+}
+
+// Live stats flicker
+function animateStats() {
+  const orders = document.getElementById('live-orders');
+  const revenue = document.getElementById('live-revenue');
+  if (!orders || !revenue) return;
+  let o = 47;
+  setInterval(() => {
+    if (Math.random() > 0.6) {
+      o += Math.floor(Math.random() * 2);
+      orders.textContent = o;
+      revenue.textContent = '₹' + Math.round(o * 390 / 1000) + 'k';
+    }
+  }, 8000);
+}
+
+// Scroll spy
+document.getElementById('page-menu').addEventListener('scroll', () => {
+  if (!MENU[currentCat]) return;
+  const page = document.getElementById('page-menu');
+  const scrollPos = page.scrollTop + 220;
+  MENU[currentCat].sections.forEach(s => {
+    const el = document.getElementById('sec-' + s.id);
+    const pill = document.getElementById('pill-' + s.id);
+    if (!el || !pill) return;
+    if (el.offsetTop <= scrollPos) {
+      document.querySelectorAll('.pill').forEach(p => p.classList.remove('active'));
+      pill.classList.add('active');
+    }
+  });
+});
+
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeDrawer(); });
+
+highlightToday();
+buildBarChart();
+animateStats();
+</script>
+</body>
+</html>

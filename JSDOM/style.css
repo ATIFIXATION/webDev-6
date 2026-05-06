@@ -1,0 +1,9 @@
+.divhide
+{
+    display: none;
+}
+
+.divshow{
+
+    display: block;
+}
