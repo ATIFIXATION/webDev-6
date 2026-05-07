@@ -71,14 +71,21 @@ ar.sort((a, b) => a - b);
 
 console.log(ar);
 
-console.log(ar.findIndex((val) => val==41));
+console.log(ar.findIndex((val) => val == 41));
 
 // console.log(ar.findlastindex((val) => val===41));
-
-
 
 let arr = [24, 56, 64, 48, 54, 41, 69, 43];
 
 //filter does multi search (first  occurence of an array e=lement )
-console.log(arr.filter((val) => val>41));
+console.log(arr.filter((val) => val > 41));
+
+
+console.log(arr.slice(0,7));
+
+let ab ="this is nnayan class"
+
+console.log(ab)
+
+console.log(ab.split(" "));
 
