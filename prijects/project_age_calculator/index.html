@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Age</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body bgcolor-violet>
+    <div
+      class="w-25 bg-light rounded shadow border mx-auto mt-5 p-4 border-3 border-black bg-violet    p-5 font-color-white "
+    >
+      <h1 class="text-center mb-3">Age Calculator</h1>
+
+      <form
+        class="d-flex flex-column gap-3 align-items-center w-100"
+        id="ageForm"
+      >
+        <label for="DOB">Date of Birth:</label>
+
+        <input type="date" id="DOB" class="form-control" />
+
+        <label for="CurrentDate">Choose Current Date:</label>
+
+        <input type="date" id="CurrentDate" class="form-control" />
+
+        <button type="submit" class="btn btn-primary">Calculate Age</button>
+      </form>
+
+      <h3 class="text-center mt-4">
+        Your Age is :
+        <span id="MyAge">0</span>
+      </h3>
+    </div>
+
+    <script src="Script.js"></script>
+  </body>
+</html>

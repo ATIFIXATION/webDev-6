@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Event Handling Concepts</title>
+    <style>
+        body { font-family: Arial; padding: 20px; }
+        .section { margin: 30px 0; padding: 15px; border: 1px solid #ccc; }
+        .box { width: 100px; height: 100px; margin: 10px; display: inline-block; cursor: pointer; }
+        .red { background-color: #ff6b6b; }
+        .green { background-color: #51cf66; }
+        .blue { background-color: #4dabf7; }
+        .bulb { width: 50px; height: 50px; border-radius: 50%; background: white; border: 2px solid #333; margin: 10px 0; }
+        .log { background: #f5f5f5; padding: 10px; margin: 10px 0; max-height: 150px; overflow-y: auto; font-size: 12px; }
+        button { padding: 8px 15px; margin: 5px; cursor: pointer; }
+    </style>
+</head>
+<body>
+
+<!-- 1. EVENT DELEGATION -->
+<div class="section">
+    <h2>1. Event Delegation (One listener for multiple elements)</h2>
+    <p>Instead of adding listeners to each box, listen on parent and use event.target</p>
+    <div id="parent" style="border: 2px solid blue; padding: 10px;">
+        <button class="box red">Box 1</button>
+        <button class="box green">Box 2</button>
+        <button class="box blue">Box 3</button>
+    </div>
+    <div class="log" id="log1"></div>
+</div>
+
+<!-- 2. EVENT BUBBLING vs CAPTURING -->
+<div class="section">
+    <h2>2. Event Bubbling vs Capturing</h2>
+    <button id="parentBtn" style="padding: 30px; font-size: 18px;">
+        Parent Button
+        <span id="childBtn" style="margin-left: 10px;">Child Button</span>
+    </button>
+    <div class="log" id="log2"></div>
+</div>
+
+<!-- 3. EVENT OBJECT PROPERTIES -->
+<div class="section">
+    <h2>3. Event Object Properties</h2>
+    <input type="text" id="textInput" placeholder="Type here to see event details">
+    <div class="log" id="log3"></div>
+</div>
+
+<!-- 4. MULTIPLE EVENTS + CONDITIONAL HANDLING -->
+<div class="section">
+    <h2>4. Keyboard + Mouse Combination</h2>
+    <button id="multiEventBtn">Hold Ctrl + Click me</button>
+    <div class="log" id="log4"></div>
+</div>
+
+<!-- 5. CUSTOM EVENTS -->
+<div class="section">
+    <h2>5. Custom Events (Dispatch your own)</h2>
+    <button id="triggerBtn">Trigger Custom Event</button>
+    <div id="customEventBox" style="width: 100px; height: 100px; background: yellow; border: 2px solid orange;"></div>
+    <div class="log" id="log5"></div>
+</div>
+
+<!-- 6. EVENT THROTTLING & DEBOUNCING -->
+<div class="section">
+    <h2>6. Throttling (Prevent excessive calls)</h2>
+    <div id="scrollBox" style="width: 200px; height: 100px; overflow-y: scroll; border: 1px solid red; padding: 10px;">
+        <div style="height: 500px;">Scroll me down...</div>
+    </div>
+    <div class="log" id="log6"></div>
+</div>
+
+<script src="advanced-concepts.js"></script>
+
+</body>
+</html>
