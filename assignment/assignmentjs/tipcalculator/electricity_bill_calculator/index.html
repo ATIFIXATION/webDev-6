@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Electricity Bill Calculator</title>
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div class="container py-5">
+      <div class="row justify-content-center">
+        <div class="col-lg-6 col-md-8">
+
+          <!-- Main Card -->
+          <div class="main-card shadow-lg">
+
+            <!-- Heading -->
+            <div class="heading text-center">
+              <h2>Electricity Bill Calculator</h2>
+            </div>
+
+            <!-- Content -->
+            <div class="content p-4">
+
+              <!-- Units Input -->
+              <div class="mb-4">
+                <label class="form-label fw-bold">
+                  Enter Electricity Units
+                </label>
+
+                <input
+                  type="number"
+                  id="units"
+                  class="form-control"
+                  placeholder="Enter units consumed"
+                />
+              </div>
+
+              <!-- Buttons -->
+              <div class="d-flex gap-3 mb-4">
+                <button class="btn btn-primary w-50" id="calculateBtn">
+                  Calculate
+                </button>
+
+                <button class="btn btn-danger w-50" id="resetBtn">
+                  Reset
+                </button>
+              </div>
+
+              <!-- Bill Card -->
+              <div class="card result-card" id="resultCard">
+                <div class="card-body">
+
+                  <h4 class="card-title mb-4 text-center">
+                    Bill Details
+                  </h4>
+
+                  <div class="bill-line">
+                    <span>First 50 Units</span>
+                    <span id="slab1">₹0.00</span>
+                  </div>
+
+                  <div class="bill-line">
+                    <span>51 - 200 Units</span>
+                    <span id="slab2">₹0.00</span>
+                  </div>
+
+                  <div class="bill-line">
+                    <span>201 - 450 Units</span>
+                    <span id="slab3">₹0.00</span>
+                  </div>
+
+                  <div class="bill-line">
+                    <span>Above 450 Units</span>
+                    <span id="slab4">₹0.00</span>
+                  </div>
+
+                  <hr />
+
+                  <div class="bill-line">
+                    <strong>Subtotal</strong>
+                    <strong id="subtotal">₹0.00</strong>
+                  </div>
+
+                  <div class="bill-line">
+                    <strong>Surcharge (20%)</strong>
+                    <strong id="surcharge">₹0.00</strong>
+                  </div>
+
+                  <hr />
+
+                  <div class="bill-line total">
+                    <span>Grand Total</span>
+                    <span id="grandTotal">₹0.00</span>
+                  </div>
+
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- JS -->
+    <script src="script.js"></script>
+  </body>
+</html>
