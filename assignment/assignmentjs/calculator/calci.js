@@ -1,0 +1,12 @@
+function calculate(data)
+{
+
+
+cons
+
+
+
+
+
+
+}

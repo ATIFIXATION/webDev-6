@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>calculator</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+    />
+    <link rel="stylesheet" href="calci.CSS" />
+  </head>
+  <body>
+
+    <div class="calculatorr w-350 h-500 border-1 border-black rounded-1 align-content-center m-auto">
+
+      <div id="outputscreen">0</div>
+
+      <div class="bottom">
+        <div id="row1">
+          <button class="border-2 rounded-5 border-black" onclick="calculate('Ac')">Ac</button>
+          <button class="border-2 rounded-5 border-black" onclick="calculate('C')">C</button>
+          <button class="border-2 rounded-5 border-black" onclick="calculate('%')">%</button>
+          <button class="border-2 rounded-5 border-black" onclick="calculate('/')">/</button>
+        </div>
+
+        <div class="row2">
+          <button class="border-2 rounded-5 border-black" onclick="calculate('7')">7</button>
+          <button class="border-2 rounded-5 border-black" onclick="calculate('8')">8</button>
+          <button class="border-2 rounded-5 border-black" onclick="calculate('9')">9</button>
+          <button class="border-2 rounded-5 border-black" onclick="calculate('*')">*</button>
+        </div>
+
+        <div class="row3">
+          <button class="border-2 rounded-5 border-black" onclick="calculate('4')">4</button>
+          <button class="border-2 rounded-5 border-black" onclick="calculate('5')">5</button>
+          <button class="border-2 rounded-5 border-black" onclick="calculate('6')">6</button>
+          <button class="border-2 rounded-5 border-black" onclick="calculate('-')">-</button>
+        </div>
+
+        <div class="row4">
+          <button class="border-2 rounded-5 border-black" onclick="calculate('1')">1</button>
+          <button class="border-2 rounded-5 border-black" onclick="calculate('2')">2</button>
+          <button class="border-2 rounded-5 border-black" onclick="calculate('3')">3</button>
+          <button class="border-2 rounded-5 border-black" onclick="calculate('+')">+</button>
+        </div>
+      </div>
+
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+    <script src="calci.JS"></script>
+  </body>
+</html>

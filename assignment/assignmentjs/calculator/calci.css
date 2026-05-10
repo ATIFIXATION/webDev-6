@@ -1,0 +1,36 @@
+#main {
+    background-color: #69a9ea;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.calculatorr {
+    width: 200px;
+    border-radius: 20px;
+    overflow: hidden;
+    background-color: rgb(231, 130, 221);
+    border-color: aqua;
+    border: 2px solid violet;
+    padding: 10px;
+}
+
+#outputscreen {
+    background-color: #a7ba67;
+    height: 50px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    font-size: 24px;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #74a0e3;
+}
+
+.bottom {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+    background-color: #90daf1;
+}
