@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Travel Bill Calculator</title>
+ 
+  <!-- Bootstrap 5 -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css"
+  />
+  <!-- Google Fonts -->
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;700&display=swap"
+  />
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+ 
+  <!-- ─── HERO STRIP ─── -->
+  <header class="site-header">
+    <div class="road-lines" aria-hidden="true">
+      <span></span><span></span><span></span>
+    </div>
+    <div class="header-content">
+      <p class="tagline">AUTO FARE ENGINE</p>
+      <h1 class="site-title">Travel Bill<br><em>Calculator</em></h1>
+      <p class="subtitle">Enter your distance and get a full fare breakdown — instantly.</p>
+    </div>
+    <div class="odometer-badge" aria-hidden="true">
+      <span class="odo-label">KM</span>
+      <span class="odo-dots">●●●●●</span>
+    </div>
+  </header>
+ 
+  <!-- ─── MAIN CONTENT ─── -->
+  <main class="main-wrapper">
+    <div class="container">
+      <div class="row justify-content-center g-4">
+ 
+        <!-- INPUT CARD -->
+        <div class="col-12 col-lg-5">
+          <div class="calc-card input-card">
+            <div class="card-label">01 / DISTANCE</div>
+            <h2 class="card-heading">How far did you travel?</h2>
+ 
+            <div class="slab-info mb-4">
+              <p class="slab-title">Fare Slabs</p>
+              <div class="slab-row">
+                <span class="slab-range">First 10 km</span>
+                <span class="slab-rate">Rs. 11 / km</span>
+              </div>
+              <div class="slab-row">
+                <span class="slab-range">Next 40 km</span>
+                <span class="slab-rate">Rs. 10 / km</span>
+              </div>
+              <div class="slab-row">
+                <span class="slab-range">Next 100 km</span>
+                <span class="slab-rate">Rs. 8 / km</span>
+              </div>
+              <div class="slab-row">
+                <span class="slab-range">Beyond 150 km</span>
+                <span class="slab-rate">Rs. 5 / km</span>
+              </div>
+            </div>
+ 
+            <div class="input-group-custom">
+              <label for="kmInput" class="input-label">Kilometers Covered</label>
+              <div class="input-wrapper">
+                <input
+                  type="number"
+                  id="kmInput"
+                  class="km-input"
+                  placeholder="e.g. 100.5"
+                  min="0"
+                  step="any"
+                  autocomplete="off"
+                  aria-describedby="kmError"
+                />
+                <span class="input-unit">km</span>
+              </div>
+              <p id="kmError" class="error-msg" role="alert" aria-live="polite"></p>
+            </div>
+ 
+            <button id="calcBtn" class="btn-calculate" type="button">
+              <span class="btn-text">Calculate Bill</span>
+              <span class="btn-icon" aria-hidden="true">→</span>
+            </button>
+ 
+            <button id="resetBtn" class="btn-reset" type="button">Reset</button>
+          </div>
+        </div>
+ 
+        <!-- OUTPUT CARD -->
+        <div class="col-12 col-lg-7">
+          <div class="calc-card result-card" id="resultCard">
+ 
+            <!-- Empty State -->
+            <div class="empty-state" id="emptyState">
+              <div class="empty-icon" aria-hidden="true">🛣️</div>
+              <p>Your fare breakdown will appear here once you hit <strong>Calculate Bill</strong>.</p>
+            </div>
+ 
+            <!-- Result Content (hidden until calculated) -->
+            <div class="result-content" id="resultContent" hidden>
+              <div class="card-label">02 / BREAKDOWN</div>
+              <h2 class="card-heading">Fare Summary</h2>
+ 
+              <div class="total-display" id="totalDisplay">
+                <span class="total-label">Total Bill</span>
+                <span class="total-amount" id="totalAmount">Rs. 0</span>
+              </div>
+ 
+              <div class="divider"></div>
+ 
+              <p class="breakdown-title">Slab Breakdown</p>
+              <div id="breakdownList" class="breakdown-list"></div>
+ 
+              <div class="km-chip" id="kmChip">
+                <span id="kmChipValue">0</span> km calculated
+              </div>
+            </div>
+ 
+          </div>
+        </div>
+ 
+      </div>
+    </div>
+  </main>
+ 
+  <!-- ─── FOOTER ─── -->
+  <footer class="site-footer">
+    <p>Built for quick, transparent fare calculations &bull; No hidden charges</p>
+  </footer>
+ 
+  <!-- Bootstrap JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+  <!-- Custom JS -->
+  <script src="script.js"></script>
