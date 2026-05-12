@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Travel Bill Calculator</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div class="trip-shell">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-6 col-md-8">
+            <div class="fare-box">
+              <h1 class="main-head">Travel Bill Calculator</h1>
+
+              <div class="mb-4">
+                <label class="form-label lab-txt"> Kilometers Covered </label>
+
+                <input
+                  type="number"
+                  id="kmInput"
+                  class="form-control ride-input"
+                  placeholder="Enter kilometres"
+                  step="0.1"
+                />
+
+                <p id="warnMsg" class="warn-line"></p>
+              </div>
+
+              <button id="calcBtn" class="btn btn-primary w-100 calc-btn">
+                Calculate Bill
+              </button>
+
+              <div id="resultCard" class="result-card d-none">
+                <h2 class="bill-line">
+                  Total Bill =
+                  <span id="totalBill">Rs. 0</span>
+                </h2>
+
+                <div class="slab-area">
+                  <h5 class="small-head">Calculation Breakdown</h5>
+
+                  <div id="breakArea"></div>
+                </div>
+              </div>
+
+              <div class="rate-card">
+                <h5 class="small-head">Fare Slabs</h5>
+
+                <ul class="list-group">
+                  <li class="list-group-item">First 10 km → Rs. 11 / km</li>
+
+                  <li class="list-group-item">Next 40 km → Rs. 10 / km</li>
+
+                  <li class="list-group-item">Above 50 km → Rs. 8 / km</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

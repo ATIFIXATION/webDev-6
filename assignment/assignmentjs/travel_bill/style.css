@@ -1,0 +1,127 @@
+body {
+  background: #eef3ff;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.trip-shell {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 40px 0;
+}
+
+.fare-box {
+  background: white;
+  border-radius: 18px;
+  padding: 30px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.main-head {
+  text-align: center;
+  margin-bottom: 30px;
+  font-weight: bold;
+  color: #1d3557;
+}
+
+.lab-txt {
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.ride-input {
+  height: 50px;
+  border-radius: 10px;
+  border: 1px solid #c7d2fe;
+}
+
+.ride-input:focus {
+  border-color: #4361ee;
+  box-shadow: 0 0 0 0.2rem rgba(67, 97, 238, 0.15);
+}
+
+.calc-btn {
+  height: 48px;
+  border-radius: 10px;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.calc-btn:hover {
+  transform: translateY(-2px);
+}
+
+.warn-line {
+  color: #d90429;
+  font-size: 14px;
+  margin-top: 8px;
+  margin-bottom: 0;
+}
+
+.result-card {
+  margin-top: 28px;
+  background: #f8fbff;
+  border-radius: 14px;
+  padding: 22px;
+  border: 1px solid #dbe7ff;
+}
+
+.bill-line {
+  text-align: center;
+  color: #0b6e4f;
+  margin-bottom: 24px;
+  font-weight: bold;
+}
+
+.slab-area {
+  background: white;
+  border-radius: 12px;
+  padding: 18px;
+}
+
+.small-head {
+  margin-bottom: 16px;
+  color: #1d3557;
+  font-weight: 700;
+}
+
+.break-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid #e9ecef;
+  font-size: 15px;
+}
+
+.break-item:last-child {
+  border-bottom: none;
+}
+
+.rate-card {
+  margin-top: 25px;
+}
+
+.list-group-item {
+  padding: 14px;
+}
+
+@media (max-width: 576px) {
+  .fare-box {
+    padding: 20px;
+  }
+
+  .main-head {
+    font-size: 28px;
+  }
+
+  .bill-line {
+    font-size: 24px;
+  }
+
+  .break-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+}
