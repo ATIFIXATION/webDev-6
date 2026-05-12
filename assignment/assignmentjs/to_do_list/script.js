@@ -1,26 +1,38 @@
 function addnewtask() {
   const tasktoadd = document.getElementById("newtask").value;
 
+  if (tasktoadd.trim() === "") {
+    alert("Please enter a task");
+    return;
+  }
+
   const LI = document.createElement("li");
-  LI.classlist.add("my-3");
+  LI.classList.add("my-3");
 
   const DIV = document.createElement("div");
-  DIV.classlist.add("d-flex", "justify-content-between", "align-items-center");
+  DIV.classList.add(
+    "d-flex",
+    "justify-content-between",
+    "align-items-center"
+  );
 
   const SPAN1 = document.createElement("span");
   SPAN1.innerText = tasktoadd;
+
   const BUTTON = document.createElement("button");
-  BUTTON.classlist.add(
+  BUTTON.classList.add(
     "btn",
     "btn-danger",
     "ms-4",
     "d-flex",
-    "gap-3",
+    "gap-2",
     "align-items-center",
-    "justify-content-center",
+    "justify-content-center"
   );
 
-  BUTTON.onclick = () => LI.remove();
+  BUTTON.onclick = function () {
+    LI.remove();
+  };
 
   const I = document.createElement("i");
   I.classList.add("bi", "bi-trash");
@@ -35,9 +47,8 @@ function addnewtask() {
   DIV.appendChild(BUTTON);
 
   LI.appendChild(DIV);
+
   document.getElementById("tasklist").appendChild(LI);
+
   document.getElementById("newtask").value = "";
-
-
-
 }
