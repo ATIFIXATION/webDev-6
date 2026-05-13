@@ -1,14 +1,163 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-<h1>test1</h1>
+  </head>
+  <body>
+    <h1>form registration</h1>
+
+    <div class="main">
+      <div class="d-flex" id="personalinformation">
+        Enter your name :
+        <input
+          type="text"
+          name="fullname"
+          id="fullname"
+          placeholder="enter full name"
+        />
+
+        Enter your email id :
+        <input type="email" name="email" id="email" placeholder="enter email" />
+
+        Enter your phone number :
+        <input
+          type="phone"
+          name="phone"
+          id="phone"
+          placeholder="enter phone number"
+        />
+
+        Enter your date of birth :
+        <input type="date" name="dob" id="dob" />
+      </div>
+
+      <br />
+      <br>
 
 
-<script src="script.js"></script>
-</body>
+      <div class="academicdetails" id="academicdetails">
+        last completed qualification :
+
+        <label for="qualifications">Choose a qualification:</label>
+
+        <select name="qualifications" id="qualifications">
+          <option value="12th">12th</option>
+          <option value="10th">10th</option>
+        </select>
+
+        enter your grades :
+
+        <label for="grades">Enter your grades:</label>
+
+        <select name="grades" id="grades">
+          <option value="SELECT">SELECT</option>
+          <option value="A">A</option>
+          <option value="B">B</option>
+          <option value="C">C</option>
+          <option value="D">D</option>
+          <option value="E">E</option>
+        </select>
+      </div>
+
+      <br>
+      <br>
+
+
+<div class="courseinformation" id="courseinformation">
+
+        select course you want to enroll in :
+
+        <label for="courses">Choose a course:</label>
+
+        <select name="courses" id="courses">
+          <option value="SELECT">SELECT</option>
+          <option value="webdevelopment">web development</option>
+          <option value="datascience">data science</option>
+          <option value="androiddevelopment">android development</option>
+          <option value="cybersecurity">cyber security</option>
+        </select>
+
+        select batch you want to enroll in :
+
+        <label for="batches">Choose a batch:</label>
+
+        <select name="batches" id="batches">
+          <option value="SELECT">SELECT</option>
+          <option value="batch1">batch 1 (8am-10am)</option>
+          <option value="batch2">batch 2 (10am-12pm)</option>
+          <option value="batch3">batch 3 (6pm-8pm)</option>
+        </select>
+      </div>
+
+      <br />
+
+      <div class="address" id="address">
+        enter your address :
+        <input type="text" name="address" id="address" placeholder="enter address" />
+
+        enter your city :
+        <input type="text" name="city" id="city" placeholder="enter city" />
+
+        enter your pincode :
+        <input type="text" name="pincode" id="pincode" placeholder="enter pincode" />
+      </div>
+
+      <br>
+      <br>
+
+      <div class="guardiandetails" id="guardiandetails">
+        enter guardian's name :
+        <input type="text" name="guardianname" id="guardianname" placeholder="enter guardian's name" />
+
+        enter guardian's contact number :
+        <input type="text" name="guardianphone" id="guardianphone" placeholder="enter guardian's phone number" />
+      </div>
+
+      <br>
+        <br>
+
+        <div class="additionalinformation" id="additionalinformation">
+
+            how do you hear about us?
+            <label for="hearaboutus">Choose an option:</label> 
+            <select name="hearaboutus" id="hearaboutus">
+              <option value="SELECT">SELECT</option>
+              <option value="friends">Friends</option>
+              <option value="onlinead">Online Ad</option>
+              <option value="newspaper">Newspaper</option>
+              <option value="socialmedia">Social Media</option>
+              <option value="other">Other</option>
+            </select>
+
+        </div>
+
+        special requirements :
+
+        <textarea name="specialrequirements" id="specialrequirements" placeholder="enter any special requirements you have"></textarea>
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+    </div>
+
+    <script src="script.js"></script>
+  </body>
 </html>
