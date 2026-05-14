@@ -3,237 +3,285 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title> Coaching Institute Registration Form </title>
+
+    <title>Coaching Institute Registration Form</title>
+
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
       rel="stylesheet"
-      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
-      crossorigin="anonymous"
-    />
-
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
-    />
-
-    <link
-      rel="stylesheet"
-      href="style.css"
     />
   </head>
+
   <body>
-<h1 class="bg-info align-content-center  align-items-center justify-content-center text-center"  >institute registration form</h1>
+    <h1 class="bg-info text-center p-2">
+      institute registration form
+    </h1>
 
+    <div
+      class="main d-flex flex-column mx-auto w-50 p-5 border border-dark border-2 bg-info-subtle shadow-sm "
+    >
+      <form id="registrationform">
+        <!-- Personal Information -->
 
+        <div class="personalinformation border border-1 border-success-subtle p-3 rounded">
+          <label for="fullname ">Enter your name :</label>
 
+          <input
+            type="text"
+            name="fullname"
+            id="fullname"
+            placeholder="enter full name"
+            class="form-control w-75"
+          />
 
+          <br />
 
+          <label for="email">Enter your email id :</label>
 
-<div class="main d-flex flex-column mx-auto w-50 bg-success p-5 border  border-black border-2" id="container">
+          <input
+            type="email"
+            name="email"
+            id="email"
+            placeholder="enter email"
+            class="form-control w-75"
+          />
 
-<form  id="registrationform">
-   
-      <div class="personalinformation" id="personalinformation">
-        Enter your name :
-        <br>
-        <input
-          type="text"
-          name="fullname"
-          id="fullname"
-          placeholder="enter full name"
-          class="form-control w-50
+          <br />
 
-        />
+          <label for="phone">Enter your phone number :</label>
 
-        <br>
-        Enter your email id :
-        <br>
-        <input type="email" name="email" id="email" placeholder="enter email" class="form-control w-50" />
+          <input
+            type="text"
+            name="phone"
+            id="phone"
+            placeholder="enter phone number"
+            class="form-control w-75"
+          />
 
-        <br>
-        Enter your phone number :
-        <br>
-        <input
-          type="phone"
-          name="phone"
-          id="phone"
-          placeholder="enter phone number"
-          class="form-control w-50"
-        />
-        <br>    
-        Enter your date of birth :
-        <br>
-        <input class="form-control w-50" type="date" name="dob" id="dob"  />
-      </div>
+          <br />
 
-     
+          <label for="dob">Enter your date of birth :</label>
 
-  
-
-      <div class="academicdetails" id="academicdetails">
-        last completed qualification :
-
-        <label for="qualifications">Choose a qualification:</label>
-
-        <select     class="form-control w-50" name="qualifications" id="qualifications">
-          <option value="12th">12th</option>
-          <option value="10th">10th</option>
-        </select>
-
-        enter your grades :
-
-        <label class="form-control w-50" for="grades">Enter your grades:</label>
-
-        <select     class="form-control w-50" name="grades" id="grades" class="form-control w-50">
-          <option value="SELECT">SELECT</option>
-          <option value="A">A</option>
-          <option value="B">B</option>
-          <option value="C">C</option>
-          <option value="D">D</option>
-          <option value="E">E</option>
-        </select>
-      </div>
-
-      <br>
-      <br>
-
-
-<div class="courseinformation" id="courseinformation">
-
-        select course you want to enroll in :
-
-        <label class="form-control w-50" for="courses">Choose a course:</label>
-
-        <select     class="form-control w-50" name="courses" id="courses">
-          <option value="SELECT">SELECT</option>
-          <option value="webdevelopment">web development</option>
-          <option value="datascience">data science</option>
-          <option value="androiddevelopment">android development</option>
-          <option value="cybersecurity">cyber security</option>
-        </select>
-
-        select batch  :
-
-        <label  for="batches">Choose a batch:</label>
-
-        <select     class="form-control w-50" name="batches" id="batches">
-          <option value="SELECT">SELECT</option>
-          <option value="batch1">batch 1 (8am-10am)</option>
-          <option value="batch2">batch 2 (10am-12pm)</option>
-          <option value="batch3">batch 3 (6pm-8pm)</option>
-        </select>
-      </div>
-
-      <br />
-
-      <div class="address" id="address">
-        enter your address :
-        <input     class="form-control w-50" type="text" name="address" id="address" placeholder="enter address" class="form-control w-50" />
-
-        enter your city :
-        <input     class="form-control w-50" type="text" name="city" id="city" placeholder="enter city" class="form-control w-50" />
-
-        enter your pincode :
-        <input     class="form-control w-50" type="text" name="pincode" id="pincode" placeholder="enter pincode" class="form-control w-50" />
-      </div>
-
-      <br>
-      <br>
-
-      <div class="guardiandetails" id="guardiandetails">
-        enter guardian's name :
-        <input     class="form-control w-50" type="text" name="guardianname" id="guardianname" placeholder="enter guardian's name" class="form-control w-50" />
-
-        enter guardian's contact number :
-        <input     class="form-control w-50" type="text" name="guardianphone" id="guardianphone" placeholder="enter guardian's phone number" class="form-control w-50" />
-      </div>
-
-      <br>
-        <br>
-
-        <div class="additionalinformation" id="additionalinformation">
-
-            how do you hear about us?
-            <label for="hearaboutus">Choose an option:</label> 
-            <select     class="form-control w-50" name="hearaboutus" id="hearaboutus">
-              <option value="SELECT">SELECT</option>
-              <option value="friends">Friends</option>
-              <option value="onlinead">Online Ad</option>
-              <option value="newspaper">Newspaper</option>
-              <option value="socialmedia">Social Media</option>
-              <option value="other">Other</option>
-            </select>
-
+          <input
+            type="date"
+            name="dob"
+            id="dob"
+            class="form-control w-75"
+          />
         </div>
-        <br>
-        <br>
-        
 
-        special requirements :
+        <br />
 
-        <textarea name="specialrequirements" id="specialrequirements" placeholder="enter any special requirements you have"></textarea>
+        <!-- Academic Details -->
 
+        <div class="academicdetails">
+          <label for="qualifications">
+            Last completed qualification :
+          </label>
 
+          <select
+            class="form-control w-75"
+            name="qualifications"
+            id="qualifications"
+          >
+            <option value="SELECT">SELECT</option>
+            <option value="10th">10th</option>
+            <option value="12th">12th</option>
+            <option value="graduation">Graduation</option>
+          </select>
 
+          <br />
 
+          <label for="grades">
+            Enter your percentage or grade :
+          </label>
 
+          <input
+            type="text"
+            id="grades"
+            placeholder="Enter percentage or grade"
+            class="form-control w-75"
+          />
+        </div>
 
+        <br />
 
-</form>
+        <!-- Course Information -->
 
-</div>
+        <div class="courseinformation">
+          <label for="courses">
+            Select course you want to enroll in :
+          </label>
 
+          <select
+            class="form-control w-75"
+            name="courses"
+            id="courses"
+          >
+            <option value="SELECT">SELECT</option>
+            <option value="webdevelopment">
+              Web Development
+            </option>
+            <option value="datascience">
+              Data Science
+            </option>
+            <option value="androiddevelopment">
+              Android Development
+            </option>
+            <option value="cybersecurity">
+              Cyber Security
+            </option>
+          </select>
 
+          <br />
 
+          <label for="batches">
+            Select batch :
+          </label>
 
+          <select
+            class="form-control w-75"
+            name="batches"
+            id="batches"
+          >
+            <option value="SELECT">SELECT</option>
+            <option value="batch1">
+              Batch 1 (8am - 10am)
+            </option>
+            <option value="batch2">
+              Batch 2 (10am - 12pm)
+            </option>
+            <option value="batch3">
+              Batch 3 (6pm - 8pm)
+            </option>
+          </select>
+        </div>
 
+        <br />
 
+        <!-- Address -->
 
+        <div class="addresssection">
+          <label for="fulladdress">
+            Enter your address :
+          </label>
 
+          <input
+            type="text"
+            name="address"
+            id="fulladdress"
+            placeholder="enter address"
+            class="form-control w-75"
+          />
 
+          <br />
 
+          <label for="city">
+            Enter your city :
+          </label>
 
+          <input
+            type="text"
+            name="city"
+            id="city"
+            placeholder="enter city"
+            class="form-control w-75"
+          />
 
+          <br />
 
+          <label for="pincode">
+            Enter your pincode :
+          </label>
 
-    <!-- Jo bhi kch likhoge iske upar hee likhna , neecha nhi likhna glti se bhi -->
-    <!-- BootStrap Script -->
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-      crossorigin="anonymous"
-    ></script>
+          <input
+            type="text"
+            name="pincode"
+            id="pincode"
+            placeholder="enter pincode"
+            class="form-control w-75"
+          />
+        </div>
+
+        <br />
+
+        <!-- Guardian Details -->
+
+        <div class="guardiandetails">
+          <label for="guardianname">
+            Enter guardian's name :
+          </label>
+
+          <input
+            type="text"
+            name="guardianname"
+            id="guardianname"
+            placeholder="enter guardian's name"
+            class="form-control w-75"
+          />
+
+          <br />
+
+          <label for="guardianphone">
+            Enter guardian's contact number :
+          </label>
+
+          <input
+            type="text"
+            name="guardianphone"
+            id="guardianphone"
+            placeholder="enter guardian's phone number"
+            class="form-control w-75"
+          />
+        </div>
+
+        <br />
+
+        <!-- Additional Information -->
+
+        <div class="additionalinformation">
+          <label for="hearaboutus">
+            How did you hear about us?
+          </label>
+
+          <select
+            class="form-control w-75"
+            name="hearaboutus"
+            id="hearaboutus"
+          >
+            <option value="SELECT">SELECT</option>
+            <option value="friends">Friends</option>
+            <option value="onlinead">Online Ad</option>
+            <option value="newspaper">Newspaper</option>
+            <option value="socialmedia">Social Media</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+
+        <br />
+
+        <label for="specialrequirements">
+          Special requirements :
+        </label>
+
+        <textarea
+          name="specialrequirements"
+          id="specialrequirements"
+          class="form-control w-75"
+          placeholder="enter any special requirements"
+        ></textarea>
+
+        <br />
+
+        <button
+          type="submit"
+          class="btn btn-primary"
+        >
+          Submit Form
+        </button>
+      </form>
+    </div>
+
     <script src="script.js"></script>
-  </body>
-</html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <!-- Jo bhi kch likhoge iske upar hee likhna , neecha nhi likhna glti se bhi -->
-    <!-- BootStrap Script -->
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-      crossorigin="anonymous"
-    ></script>
-    <script src="Script.JS"></script>
   </body>
 </html>

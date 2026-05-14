@@ -1,0 +1,19 @@
+
+
+input
+{
+
+    background-color: #9bdcea;
+    padding: 2px;
+    border: 2px solid black;
+
+}
+
+input ::placeholder
+{
+    background-color: #2c7edc;
+    color: wheat;
+    font-style: normal;
+    margin-top: auto;
+}
+
