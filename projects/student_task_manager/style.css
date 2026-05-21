@@ -1,0 +1,76 @@
+* {
+
+.filter-section {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.filter-btn {
+  flex: 1;
+  margin: 5px;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  background: #2d3436;
+  color: white;
+  cursor: pointer;
+}
+
+#taskList {
+  margin-top: 20px;
+  list-style: none;
+}
+
+.task {
+  background: #2d3436;
+  padding: 12px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.task.completed span {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+
+.task-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.complete-btn {
+  background: #0984e3;
+}
+
+.delete-btn {
+  background: #d63031;
+}
+
+.task-buttons button {
+  border: none;
+  padding: 8px 10px;
+  border-radius: 6px;
+  color: white;
+  cursor: pointer;
+}
+
+.bottom-section {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#clearBtn {
+  padding: 10px 14px;
+  border: none;
+  border-radius: 8px;
+  background: crimson;
+  color: white;
+  cursor: pointer;
+}
+}
