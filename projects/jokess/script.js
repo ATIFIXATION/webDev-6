@@ -7,8 +7,8 @@ async function getNewJoke() {
     const data = await response.json();
 
 
-    document.getElementById("setup").innerText = data.joke || data.setup;
+    document.getElementById("setup").innerText = data.setup ;
 
-    document.getElementById("delivery").innerText = data.delivery || "";
+    document.getElementById("delivery").innerText = data.punchline;
 
 }
