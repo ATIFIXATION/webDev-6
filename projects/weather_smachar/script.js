@@ -23,6 +23,18 @@ async function getWeather() {
     document.getElementById("temp").innerText =
     `temp: ${weatherData.main.temp} °C`;
 
+      document.getElementById("humidity").innerText =
+    `humidity: ${weatherData.main.humidity} %`;
+
+      document.getElementById("visibility").innerText =
+    `visibility: ${weatherData.visibility} m`;
+
+      document.getElementById("cloud").innerText =
+    `cloudiness: ${weatherData.clouds.all} %`;
+
+      document.getElementById("rain").innerText =
+    `rain: ${weatherData.rain ? weatherData.rain['1h'] : 0} mm`;
+
 }
 
 async function getgeolocation(city){

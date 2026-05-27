@@ -1,84 +1,165 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Weather App</title>
+    <title>Weather App</title>
 
-  <style>
+    <!-- <img
+      src="https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?q=80&w=765&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+      alt="img"
+    /> -->
 
-    body{
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      background-color: whitesmoke;
-    }
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
 
-    .card{
-      width: 250px;
-      min-height: 300px;
-      background-color: #d8c26a;
-      border: 1px solid black;
-      border-radius: 10px;
-      padding: 20px;
-    }
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: rgb(139, 134, 225);
+        box-shadow: 0 0 10px rgba(231, 105, 105, 0.5);
+      }
 
-    input{
-      width: 100%;
-      height: 35px;
-      font-size: 18px;
-      margin-bottom: 10px;
-    }
+      .card {
+        width: 300px;
+        min-height: 300px;
 
-    button{
-      width: 100%;
-      height: 35px;
-      font-size: 18px;
-      cursor: pointer;
-    }
+        background: rgba(255, 255, 255, 0.15);
 
-    .result{
-      margin-top: 30px;
-      background-color: #e5e5e5;
-      padding: 10px;
-      border-radius: 10px;
-      font-size: 22px;
-    }
+        backdrop-filter: blur(10px);
 
-  </style>
+        border: 1px solid rgba(255, 255, 255, 0.3);
 
-</head>
+        border-radius: 20px;
 
-<body>
+        padding: 20px;
 
-  <div class="card">
+        color: rgb(233, 242, 181);
 
-    <input
-      type="text"
-      id="cityName"
-      placeholder="Enter city"
-    >
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+      }
 
-    <button onclick="getWeather()">
-      Get Weather
-    </button>
-    <br/>
+      input {
+        width: 100%;
+        height: 35px;
+        font-size: 18px;
+        margin-bottom: 10px;
+        background: rgba(208, 232, 69, 0.15);
+      }
 
-    <div class="result">
+      button {
+        width: 100%;
+        height: 35px;
+        font-size: 18px;
+        cursor: pointer;
+      }
 
-      <p id="temp">
-        temp:
-      </p>
+      /* .result {
+        margin-top: 30px;
+        background-color: #e5e5e5;
+        padding: 10px;
+        border-radius: 10px;
+        font-size: 22px;
+      } */
+    </style>
+  </head>
 
-     
+  <body>
+
+    <video autoplay muted loop id="bg-video">
+  <source src="weather_vid.mp4" type="video/mp4" />
+</video>
+    <div class="card">
+      <input
+        class="form-control border-secondary-subtle"
+        type="text"
+        id="cityName"
+        placeholder="Enter city"
+      />
+
+      <button
+        class="btn btn-warning-subtle border-secondary-subtle justify-content-around"
+        onclick="getWeather()"
+      >
+        Get Weather
+
+        <span>🌞</span>
+
+
+      </button>
+      <br />
+
+      <div class="one d-flex justify-content-between">  
+      <div class="result">
+        <p id="temp">temp:</p>
+      </div>
+
+       <div class="result">
+        <p id="humidity">humidity:</p>
+      </div></div>
+
+
+      <div class="two d-flex justify-content-between">
+
+
+        <div class="result">
+        <p id="visibility">visibility:</p>
+      </div>
+
+       <div class="result">
+        <p id="cloud">cloudiness:</p>
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+      </div>
+
+
+    
+
+      
+
+        <div class="result">
+        <p id="rain">rain:</p>
+      </div>
+
+
 
     </div>
 
-  </div>
 
-  <script src="Script.js"></script>
+    </div>
 
-</body>
+    
+    
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="Script.js"></script>
+  </body>
 </html>
