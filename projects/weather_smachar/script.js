@@ -35,6 +35,9 @@ async function getWeather() {
       document.getElementById("rain").innerText =
     `rain: ${weatherData.rain ? weatherData.rain['1h'] : 0} mm`;
 
+        document.getElementById("timezone").innerText =
+    `timezone: ${weatherData.timezone} s`;
+
 }
 
 async function getgeolocation(city){
