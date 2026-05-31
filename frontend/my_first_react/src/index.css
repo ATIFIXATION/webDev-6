@@ -1,4 +1,12 @@
-#abcd
-{
+#abcd {
   background-color: red;
+}
+
+#yo {
+  background-color: aqua;
+}
+
+#wo {
+  background-color: green;
+  color: black;
 }
