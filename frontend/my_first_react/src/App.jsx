@@ -1,14 +1,24 @@
-import Header from "./component/header";
-import Footer from "./component/footer";
+import Header from "./component/Header";
+import Footer from "./component/Footer";
+
+import Home from "./Home";
+import About from "./pages/About";
+import Product from "./pages/Product";
+import Contactus from "./pages/Contactus";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
 
 function App() {
   return (
     <>
       <Header />
 
-      <div id="abcd">My First React App</div>
-
-      <p className="bg-bg-primary-subtle">lorem ipsum dolor sit amet</p>
+      <Home />
+      <About />
+      <Product />
+      <Contactus />
+      <Login />
+      <Register />
 
       <Footer />
     </>
