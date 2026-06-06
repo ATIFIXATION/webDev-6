@@ -7,7 +7,7 @@ function Login() {
 
   return (
     <>
-      <div className="container mt-5 ">
+      <div className="container mt-5 border border-info-subtle rounded p-4 bg-primary">
 
         <div className="border p-4 w-50 mx-auto shadow rounded bg-light">
 
@@ -15,15 +15,20 @@ function Login() {
             Welcome Back
           </h2>
 
-          <form className="form-control bg-primary" >
+          <form className="form-control bg-info" >
 
             <div className="mb-3">
 
               <label className="form-label">
                 Full Name
               </label>
+              
+              <br/>
+
 
               <input
+
+              class="bg-info-subtle w-100 border border-black rounded-1 box-shadow black"
                 type="text"
                 className="form-control"
               />
@@ -37,6 +42,8 @@ function Login() {
               </label>
 
               <input
+
+               class="bg-info-subtle w-100 border border-black rounded-1 box-shadow black"
                 type="text"
                 className="form-control"
                 value={userName}
@@ -52,6 +59,7 @@ function Login() {
               </label>
 
               <input
+               class="bg-info-subtle w-100 border border-black rounded-1 box-shadow black"
                 type="password"
                 className="form-control"
                 value={password}
