@@ -1,13 +1,23 @@
+//for importing video form the folder
+import loginVideo from "../assets/videos/video2.mp4";
+
+
 function Login() {
   return (
     <>
+      <video autoPlay loop muted playsInline className="bg-video">
+        <source src={loginVideo} type="video/mp4" />
+      </video>
+
+      <div className="video-overlay"></div>
+
       <div className="container ">
 
         <div className="row justify-content-center">
 
           <div className="col-md-5">
 
-            <div className="card p-4 shadow">
+            <div className="card login-glass p-4 shadow">
 
               <h1 className="text-center text-danger mb-4">
                 Welcome Back

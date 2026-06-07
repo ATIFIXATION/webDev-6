@@ -3,12 +3,12 @@ import { Link } from "react-router-dom";
 function Header() {
   return (
     <>
-      <nav className="navbar navbar-expand-lg navbar-dark bg-danger py-3">
+      <nav className="navbar navbar-expand-lg navbar-dark bg-danger py-3 border border-dark rounded">
 
         <div className="container">
 
           <Link className="navbar-brand fw-bold fs-2" to="/">
-            cravings
+           🥐 Cravings
           </Link>
 
           <ul className="navbar-nav ms-auto d-flex flex-row gap-3">
