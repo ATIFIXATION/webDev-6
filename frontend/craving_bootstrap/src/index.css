@@ -1,0 +1,142 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* NAVBAR */
+
+.navbar{
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+}
+
+/* HERO SECTION */
+
+.hero-section{
+  height: 100vh;
+
+  background-image: linear-gradient(
+      rgba(0,0,0,0.5),
+      rgba(0,0,0,0.5)
+    ),
+    url("https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=1920");
+
+  background-size: cover;
+  background-position: center;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+  color: white;
+}
+
+.hero-content h1{
+
+  bgcolor: rgba(247, 106, 30, 0.954);
+  font-size: 70px;
+  font-weight: bold;
+}
+
+.hero-content p{
+  font-size: 24px;
+  margin-top: 20px;
+}
+
+.hero-buttons{
+  margin-top: 30px;
+
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.hero-buttons .btn{
+  padding: 12px 35px;
+  font-size: 20px;
+}
+
+.search-box{
+  margin-top: 30px;
+}
+
+.search-box input{
+  width: 700px;
+  max-width: 100%;
+
+  padding: 15px;
+
+  border: none;
+  border-radius: 10px;
+
+  font-size: 18px;
+}
+
+/* LOGIN PAGE */
+
+.login-page{
+  min-height: 100vh;
+
+  background-image: linear-gradient(
+      rgba(0,0,0,0.3),
+      rgba(0,0,0,0.3)
+    ),
+    url("https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=1920");
+
+  background-size: cover;
+  background-position: center;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-card{
+  width: 450px;
+
+  background-color: white;
+
+  padding: 40px;
+
+  border-radius: 15px;
+}
+
+/* REGISTER PAGE */
+
+.register-page{
+  min-height: 100vh;
+
+  background-image: linear-gradient(
+      rgba(0,0,0,0.3),
+      rgba(0,0,0,0.3)
+    ),
+    url("https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=1920");
+
+  background-size: cover;
+  background-position: center;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.register-card{
+  width: 500px;
+
+  hieght: 600px;
+
+  background-color: rgb(220, 116, 19);
+
+  padding: 40px;
+
+  margin:40px;
+
+  border-radius: 15px;
+}
