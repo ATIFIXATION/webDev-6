@@ -1,7 +1,7 @@
 function Login() {
   return (
     <>
-      <div className="container mt-5">
+      <div className="container ">
 
         <div className="row justify-content-center">
 
@@ -12,6 +12,8 @@ function Login() {
               <h1 className="text-center text-danger mb-4">
                 Welcome Back
               </h1>
+
+              <form class="p-3 bg-danger text-black border border-black rounded-2">
 
               <input
                 type="email"
@@ -25,9 +27,10 @@ function Login() {
                 placeholder="Enter your password"
               />
 
-              <button className="btn btn-danger w-100">
+              <button className="btn btn-danger w-100 ">
                 Login
               </button>
+                </form>
 
             </div>
 

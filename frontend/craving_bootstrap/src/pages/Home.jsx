@@ -5,7 +5,7 @@ function Home() {
 
         <div className="hero-content">
 
-          <h1>
+          <h1 class=" text-white p-3 rounded">
             Your Favorite Food,
             <br />
             Delivered Fast

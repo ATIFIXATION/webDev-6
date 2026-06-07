@@ -8,7 +8,7 @@ body{
   font-family: Arial, Helvetica, sans-serif;
 }
 
-/* NAVBAR */
+/* navigation bar */
 
 .navbar{
   position: fixed;
@@ -130,7 +130,7 @@ body{
 .register-card{
   width: 500px;
 
-  hieght: 600px;
+
 
   background-color: rgb(220, 116, 19);
 
@@ -140,3 +140,4 @@ body{
 
   border-radius: 15px;
 }
+
