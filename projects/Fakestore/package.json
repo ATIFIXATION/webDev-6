@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "@tailwindcss/vite": "^4.3.0",
+    "react-con": "^0.0.1",
+    "react-icon": "^1.0.0",
+    "react-router-dom": "^7.17.0",
+    "tailwindcss": "^4.3.0"
+  }
+}
