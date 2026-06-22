@@ -1,18 +1,9 @@
-import React from "react";
-
-const Product = () => {
+const Products = () => {
   return (
-    <div className="p-10 grid grid-cols-4">
-      <div className="w-75 border rounded h-100 ">
-        <div className="w-full h-40">
-          <img src="" alt="" />
-        </div>
-      </div>
-      <span>12</span>
-      <p>12</p>
-      <button className="bg-orange-400 rounded-full px-4 py-2">Add to Cart</button>
+    <div className="text-center text-4xl font-bold mt-10">
+      Products Page
     </div>
   );
 };
 
-export default Product;
+export default Products;

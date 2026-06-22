@@ -1,10 +1,9 @@
-import React from 'react'
-
-export const Contact = () => {
+const Contact = () => {
   return (
-<>
-    <div>Contact</div>
-</>
-  )
-}
+    <div className="text-center text-4xl font-bold mt-10">
+      Contact Page
+    </div>
+  );
+};
+
 export default Contact;
