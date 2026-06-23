@@ -1,9 +1,9 @@
-const Footer = () => {
+function Footer() {
   return (
-    <div className="bg-black text-white text-center p-5 mt-10">
-      Footer © 2024 FakeStore
-    </div>
+    <footer className="bg-blue-800 text-white text-center p-4">
+      © 2026 Fake Store
+    </footer>
   );
-};
+}
 
 export default Footer;
