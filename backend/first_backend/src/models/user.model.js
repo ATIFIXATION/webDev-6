@@ -5,12 +5,20 @@ const userSchema = new mongoose.Schema(
     fullName: {
       type: String,
       required: true,
+      trim: true,
     },
 
     email: {
       type: String,
       required: true,
       unique: true,
+      trim: true,
+      lowercase: true,
+    },
+
+    password: {
+      type: String,
+      required: true,
     },
 
     phone: {
@@ -21,6 +29,7 @@ const userSchema = new mongoose.Schema(
     gender: {
       type: String,
       required: true,
+      enum: ["Male", "Female", "Other"],
     },
 
     dob: {
@@ -31,10 +40,12 @@ const userSchema = new mongoose.Schema(
     photo: {
       url: {
         type: String,
+        default: "",
       },
 
       publicID: {
         type: String,
+        default: null,
       },
     },
   },
