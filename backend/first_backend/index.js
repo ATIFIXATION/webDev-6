@@ -26,6 +26,14 @@ app.get("/", (req, res) => {
 app.use("/api/public", publicRoutes);
 app.use("/api/auth", authRoutes);
 
+//default error handler
+// app.use(err,req,res,next)=> {});
+
+// const Errmessage=err.message || "internal server error";
+// const ErrsStausCode = err.statuscode || 500;
+
+// res.status(ErrStatusCode).joint({message:Errmessage});
+
 // Start Server
 const PORT = process.env.PORT || 4500;
 
