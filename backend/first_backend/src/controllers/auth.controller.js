@@ -1,20 +1,67 @@
 import User from "../models/user.model.js";
+import bcrypt from "bcrypt";
 
+// ==========================
 // Login User
-export const loginuser = (req, res) => {
-  res.status(200).json({
-    message: "Login successful",
-  });
+// ==========================
+export const loginuser = async (req, res, next) => {
+  try {
+    const { email, password } = req.body;
+
+    // Check required fields
+    if (!email || !password) {
+      const error = new Error("Email and Password are required");
+      error.statusCode = 400;
+      return next(error);
+    }
+
+    // Check if email exists
+    const existingUser = await User.findOne({ email });
+
+    if (!existingUser) {
+      const error = new Error("Email not registered");
+      error.statusCode = 404;
+      return next(error);
+    }
+
+    // Compare entered password with hashed password
+    const isVerified = await bcrypt.compare(
+      password,
+      existingUser.password
+    );
+
+    if (!isVerified) {
+      const error = new Error("Incorrect Password");
+      error.statusCode = 401;
+      return next(error);
+    }
+
+    return res.status(200).json({
+      message: "Login Successful",
+      user: existingUser,
+    });
+
+  } catch (error) {
+    console.error(error);
+
+    return res.status(500).json({
+      message: "Internal Server Error",
+    });
+  }
 };
 
+// ==========================
 // Logout User
+// ==========================
 export const logoutuser = (req, res) => {
   res.status(200).json({
     message: "Logout successful",
   });
 };
 
+// ==========================
 // Register User
+// ==========================
 export const registeruser = async (req, res) => {
   try {
     const { fullName, email, password, phone, gender, dob } = req.body;
@@ -40,16 +87,22 @@ export const registeruser = async (req, res) => {
       .charAt(0)
       .toUpperCase()}`;
 
-  const photo = {
-  url: photoUrl,
-  publicID: null,
-};
+    const photo = {
+      url: photoUrl,
+      publicID: null,
+    };
 
-    // Create user
+    // Generate Salt
+    const salt = await bcrypt.genSalt(10);
+
+    // Hash Password
+    const hashedPassword = await bcrypt.hash(password, salt);
+
+    // Create User
     const newUser = await User.create({
       fullName,
       email,
-      password,
+      password: hashedPassword,
       phone,
       gender,
       dob,
@@ -60,6 +113,7 @@ export const registeruser = async (req, res) => {
       message: "User created successfully",
       user: newUser,
     });
+
   } catch (error) {
     console.error(error);
 
