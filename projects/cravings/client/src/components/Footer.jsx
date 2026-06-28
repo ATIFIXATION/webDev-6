@@ -4,7 +4,7 @@ const Footer = () => {
   return (
 <>
     <div className='bg-(--color-secondary) text-(--color-primary-content)'>
-<Link to="/contact-us">ContactUs </Link> <br />
+<a href="#">Contact Us</a>
 <br />
 <br />
 <br />

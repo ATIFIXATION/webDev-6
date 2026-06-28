@@ -1,19 +1,30 @@
-import logo from "../assets/hero.png";
+import logo from "../assets/logo.png";
+import { Link } from "react-router-dom";
 
 function Header() {
   return (
     <header className="bg-orange-700 flex justify-between items-center px-10 py-4">
 
-      <img src={logo} alt="logo" className="w-20" />
+      <Link to="/">
+        <img src={logo} alt="logo" className="w-20" />
+      </Link>
 
       <div className="flex gap-4">
-        <button className="text-white text-lg">
-          Login
-        </button>
 
-        <button className="bg-white px-5 py-2 rounded">
+        <Link
+          to="/login"
+          className="text-white text-lg"
+        >
+          Login
+        </Link>
+
+        <Link
+          to="/register"
+          className="bg-white px-5 py-2 rounded"
+        >
           Register
-        </button>
+        </Link>
+
       </div>
 
     </header>

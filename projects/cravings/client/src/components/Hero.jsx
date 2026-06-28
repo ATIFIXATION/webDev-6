@@ -1,10 +1,10 @@
-import food from "../assets/logo.jpg";
+import heroImage from "../assets/hero.jpg";
 
 function Hero() {
   return (
     <div
       className="h-screen bg-cover bg-center flex flex-col justify-center items-center text-white"
-      style={{ backgroundImage: `url(${food})` }}
+     style={{ backgroundImage: `url(${heroImage})` }}
     >
       <h1 className="text-6xl font-bold text-center">
         Your Favorite Food,

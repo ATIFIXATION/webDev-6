@@ -1,3 +1,28 @@
+import { Routes, Route } from "react-router-dom";
+
 import Header from "./components/Header";
-import Hero from "./components/Hero";
 import Footer from "./components/Footer";
+
+import Home from "./pages/home";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import Contact from "./pages/contact";
+
+function App() {
+  return (
+    <>
+      <Header />
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/contact-us" element={<Contact />} />
+      </Routes>
+
+      <Footer />
+    </>
+  );
+}
+
+export default App;
