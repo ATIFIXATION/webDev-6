@@ -1,56 +1,161 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from "react";
+import contactVideo from "../assets/contact.mp4";
+
 const ContactUs = () => {
   return (
- <>
-      <div className="h-[90vh]  grid-cols-2 p-20 bg-[url('https://cravings.ricr.in/contactPage.jpg')] bg-cover ">
-        <div className="w-md bg-(--color-base-200) rounded-2xl shadow p-10 flex flex-col justify-center ">
-          
-            <h1 className="font-bold text-3xl text-(--color-primary) text-center">
-            Contact Us
+    <div className="relative h-[90vh] overflow-hidden">
 
-           </h1>
-         
-           <p className="text-(--color-secondary) text-center ">
-              Have a question? We'd love to hear from you.
-            </p>
-          <form>
-            <div className="flex flex-col gap-4 w-full mt-2.5">
+      {/* Background Video */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover"
+      >
+        <source src={contactVideo} type="video/mp4" />
+      </video>
+
+      {/* Dark Overlay */}
+      <div className="absolute inset-0 bg-black/25"></div>
+
+      {/* Content */}
+      <div className="relative z-10 h-full flex items-center px-20">
+
+        {/* Glass Card */}
+        <div
+          className="
+          w-md
+          rounded-3xl
+          p-10
+          bg-white/10
+          backdrop-blur-xl
+          border border-white/20
+          shadow-2xl
+          "
+        >
+          <h1 className="text-4xl font-bold text-white text-center">
+            Contact Us
+          </h1>
+
+          <p className="text-white/80 text-center mt-2">
+            Have a question? We'd love to hear from you.
+          </p>
+
+          <form className="mt-6">
+
+            <div className="flex flex-col gap-4">
+
               <input
                 type="text"
                 placeholder="Enter your name"
-                className="p-2 border border-orange-200 focus:border-2 focus:border-orange-500 outline-none "
+                className="
+                p-3
+                rounded-lg
+                bg-white/20
+                backdrop-blur-md
+                border border-white/30
+                text-white
+                placeholder:text-white/60
+                focus:outline-none
+                focus:border-white
+                "
               />
+
               <input
                 type="email"
                 placeholder="Enter your email"
-                className="p-2 border border-orange-200 focus:border-2 focus:border-orange-500 outline-none "
+                className="
+                p-3
+                rounded-lg
+                bg-white/20
+                backdrop-blur-md
+                border border-white/30
+                text-white
+                placeholder:text-white/60
+                focus:outline-none
+                focus:border-white
+                "
               />
+
               <input
                 type="tel"
                 placeholder="Enter your phone number"
-                className="p-2 border border-orange-200 focus:border-2 focus:border-orange-500 outline-none "
+                className="
+                p-3
+                rounded-lg
+                bg-white/20
+                backdrop-blur-md
+                border border-white/30
+                text-white
+                placeholder:text-white/60
+                focus:outline-none
+                focus:border-white
+                "
               />
+
               <input
                 type="text"
                 placeholder="What is this about?"
-                className="p-2 border border-orange-200 focus:border-2 focus:border-orange-500 outline-none "
+                className="
+                p-3
+                rounded-lg
+                bg-white/20
+                backdrop-blur-md
+                border border-white/30
+                text-white
+                placeholder:text-white/60
+                focus:outline-none
+                focus:border-white
+                "
               />
-              <textarea name="text" placeholder='Write your message here...' className="p-2 border border-orange-200 focus:border-2 focus:border-orange-500 outline-none h-24" ></textarea>
-              
+
+              <textarea
+                rows="5"
+                placeholder="Write your message here..."
+                className="
+                p-3
+                rounded-lg
+                bg-white/20
+                backdrop-blur-md
+                border border-white/30
+                text-white
+                placeholder:text-white/60
+                focus:outline-none
+                focus:border-white
+                resize-none
+                "
+              ></textarea>
+
             </div>
-             <button
+
+            <button
               type="submit"
-              className="mt-6 bg-(--color-primary) text-white py-2 px-4 rounded hover:scale-95 w-full font-medium"
+              className="
+              mt-6
+              w-full
+              py-3
+              rounded-xl
+              bg-(--color-primary)
+              text-white
+              font-semibold
+              shadow-lg
+              transition-all
+              duration-300
+              hover:scale-95
+              hover:brightness-110
+              "
             >
               Send Message
             </button>
-            
+
           </form>
         </div>
-      </div>
-    </>
-  )
-}
 
-export default ContactUs
+      </div>
+
+    </div>
+  );
+};
+
+export default ContactUs;

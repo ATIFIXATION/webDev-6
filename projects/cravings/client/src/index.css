@@ -1,28 +1,30 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap");
+
 @import "tailwindcss";
-:root{
 
---color-primary:#c2410c;
+:root {
+  /* Primary Brand */
+  --color-primary: #bd775c;
+  --color-primary-content: #ffffff;
 
---color-primary-content:#ffffff;
+  /* Secondary Text */
+  --color-secondary: #7a6b5d;
 
---color-secondary:#6b7280;
+  /* Neutral */
+  --color-neutral: #3b3129;
+  --color-neutral-content: #f7f3ef;
 
---color-neutral:#3f3f46;
+  /* Backgrounds */
+  --color-base-100: #fffaf5;
+  --color-base-200: #f7efe6;
+  --color-base-300: #eadfce;
+  --color-base-content: #2b1d15;
 
---color-neutral-content:#f4f4f5;
+  /* Success */
+  --color-success: #4caf50;
 
---color-base-100:#fff8f1;
-
---color-base-200:#f5ede5;
-
---color-base-300:#e7d9c9;
-
---color-base-content:#2d1b10;
-
---color-success:#22c55e;
-
---color-error:#ef4444;
-
+  /* Error */
+  --color-error: #873128;
 }
 #right {
   height: 100vh;
@@ -34,3 +36,54 @@
   width: 0;
   height: 0;
 }
+body{
+    font-family: "Poppins", sans-serif;
+}
+
+h1,h2,h3{
+    font-family: "Playfair Display", serif;
+}
+
+/* //for giving animation */
+
+/* @keyframes wordPop {
+  0% {
+    opacity: 0;
+    transform: scale(0.3) translateY(40px);
+  }
+
+  60% {
+    opacity: 1;
+    transform: scale(1.15) translateY(0);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+.pop {
+  display: inline-block;
+  opacity: 0;
+  animation: wordPop 0.6s forwards;
+}
+
+.delay-1 {
+  animation-delay: 0.2s;
+}
+
+.delay-2 {
+  animation-delay: 0.4s;
+}
+
+.delay-3 {
+  animation-delay: 0.6s;
+}
+
+.delay-4 {
+  animation-delay: 0.8s;
+}
+
+.delay-5 {
+  animation-delay: 1s;
+} */
