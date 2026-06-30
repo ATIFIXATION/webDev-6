@@ -3,7 +3,7 @@ import contactVideo from "../assets/contact.mp4";
 
 const ContactUs = () => {
   return (
-    <div className="relative h-[90vh] overflow-hidden">
+    <div className="relative h-[90vh] overflow-hidden min-h-screen pt-28">
 
       {/* Background Video */}
       <video

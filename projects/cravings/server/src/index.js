@@ -1,6 +1,7 @@
 import express from "express";
 import dotenv from "dotenv";
 import connectDB from "./config/db.connection.config.js";
+import authRouter from "./routes/auth.route.js";
 
 dotenv.config();
 
@@ -11,9 +12,11 @@ app.use(express.urlencoded({ extended: true }));
 
 connectDB();
 
+app.use("/auth", authRouter);
+
 app.get("/", (req, res) => {
   res.json({
-    message: "Cravings Backend is Running ",
+    message: "Cravings Backend is Running",
   });
 });
 
