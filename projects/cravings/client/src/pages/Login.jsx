@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import api from "../config/api.config";
 import { toast } from "react-hot-toast";
+import loginVideo from "../assets/login.mp4";
 
 const Login = () => {
   const [loginData, setLoginData] = useState({
@@ -46,100 +47,109 @@ const Login = () => {
   };
 
   return (
-    <div className="h-[90vh] grid place-items-center bg-[url('https://cravings.ricr.in/foodTable.webp')] bg-cover bg-center">
+    <div className="relative h-[90vh] overflow-hidden">
 
-      <div className="w-md bg-(--color-base-200) rounded-2xl shadow-xl p-10">
+      {/* Background Video */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover"
+      >
+        <source src={loginVideo} type="video/mp4" />
+      </video>
 
-        <h1 className="font-bold text-3xl text-(--color-primary) text-center">
-          Welcome Back!
-        </h1>
+      {/* Dark Overlay */}
+      <div className="absolute inset-0 bg-black/50"></div>
 
-        <p className="text-(--color-secondary) text-center mt-2">
-          Login to your Cravings account
-        </p>
+      {/* Login Form */}
+      <div className="relative z-10 h-full grid place-items-center">
+        <div className="w-md bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl shadow-2xl p-10">
 
-        <form onSubmit={handleSubmit} className="mt-6">
+          <h1 className="font-bold text-3xl text-white text-center">
+            Welcome Back!
+          </h1>
 
-          {/* Email */}
+          <p className="text-gray-200 text-center mt-2">
+            Login to your Cravings account
+          </p>
 
-          <div className="flex flex-col gap-2">
-            <label htmlFor="email">Email</label>
+          <form onSubmit={handleSubmit} className="mt-6">
 
-            <input
-              type="email"
-              id="email"
-              name="email"
-              value={loginData.email}
-              onChange={handleChange}
-              className="p-3 border border-orange-200 rounded-lg focus:border-orange-500 outline-none"
-              placeholder="Enter your email"
-            />
-          </div>
+            {/* Email */}
+            <div className="flex flex-col gap-2">
+              <label htmlFor="email" className="text-white">
+                Email
+              </label>
 
-          {/* Password */}
+              <input
+                type="email"
+                id="email"
+                name="email"
+                value={loginData.email}
+                onChange={handleChange}
+                className="p-3 bg-white/20 text-white placeholder-gray-300 border border-white/30 rounded-lg focus:border-orange-500 outline-none"
+                placeholder="Enter your email"
+              />
+            </div>
 
-          <div className="flex flex-col gap-2 mt-5">
-            <label htmlFor="password">Password</label>
+            {/* Password */}
+            <div className="flex flex-col gap-2 mt-5">
+              <label htmlFor="password" className="text-white">
+                Password
+              </label>
 
-            <input
-              type="password"
-              id="password"
-              name="password"
-              value={loginData.password}
-              onChange={handleChange}
-              className="p-3 border border-orange-200 rounded-lg focus:border-orange-500 outline-none"
-              placeholder="Enter your password"
-            />
-          </div>
+              <input
+                type="password"
+                id="password"
+                name="password"
+                value={loginData.password}
+                onChange={handleChange}
+                className="p-3 bg-white/20 text-white placeholder-gray-300 border border-white/30 rounded-lg focus:border-orange-500 outline-none"
+                placeholder="Enter your password"
+              />
+            </div>
 
-          {/* Remember */}
+            {/* Remember Me */}
+            <div className="flex justify-between items-center mt-5">
+              <label className="flex items-center gap-2 text-white">
+                <input type="checkbox" />
+                <span>Remember me</span>
+              </label>
 
-          <div className="flex justify-between items-center mt-5">
+              <button
+                type="button"
+                className="text-orange-400 hover:underline"
+              >
+                Forgot Password?
+              </button>
+            </div>
 
-            <label className="flex items-center gap-2">
-              <input type="checkbox" />
-              <span className="text-(--color-secondary)">
-                Remember me
-              </span>
-            </label>
-
+            {/* Login Button */}
             <button
-              type="button"
-              className="text-(--color-primary) hover:underline"
+              type="submit"
+              className="mt-6 bg-orange-500 hover:bg-orange-600 text-white py-3 rounded-lg w-full font-semibold transition-all duration-300 hover:scale-105"
             >
-              Forgot Password?
+              Login
             </button>
 
-          </div>
+            {/* Register */}
+            <div className="text-center mt-6">
+              <p className="text-gray-300">
+                ---------- Don't have an account? ----------
+              </p>
 
-          {/* Button */}
+              <Link
+                to="/register"
+                className="text-orange-400 hover:underline font-semibold"
+              >
+                Create an account
+              </Link>
+            </div>
 
-          <button
-            type="submit"
-            className="mt-6 bg-(--color-primary) text-white py-3 rounded-lg w-full font-semibold hover:scale-105 duration-300"
-          >
-            Login
-          </button>
-
-          {/* Register */}
-
-          <div className="text-center mt-6">
-
-            <p className="text-(--color-secondary)">
-              ---------- Don't have an account? ----------
-            </p>
-
-            <Link
-              to="/register"
-              className="text-(--color-primary) hover:underline font-semibold"
-            >
-              Create an account
-            </Link>
-
-          </div>
-
-        </form>
-
+          </form>
+        </div>
       </div>
 
     </div>
