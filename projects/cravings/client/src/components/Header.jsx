@@ -1,18 +1,24 @@
 import logo from "../assets/logo.png";
 import { Link } from "react-router-dom";
+import { useAuth } from "../context/Auth.Context";
+import { AiOutlineLogout } from "react-icons/ai";
 
 function Header() {
+  const { isLogin, logout } = useAuth();
+
   return (
     <header className="bg-[#C95F31] shadow-lg sticky top-0 z-50">
       <div className="max-w-7xl mx-auto flex items-center justify-between px-8 py-4">
-        
+
         {/* Logo */}
         <Link to="/" className="flex items-center gap-3">
           <img src={logo} alt="logo" className="w-14" />
+
           <div>
-            <h1 className="text-white text-2xl font-bold tracking-wide">
+            <h1 className="text-white text-2xl font-bold">
               Cravings
             </h1>
+
             <p className="text-orange-100 text-xs">
               Delicious Delivered
             </p>
@@ -21,35 +27,70 @@ function Header() {
 
         {/* Navigation */}
         <nav className="hidden md:flex items-center gap-3 bg-white/10 backdrop-blur-md rounded-full px-3 py-2">
+
           <Link
             to="/"
-            className="text-white px-5 py-2 rounded-full hover:bg-white/20 transition-all duration-300"
+            className="text-white px-5 py-2 rounded-full hover:bg-white/20 transition"
           >
             Home
           </Link>
 
           <Link
-            to="/contact-us"
-            className="text-white px-5 py-2 rounded-full hover:bg-white/20 transition-all duration-300"
+            to="/contact"
+            className="text-white px-5 py-2 rounded-full hover:bg-white/20 transition"
           >
             Contact
           </Link>
 
-          <Link
-            to="/login"
-            className="text-white px-5 py-2 rounded-full hover:bg-white/20 transition-all duration-300"
-          >
-            Login
-          </Link>
+          {!isLogin && (
+            <Link
+              to="/login"
+              className="text-white px-5 py-2 rounded-full hover:bg-white/20 transition"
+            >
+              Login
+            </Link>
+          )}
+
         </nav>
 
-        {/* Register Button */}
-        <Link
-          to="/register"
-          className="bg-white text-[#C95F31] font-semibold px-6 py-3 rounded-full hover:scale-105 hover:bg-orange-100 transition-all duration-300"
-        >
-          Register
-        </Link>
+        {/* Right Side */}
+        <div className="flex items-center gap-4">
+
+          {!isLogin ? (
+            <>
+              <Link
+                to="/register"
+                className="bg-white text-[#C95F31] px-6 py-3 rounded-full font-semibold hover:bg-orange-100 transition"
+              >
+                Register
+              </Link>
+
+              <Link
+                to="/dashboard/overview"
+                className="bg-blue-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-blue-700 transition"
+              >
+                Dashboard
+              </Link>
+            </>
+          ) : (
+            <>
+              <Link
+                to="/dashboard/overview"
+                className="bg-blue-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-blue-700 transition"
+              >
+                Dashboard
+              </Link>
+
+              <button
+                onClick={logout}
+                className="text-white text-2xl hover:text-red-300"
+              >
+                <AiOutlineLogout />
+              </button>
+            </>
+          )}
+
+        </div>
 
       </div>
     </header>

@@ -1,16 +1,20 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "../context/Auth.Context";
 import api from "../config/api.config";
 import { toast } from "react-hot-toast";
 import loginVideo from "../assets/login.mp4";
 
 const Login = () => {
+  const navigate = useNavigate();
+
+  // Changed from setUser to login
+  const { login } = useAuth();
+
   const [loginData, setLoginData] = useState({
     email: "",
     password: "",
   });
-
-  const [validateError, setValidateError] = useState({});
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -34,7 +38,11 @@ const Login = () => {
 
       toast.success(res.data.message);
 
-      console.log(res.data.data.photo);
+      // Save logged-in user in Context + localStorage
+      login(res.data.data);
+
+      // Redirect to Dashboard
+      navigate("/dashboard/overview");
     } catch (error) {
       toast.error(
         error.response?.data?.message ||
@@ -48,7 +56,6 @@ const Login = () => {
 
   return (
     <div className="relative h-[90vh] overflow-hidden">
-
       {/* Background Video */}
       <video
         autoPlay
@@ -66,7 +73,6 @@ const Login = () => {
       {/* Login Form */}
       <div className="relative z-10 h-full grid place-items-center">
         <div className="w-md bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl shadow-2xl p-10">
-
           <h1 className="font-bold text-3xl text-white text-center">
             Welcome Back!
           </h1>
@@ -76,7 +82,6 @@ const Login = () => {
           </p>
 
           <form onSubmit={handleSubmit} className="mt-6">
-
             {/* Email */}
             <div className="flex flex-col gap-2">
               <label htmlFor="email" className="text-white">
@@ -147,11 +152,9 @@ const Login = () => {
                 Create an account
               </Link>
             </div>
-
           </form>
         </div>
       </div>
-
     </div>
   );
 };
