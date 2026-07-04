@@ -3,6 +3,8 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-hot-toast";
 
+import registerVideo from "../assets/register.mp4";
+
 const Register = () => {
   const navigate = useNavigate();
 
@@ -40,7 +42,7 @@ const Register = () => {
     try {
       const res = await axios.post(
         "http://localhost:4500/auth/register",
-        registerData
+        registerData,
       );
 
       toast.success(res.data.message);
@@ -55,131 +57,177 @@ const Register = () => {
 
       navigate("/login");
     } catch (error) {
-      toast.error(
-        error.response?.data?.message ||
-          "Registration Failed"
-      );
+      toast.error(error.response?.data?.message || "Registration Failed");
 
       console.log(error);
     }
   };
 
   return (
-    <div className="h-[90vh] p-20 bg-[url('https://cravings.ricr.in/foodTable.webp')] bg-cover">
-      <div className="w-md bg-(--color-base-200) rounded-2xl shadow p-10 flex flex-col justify-center float-end">
+    <div className="relative h-[90vh] overflow-hidden">
+      {/* Background Video */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover"
+      >
+        <source src={registerVideo} type="video/mp4" />
+      </video>
 
-        <h1 className="font-bold text-3xl text-(--color-primary) text-center">
-          Create Account
-        </h1>
+      {/* Dark Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-orange-950/20 to-black/60"></div>
 
-        <p className="text-(--color-secondary) text-center">
-          Join us as a Customer, Restaurant, or Rider
-        </p>
+      {/* Register Card */}
+      <div className="relative z-10 h-full flex justify-end items-center px-20">
+        <div
+          className="
+    w-[520px]
+    rounded-[30px]
+    p-10
+    border border-orange-200/30
+    bg-gradient-to-br
+    from-orange-300/20
+    via-orange-500/15
+    to-orange-900/20
+    backdrop-blur-2xl
+    shadow-[0_20px_60px_rgba(255,140,50,0.45)]
+    text-white
+  "
+        >
+          <h1 className="text-4xl font-bold text-center text-white">
+            Create Account
+          </h1>
 
-        <form onSubmit={handleSubmit}>
+          <p className="text-orange-100 text-center mt-3 text-lg">
+            Join us as a Customer, Restaurant, or Rider
+          </p>
 
-          <h3 className="mt-4">Register as:</h3>
+          <form onSubmit={handleSubmit}>
+            <h3 className="mt-6 font-semibold text-lg">Register as:</h3>
 
-          <div className="flex gap-3 mt-2 mb-4 text-xl text-gray-600">
+            <div className="flex flex-wrap gap-4 mt-3 mb-6 text-lg text-gray-700">
+              <label className="flex items-center gap-2 cursor-pointer">
+                <input
+                  type="radio"
+                  name="registerAs"
+                  value="customer"
+                  checked={registerData.registerAs === "customer"}
+                  onChange={handleChange}
+                />
+                Customer
+              </label>
 
-            <input
-              type="radio"
-              name="registerAs"
-              value="customer"
-              checked={registerData.registerAs === "customer"}
-              onChange={handleChange}
-            />
-            <span>Customer</span>
+              <label className="flex items-center gap-2 cursor-pointer">
+                <input
+                  type="radio"
+                  name="registerAs"
+                  value="restaurant"
+                  checked={registerData.registerAs === "restaurant"}
+                  onChange={handleChange}
+                />
+                Restaurant
+              </label>
 
-            <input
-              type="radio"
-              name="registerAs"
-              value="restaurant"
-              checked={registerData.registerAs === "restaurant"}
-              onChange={handleChange}
-            />
-            <span>Restaurant</span>
-
-            <input
-              type="radio"
-              name="registerAs"
-              value="rider"
-              checked={registerData.registerAs === "rider"}
-              onChange={handleChange}
-            />
-            <span>Rider</span>
-
-          </div>
-
-          <div className="flex flex-col gap-4">
-
-            <input
-              type="text"
-              name="fullName"
-              value={registerData.fullName}
-              onChange={handleChange}
-              placeholder="Enter your full name"
-              className="p-2 border border-orange-200 focus:border-2 focus:border-orange-500 outline-none"
-            />
-
-            <input
-              type="email"
-              name="email"
-              value={registerData.email}
-              onChange={handleChange}
-              placeholder="Enter your email"
-              className="p-2 border border-orange-200 focus:border-2 focus:border-orange-500 outline-none"
-            />
-
-            <input
-              type="text"
-              name="phone"
-              value={registerData.phone}
-              onChange={handleChange}
-              placeholder="Enter your phone number"
-              className="p-2 border border-orange-200 focus:border-2 focus:border-orange-500 outline-none"
-            />
-
-            <input
-              type="password"
-              name="password"
-              value={registerData.password}
-              onChange={handleChange}
-              placeholder="Enter your password"
-              className="p-2 border border-orange-200 focus:border-2 focus:border-orange-500 outline-none"
-            />
-
-            <div className="flex gap-2 items-center">
-              <input type="checkbox" required />
-              <span>I agree to the</span>
-              <span className="text-(--color-primary) hover:underline cursor-pointer">
-                Terms & Conditions
-              </span>
+              <label className="flex items-center gap-2 cursor-pointer">
+                <input
+                  type="radio"
+                  name="registerAs"
+                  value="rider"
+                  checked={registerData.registerAs === "rider"}
+                  onChange={handleChange}
+                />
+                Rider
+              </label>
             </div>
 
-          </div>
+            <div className="flex flex-col gap-4">
+              <input
+                type="text"
+                name="fullName"
+                value={registerData.fullName}
+                onChange={handleChange}
+                placeholder="Enter your full name"
+                className="w-full p-3 rounded-lg border border-orange-200 focus:border-orange-500 focus:ring-2 focus:ring-orange-300 outline-none transition"
+              />
 
-          <button
-            type="submit"
-            className="mt-6 bg-(--color-primary) text-white py-2 px-4 rounded hover:scale-95 w-full font-medium"
-          >
-            Register
-          </button>
+              <input
+                type="email"
+                name="email"
+                value={registerData.email}
+                onChange={handleChange}
+                placeholder="Enter your email"
+                className="w-full p-3 rounded-lg border border-orange-200 focus:border-orange-500 focus:ring-2 focus:ring-orange-300 outline-none transition"
+              />
 
-          <div className="text-center mt-4 flex justify-center gap-1">
-            <p className="text-(--color-secondary)">
-              Already registered?
-            </p>
+              <input
+                type="text"
+                name="phone"
+                value={registerData.phone}
+                onChange={handleChange}
+                placeholder="Enter your phone number"
+                className="w-full p-3 rounded-lg border border-orange-200 focus:border-orange-500 focus:ring-2 focus:ring-orange-300 outline-none transition"
+              />
 
-            <Link
-              to="/login"
-              className="text-(--color-primary) hover:underline"
+              <input
+                type="password"
+                name="password"
+                value={registerData.password}
+                onChange={handleChange}
+                placeholder="Enter your password"
+             className="
+w-full
+px-5
+py-4
+rounded-xl
+bg-white/10
+border
+border-orange-100/40
+backdrop-blur-md
+text-white
+placeholder:text-orange-100
+outline-none
+transition-all
+duration-300
+focus:bg-white/15
+focus:border-orange-300
+focus:ring-2
+focus:ring-orange-300/40
+" />
+
+              <label className="flex items-center gap-2 mt-2 text-sm">
+                <input type="checkbox" required />
+
+                <span>I agree to the</span>
+
+                <span className="text-(--color-primary) font-medium hover:underline cursor-pointer">
+                  Terms & Conditions
+                </span>
+              </label>
+            </div>
+
+            <button
+              type="submit"
+              className="mt-8 w-full bg-(--color-primary) text-white py-3 rounded-lg font-semibold hover:scale-95 transition duration-300"
             >
-              Login here
-            </Link>
-          </div>
+              Register
+            </button>
 
-        </form>
+            <div className="text-center mt-6">
+              <span className="text-(--color-secondary)">
+                Already have an account?
+              </span>
+
+              <Link
+                to="/login"
+                className="ml-2 text-(--color-primary) font-semibold hover:underline"
+              >
+                Login Here
+              </Link>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   );
