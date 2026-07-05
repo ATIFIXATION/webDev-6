@@ -2,7 +2,6 @@
 
 @import "tailwindcss";
 
-
 :root {
   /* Primary Brand */
   --color-primary: #bd775c;
@@ -37,54 +36,89 @@
   width: 0;
   height: 0;
 }
-body{
-    font-family: "Poppins", sans-serif;
+body {
+  font-family: "Poppins", sans-serif;
 }
 
-h1,h2,h3{
-    font-family: "Playfair Display", serif;
+h1,
+h2,
+h3 {
+  font-family: "Playfair Display", serif;
 }
 
-/* //for giving animation */
+.floatingVeg {
+  position: absolute;
+  pointer-events: none;
+  user-select: none;
 
-/* @keyframes wordPop {
+  animation: tomatoFloat ease-in-out infinite;
+
+  filter: drop-shadow(0 25px 30px rgba(0, 0, 0, 0.35))
+    drop-shadow(0 0 15px rgba(255, 90, 0, 0.25));
+
+  transform-origin: center;
+  will-change: transform;
+}
+
+@keyframes tomatoFloat {
   0% {
-    opacity: 0;
-    transform: scale(0.3) translateY(40px);
+    transform: translate(0px, 0px) rotate(-8deg) scale(1);
+  }
+
+  15% {
+    transform: translate(-12px, -18px) rotate(-2deg) scale(1.02);
+  }
+
+  30% {
+    transform: translate(10px, -35px) rotate(8deg) scale(1.04);
+  }
+
+  45% {
+    transform: translate(22px, -18px) rotate(15deg) scale(1.02);
   }
 
   60% {
-    opacity: 1;
-    transform: scale(1.15) translateY(0);
+    transform: translate(8px, 8px) rotate(5deg) scale(1);
+  }
+
+  75% {
+    transform: translate(-18px, -10px) rotate(-12deg) scale(0.98);
+  }
+
+  90% {
+    transform: translate(-8px, -25px) rotate(-5deg) scale(1.01);
   }
 
   100% {
-    transform: scale(1);
+    transform: translate(0px, 0px) rotate(-8deg) scale(1);
   }
 }
 
-.pop {
-  display: inline-block;
-  opacity: 0;
-  animation: wordPop 0.6s forwards;
+@keyframes pizzaFloat {
+  0% {
+    transform: translateY(0px) rotate(0deg);
+  }
+
+  25% {
+    transform: translateY(-12px) rotate(90deg);
+  }
+
+  50% {
+    transform: translateY(0px) rotate(180deg);
+  }
+
+  75% {
+    transform: translateY(12px) rotate(270deg);
+  }
+
+  100% {
+    transform: translateY(0px) rotate(360deg);
+  }
 }
 
-.delay-1 {
-  animation-delay: 0.2s;
+.animate-spin-slow {
+  animation: pizzaFloat 24s linear infinite;
 }
 
-.delay-2 {
-  animation-delay: 0.4s;
-}
 
-.delay-3 {
-  animation-delay: 0.6s;
-}
 
-.delay-4 {
-  animation-delay: 0.8s;
-}
-
-.delay-5 {
-  animation-delay: 1s;
-} */

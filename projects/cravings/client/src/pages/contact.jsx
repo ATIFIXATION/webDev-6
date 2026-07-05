@@ -1,48 +1,50 @@
 import React from "react";
-import contactVideo from "../assets/contact.mp4";
+import bg from "../assets/bg.png";
+import pizza from "../assets/ingredients/pizza.png";
 
 const ContactUs = () => {
   return (
-    <div className="relative h-[90vh] overflow-hidden min-h-screen pt-28">
+    <div className="relative min-h-screen overflow-hidden pt-28">
 
-      {/* Background Video */}
-      <video
-        autoPlay
-        loop
-        muted
-        playsInline
-        className="absolute inset-0 w-full h-full object-cover"
-      >
-        <source src={contactVideo} type="video/mp4" />
-      </video>
+      {/* Background */}
+      <div className="absolute inset-0 z-0">
+        <img
+          src={bg}
+          alt="Background"
+          className="w-full h-full object-cover"
+          draggable={false}
+        />
+      </div>
 
-      {/* Dark Overlay */}
-      <div className="absolute inset-0 bg-black/25"></div>
+      {/* Light Overlay */}
+      <div className="absolute inset-0 bg-white/10 z-10"></div>
 
-      {/* Content */}
-      <div className="relative z-10 h-full flex items-center px-20">
+      {/* Main Content */}
+      <div className="relative z-20 flex items-center justify-between h-[calc(100vh-7rem)] px-6 md:px-20">
 
-        {/* Glass Card */}
+        {/* Contact Form */}
         <div
           className="
-          w-md
+          w-full
+          max-w-md
           rounded-3xl
           p-10
-          bg-white/10
-          backdrop-blur-xl
-          border border-white/20
+          bg-white/40
+          backdrop-blur-2xl
+          border
+          border-white/40
           shadow-2xl
           "
         >
-          <h1 className="text-4xl font-bold text-white text-center">
+          <h1 className="text-4xl font-bold text-black text-center">
             Contact Us
           </h1>
 
-          <p className="text-white/80 text-center mt-2">
+          <p className="text-gray-700 text-center mt-2">
             Have a question? We'd love to hear from you.
           </p>
 
-          <form className="mt-6">
+          <form className="mt-8">
 
             <div className="flex flex-col gap-4">
 
@@ -51,14 +53,19 @@ const ContactUs = () => {
                 placeholder="Enter your name"
                 className="
                 p-3
-                rounded-lg
-                bg-white/20
-                backdrop-blur-md
-                border border-white/30
-                text-white
-                placeholder:text-white/60
+                rounded-xl
+                bg-white/30
+                backdrop-blur-xl
+                border
+                border-white/50
+                text-black
+                placeholder:text-gray-600
                 focus:outline-none
-                focus:border-white
+                focus:border-orange-500
+                focus:bg-white/40
+                transition-all
+                duration-300
+                shadow-md
                 "
               />
 
@@ -67,14 +74,19 @@ const ContactUs = () => {
                 placeholder="Enter your email"
                 className="
                 p-3
-                rounded-lg
-                bg-white/20
-                backdrop-blur-md
-                border border-white/30
-                text-white
-                placeholder:text-white/60
+                rounded-xl
+                bg-white/30
+                backdrop-blur-xl
+                border
+                border-white/50
+                text-black
+                placeholder:text-gray-600
                 focus:outline-none
-                focus:border-white
+                focus:border-orange-500
+                focus:bg-white/40
+                transition-all
+                duration-300
+                shadow-md
                 "
               />
 
@@ -83,14 +95,19 @@ const ContactUs = () => {
                 placeholder="Enter your phone number"
                 className="
                 p-3
-                rounded-lg
-                bg-white/20
-                backdrop-blur-md
-                border border-white/30
-                text-white
-                placeholder:text-white/60
+                rounded-xl
+                bg-white/30
+                backdrop-blur-xl
+                border
+                border-white/50
+                text-black
+                placeholder:text-gray-600
                 focus:outline-none
-                focus:border-white
+                focus:border-orange-500
+                focus:bg-white/40
+                transition-all
+                duration-300
+                shadow-md
                 "
               />
 
@@ -99,14 +116,19 @@ const ContactUs = () => {
                 placeholder="What is this about?"
                 className="
                 p-3
-                rounded-lg
-                bg-white/20
-                backdrop-blur-md
-                border border-white/30
-                text-white
-                placeholder:text-white/60
+                rounded-xl
+                bg-white/30
+                backdrop-blur-xl
+                border
+                border-white/50
+                text-black
+                placeholder:text-gray-600
                 focus:outline-none
-                focus:border-white
+                focus:border-orange-500
+                focus:bg-white/40
+                transition-all
+                duration-300
+                shadow-md
                 "
               />
 
@@ -115,14 +137,19 @@ const ContactUs = () => {
                 placeholder="Write your message here..."
                 className="
                 p-3
-                rounded-lg
-                bg-white/20
-                backdrop-blur-md
-                border border-white/30
-                text-white
-                placeholder:text-white/60
+                rounded-xl
+                bg-white/30
+                backdrop-blur-xl
+                border
+                border-white/50
+                text-black
+                placeholder:text-gray-600
                 focus:outline-none
-                focus:border-white
+                focus:border-orange-500
+                focus:bg-white/40
+                transition-all
+                duration-300
+                shadow-md
                 resize-none
                 "
               ></textarea>
@@ -136,20 +163,37 @@ const ContactUs = () => {
               w-full
               py-3
               rounded-xl
-              bg-(--color-primary)
+              bg-black
               text-white
               font-semibold
-              shadow-lg
+              shadow-xl
+              hover:bg-neutral-900
               transition-all
               duration-300
               hover:scale-95
-              hover:brightness-110
+              hover:shadow-orange-500/30
               "
             >
               Send Message
             </button>
 
           </form>
+        </div>
+
+        {/* Rotating Pizza */}
+        <div className="hidden lg:flex items-center justify-center w-1/2">
+          <img
+            src={pizza}
+            alt="Pizza"
+            draggable={false}
+            className="
+            w-[500px]
+            xl:w-[620px]
+            animate-spin-slow
+            drop-shadow-[0_20px_40px_rgba(0,0,0,0.35)]
+            select-none
+            "
+          />
         </div>
 
       </div>
