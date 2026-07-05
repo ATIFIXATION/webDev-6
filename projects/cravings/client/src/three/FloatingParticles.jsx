@@ -4,53 +4,53 @@ import { useFrame } from "@react-three/fiber";
 const FloatingParticles = () => {
   const group = useRef();
 
-  // Generate particles only once
   const particles = useMemo(() => {
-    return Array.from({ length: 250 }, () => ({
+    return Array.from({ length: 300 }, () => ({
       position: [
         (Math.random() - 0.5) * 25,
         (Math.random() - 0.5) * 15,
         (Math.random() - 0.5) * 20,
       ],
-      size: Math.random() * 0.05 + 0.015,
-      speed: Math.random() * 0.6 + 0.2,
+      speed: 0.003 + Math.random() * 0.006,
+      offset: Math.random() * Math.PI * 2,
+      size: 0.02 + Math.random() * 0.05,
     }));
   }, []);
 
   useFrame(({ clock }) => {
     const t = clock.getElapsedTime();
 
-    if (group.current) {
-      group.current.rotation.y = t * 0.05;
-      group.current.rotation.x = Math.sin(t * 0.15) * 0.05;
-    }
-
-    group.current.children.forEach((particle, index) => {
-      const data = particles[index];
+    group.current.children.forEach((particle, i) => {
+      const p = particles[i];
 
       particle.position.y =
-        data.position[1] +
-        Math.sin(t * data.speed + index) * 0.25;
+        p.position[1] +
+        Math.sin(t * 1.2 + p.offset) * 0.4;
 
-      particle.rotation.y += 0.01;
+      particle.position.x =
+        p.position[0] +
+        Math.cos(t * 0.8 + p.offset) * 0.2;
+
+      particle.rotation.y += 0.003;
     });
   });
 
   return (
     <group ref={group}>
-      {particles.map((particle, index) => (
+      {particles.map((p, i) => (
         <mesh
-          key={index}
-          position={particle.position}
+          key={i}
+          position={p.position}
         >
-          <sphereGeometry args={[particle.size, 12, 12]} />
+          <sphereGeometry args={[p.size, 12, 12]} />
 
           <meshStandardMaterial
-            color="#FFD27A"
-            emissive="#FF8C42"
-            emissiveIntensity={3}
-            roughness={0.2}
-            metalness={0.5}
+            color="#FFF5D6"
+            emissive="#ff7b00"
+            emissiveIntensity={2}
+            transparent
+            opacity={0.8}
+            toneMapped={false}
           />
         </mesh>
       ))}

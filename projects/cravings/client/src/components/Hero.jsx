@@ -1,3 +1,5 @@
+import { Canvas } from "@react-three/fiber";
+import FloatingParticles from "../three/FloatingParticles";
 import bg from "../assets/bg.png";
 import FloatingVeggies from "./FloatingVeggies";
 
@@ -5,7 +7,7 @@ function Hero() {
   return (
     <section className="relative min-h-screen overflow-hidden flex items-center justify-center">
 
-      {/* Background Image */}
+      {/* Background */}
       <div className="absolute inset-0 z-0">
         <img
           src={bg}
@@ -15,14 +17,31 @@ function Hero() {
         />
       </div>
 
-      {/* Floating PNG Vegetables */}
+      {/* Three.js Particle Layer */}
+      <div className="absolute inset-0 z-10 pointer-events-none">
+        <Canvas
+          camera={{ position: [0, 0, 8], fov: 50 }}
+        >
+          <ambientLight intensity={1} />
+
+          <pointLight
+            position={[0, 2, 3]}
+            intensity={25}
+            color="#ff8c2f"
+          />
+
+          <FloatingParticles />
+        </Canvas>
+      </div>
+
+      {/* Floating PNGs */}
       <FloatingVeggies />
 
-      {/* Orange Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/15 via-transparent to-[#C95F31]/35 z-10"></div>
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/15 via-transparent to-[#C95F31]/35 z-20"></div>
 
       {/* Hero Content */}
-      <div className="relative z-20 flex flex-col items-center text-center px-6 text-black">
+      <div className="relative z-30 flex flex-col items-center text-center px-6 text-black">
 
         <h1 className="text-5xl md:text-7xl font-bold leading-tight drop-shadow-2xl">
           Your Favorite Food,
@@ -47,7 +66,7 @@ function Hero() {
       </div>
 
       {/* Bottom Fade */}
-      <div className="absolute bottom-0 left-0 w-full h-44 bg-gradient-to-t from-[#C95F31] via-[#C95F31]/60 to-transparent z-10"></div>
+      <div className="absolute bottom-0 left-0 w-full h-44 bg-gradient-to-t from-[#C95F31] via-[#C95F31]/60 to-transparent z-20"></div>
 
     </section>
   );
