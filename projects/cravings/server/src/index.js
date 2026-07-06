@@ -3,13 +3,18 @@ import dotenv from "dotenv";
 import cors from "cors";
 
 import connectDB from "./config/db.connection.config.js";
+
 import authRouter from "./routes/auth.route.js";
+import dashboardRoutes from "./routes/dashboard.route.js";
+import publicRoutes from "./routes/public.route.js";
 
 dotenv.config();
 
 const app = express();
 
+// ============================
 // Middlewares
+// ============================
 app.use(
   cors({
     origin: "http://localhost:5173",
@@ -20,19 +25,33 @@ app.use(
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Connect Database
+// ============================
+// Database Connection
+// ============================
 connectDB();
 
+// ============================
 // Routes
+// ============================
+
 app.use("/auth", authRouter);
 
+app.use("/dashboard", dashboardRoutes);
+
+app.use("/", publicRoutes);
+
+// Test Route
 app.get("/", (req, res) => {
   res.status(200).json({
-    message: "Cravings Backend is Running",
+    success: true,
+    message: "Cravings Backend is Running 🚀",
   });
 });
 
-// Start Server
+// ============================
+// Server
+// ============================
+
 const PORT = process.env.PORT || 4500;
 
 app.listen(PORT, () => {
