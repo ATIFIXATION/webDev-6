@@ -44,13 +44,11 @@ app.use("/", publicRoutes);
 app.get("/", (req, res) => {
   res.status(200).json({
     success: true,
-    message: "Cravings Backend is Running 🚀",
+    message: "Cravings Backend is Running ",
   });
 });
 
-// ============================
-// Server
-// ============================
+
 
 const PORT = process.env.PORT || 4500;
 
