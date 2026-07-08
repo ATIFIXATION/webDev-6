@@ -6,7 +6,7 @@ import {
   FaCog,
 } from "react-icons/fa";
 
-const UserDashboard = () => {
+const CustomerDashboard = () => {
   return (
     <div className="min-h-screen bg-gray-100 flex">
 
@@ -87,4 +87,4 @@ const UserDashboard = () => {
   );
 };
 
-export default UserDashboard;
+export default CustomerDashboard;
