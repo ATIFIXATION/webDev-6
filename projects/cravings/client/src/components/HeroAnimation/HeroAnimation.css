@@ -1,0 +1,55 @@
+/* HeroAnimation.css */
+.hero-animation {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.hero-animation canvas {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+}
+
+/* Loading overlay styles */
+.loading-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  z-index: 10;
+  transition: opacity 0.5s ease;
+}
+
+.loading-bar {
+  width: 300px;
+  max-width: 80%;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 3px;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(255, 140, 47, 0.3);
+}
+
+.loading-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #ff8c2f, #ff6b00);
+  border-radius: 3px;
+  transition: width 0.3s ease;
+  box-shadow: 0 0 20px rgba(255, 140, 47, 0.5);
+}
+
+.loading-text {
+  margin-top: 16px;
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}

@@ -3,7 +3,13 @@ import bcrypt from "bcrypt";
 
 export const RegisterUser = async (req, res, next) => {
   try {
-    const { fullName, email, password, phone } = req.body;
+   const {
+  fullName,
+  email,
+  password,
+  phone,
+  registerAs,
+} = req.body;
 
     // Validation
     if (!fullName || !email || !password || !phone) {
@@ -31,14 +37,14 @@ export const RegisterUser = async (req, res, next) => {
     const hashedPassword = await bcrypt.hash(password, salt);
 
     // Create User
-    const newUser = await User.create({
-      fullName,
-      email,
-      password: hashedPassword,
-      phone,
-      photo,
-    });
-
+ const newUser = await User.create({
+  fullName,
+  email,
+  password: hashedPassword,
+  phone,
+  photo,
+  registerAs,
+});
     res.status(201).json({
       message: "User Created Successfully",
       data: newUser,

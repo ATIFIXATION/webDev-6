@@ -35,15 +35,26 @@ const Login = () => {
       const res = await api.post("/auth/login", payload);
 
       toast.success(res.data.message);
+      const user = res.data.data;
 
-      login(res.data.data);
+      console.log(user); // Check the response in browser console
 
-      navigate("/dashboard/overview");
+      login(user);
+
+      if (user.registerAs === "customer") {
+        navigate("/customer/dashboard");
+      } else if (user.registerAs === "restaurant") {
+        navigate("/restaurant/dashboard");
+      } else if (user.registerAs === "rider") {
+        navigate("/rider/dashboard");
+      } else if (user.registerAs === "admin") {
+        navigate("/admin/dashboard");
+      }
     } catch (error) {
       toast.error(
         error.response?.data?.message ||
           error.message ||
-          "Something went wrong"
+          "Something went wrong",
       );
 
       console.log(error);
@@ -121,10 +132,7 @@ const Login = () => {
             {/* Remember Me */}
             <div className="flex justify-between items-center mt-6 text-sm">
               <label className="flex items-center gap-2 text-gray-100 cursor-pointer">
-                <input
-                  type="checkbox"
-                  className="accent-orange-500 w-4 h-4"
-                />
+                <input type="checkbox" className="accent-orange-500 w-4 h-4" />
                 Remember me
               </label>
 
@@ -153,9 +161,7 @@ const Login = () => {
 
             {/* Register */}
             <div className="text-center mt-6">
-              <p className="text-gray-200">
-                Don't have an account?
-              </p>
+              <p className="text-gray-200">Don't have an account?</p>
 
               <Link
                 to="/register"

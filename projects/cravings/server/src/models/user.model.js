@@ -6,27 +6,38 @@ const UserSchema = mongoose.Schema(
       type: String,
       required: true,
     },
+
     email: {
       type: String,
       required: true,
       unique: true,
     },
+
     phone: {
       type: String,
       required: true,
     },
+
     password: {
       type: String,
       required: true,
     },
+
     photo: {
       type: String,
+      required: true,
+    },
+
+    registerAs: {
+      type: String,
+      enum: ["customer", "restaurant", "rider", "admin"],
+      default: "customer",
       required: true,
     },
   },
   {
     timestamps: true,
-  },
+  }
 );
 
 const User = mongoose.model("user", UserSchema);
