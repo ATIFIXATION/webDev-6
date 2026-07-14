@@ -1,35 +1,46 @@
-// let a=1;
-// let b=3;
-// let c=5;
+// // let a=1;
+// // let b=3;
+// // let c=5;
 
-//one of the best example of functionssss
+// //one of the best example of functionssss
 
-function oneplusAvg(a,b)
+// function oneplusAvg(a,b)
+// {
+//     return Math.round(a+b)/2 + 1;
+// }
+
+
+// let x=66;
+// let y=99;
+
+// let c= oneplusAvg(x,y);
+// console.log(c)
+
+
+
+// function subs(e,f)
+// {
+//     return(e-f);
+// }
+
+
+// let g=90;
+// let k=98;
+
+// let q= subs(g,k);
+
+// console.log(q);
+
+
+
+function multi(v,x)
 {
-    return Math.round(a+b)/2 + 1;
+    return  Math.round(v*x);
 }
 
+let m=(a,b)
 
-let x=66;
-let y=99;
+let c=multi(a,b);
 
-let c= oneplusAvg(x,y);
-console.log(c)
-
-
-
-function subs(e,f)
-{
-    return(e-f);
-}
-
-
-let g=90;
-let k=98;
-
-let q= subs(g,k);
-
-console.log(q);
-
-
+console.log(c);
 
