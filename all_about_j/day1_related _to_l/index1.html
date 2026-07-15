@@ -1,0 +1,2565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>365 DEGREE // DEFY GRAVITY. EVERY SINGLE DAY.</title>
+  <meta name="description" content="365 DEGREE - A luxury performance gym for elite athletes. Break human limits and defy gravity in a state-of-the-art concrete and steel sanctuary.">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <style>
+    /* -------------------------------------------------------------
+       CORE DESIGN SYSTEM & RESET - CREAM VANILLA + CHERRY COLA
+       ------------------------------------------------------------- */
+    :root {
+      --bg: #0A0A0A;
+      --cream: #EFE6DD;
+      --cream-light: #F5EFE8;
+      --cream-dark: #D5C9BC;
+      --cherry: #9A0002;
+      --cherry-light: #C41A1C;
+      --cherry-dark: #6D0001;
+      --cherry-glow: rgba(154, 0, 2, 0.3);
+      --text: #EFE6DD;
+      --text-muted: #B8AA9C;
+      --surface: #1A1410;
+      --surface-rgb: 26, 20, 16;
+      --border-color: rgba(239, 230, 221, 0.08);
+      --font-heading: 'Orbitron', sans-serif;
+      --font-body: 'Space Grotesk', sans-serif;
+      --gradient-hero: linear-gradient(135deg, #9A0002 0%, #C41A1C 40%, #EFE6DD 70%, #D5C9BC 100%);
+      --gradient-card: linear-gradient(135deg, rgba(154, 0, 2, 0.12), rgba(239, 230, 221, 0.06));
+      --gradient-btn: linear-gradient(135deg, #9A0002, #C41A1C);
+      --glow-cherry: 0 0 30px rgba(154, 0, 2, 0.4);
+      --glow-cream: 0 0 30px rgba(239, 230, 221, 0.15);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      user-select: none;
+      -webkit-user-drag: none;
+    }
+
+    html, body {
+      width: 100%;
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-weight: 400;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Cream + Cherry Scrollbar */
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: var(--bg);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: linear-gradient(180deg, var(--cherry), var(--cream));
+      border-radius: 3px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--cherry);
+    }
+
+    /* Background with cream + cherry orbs */
+    .concrete-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -3;
+      background-color: var(--bg);
+      background-image:
+        radial-gradient(at 20% 20%, rgba(154, 0, 2, 0.15) 0px, transparent 50%),
+        radial-gradient(at 80% 30%, rgba(239, 230, 221, 0.06) 0px, transparent 50%),
+        radial-gradient(at 50% 80%, rgba(154, 0, 2, 0.08) 0px, transparent 60%),
+        radial-gradient(at 10% 90%, rgba(239, 230, 221, 0.04) 0px, transparent 40%);
+      background-size: 100% 100%, 100% 100%, 100% 100%, 100% 100%;
+    }
+
+    /* Interactive Spotlights & Custom Cursor */
+    .cursor-glow {
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(154, 0, 2, 0.10) 0%, rgba(239, 230, 221, 0.04) 60%, rgba(0,0,0,0) 100%);
+      border-radius: 50%;
+      position: fixed;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      z-index: -2;
+      opacity: 0.8;
+      filter: blur(50px);
+    }
+
+    .custom-cursor {
+      width: 24px;
+      height: 24px;
+      border: 2px solid var(--cream);
+      border-radius: 50%;
+      position: fixed;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      z-index: 9999;
+      transition: width 0.3s, height 0.3s, border-color 0.3s, box-shadow 0.3s;
+      box-shadow: 0 0 20px rgba(239, 230, 221, 0.15);
+    }
+
+    .custom-cursor-dot {
+      width: 4px;
+      height: 4px;
+      background: var(--cherry);
+      border-radius: 50%;
+      position: fixed;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      z-index: 9999;
+      box-shadow: 0 0 15px var(--cherry), 0 0 30px rgba(154, 0, 2, 0.3);
+    }
+
+    /* Scroll progress bar */
+    .scroll-progress-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      z-index: 1000;
+      background: rgba(255,255,255,0.02);
+    }
+    .scroll-progress-bar {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, var(--cherry), var(--cream));
+      box-shadow: 0 0 20px rgba(154, 0, 2, 0.5);
+    }
+
+    /* 3D Canvas Container */
+    #three-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    /* Typography */
+    h1, h2, h3, h4, h5, h6 {
+      font-family: var(--font-heading);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      font-weight: 800;
+    }
+
+    p {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      font-weight: 300;
+    }
+
+    /* Utility Layout Components */
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      position: relative;
+    }
+
+    section {
+      padding: 10rem 0;
+      position: relative;
+      overflow: hidden;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .section-num {
+      font-family: var(--font-heading);
+      color: var(--cherry);
+      font-size: 0.875rem;
+      letter-spacing: 4px;
+      margin-bottom: 0.5rem;
+      display: inline-block;
+    }
+
+    .section-title {
+      font-size: 3rem;
+      font-weight: 900;
+      margin-bottom: 3.5rem;
+      display: inline-block;
+      background: linear-gradient(135deg, var(--cream) 60%, var(--cream-dark) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* -------------------------------------------------------------
+       BUTTONS & HOVERS
+       ------------------------------------------------------------- */
+    .btn-neon {
+      font-family: var(--font-heading);
+      font-size: 0.875rem;
+      letter-spacing: 2px;
+      font-weight: 700;
+      text-transform: uppercase;
+      padding: 1.25rem 2.25rem;
+      border-radius: 4px;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      text-decoration: none;
+      border: 1px solid transparent;
+    }
+
+    .btn-neon-primary {
+      background: var(--cherry);
+      color: var(--cream);
+      border-color: var(--cherry);
+      box-shadow: 0 0 25px rgba(154, 0, 2, 0.3);
+    }
+
+    .btn-neon-primary:hover {
+      background: transparent;
+      color: var(--cherry);
+      box-shadow: 0 0 40px rgba(154, 0, 2, 0.5), inset 0 0 10px rgba(154, 0, 2, 0.15);
+      transform: scale(1.02);
+    }
+
+    .btn-neon-secondary {
+      background: transparent;
+      color: var(--cream);
+      border-color: rgba(239, 230, 221, 0.15);
+    }
+
+    .btn-neon-secondary:hover {
+      border-color: var(--cream);
+      color: var(--cream);
+      box-shadow: 0 0 20px rgba(239, 230, 221, 0.2), inset 0 0 8px rgba(239, 230, 221, 0.05);
+      transform: scale(1.02);
+    }
+
+    .btn-neon-outline {
+      background: rgba(var(--surface-rgb), 0.5);
+      backdrop-filter: blur(8px);
+      color: var(--cherry);
+      border-color: var(--cherry);
+      box-shadow: 0 0 15px rgba(154, 0, 2, 0.2);
+    }
+
+    .btn-neon-outline:hover {
+      background: var(--cherry);
+      color: var(--cream);
+      box-shadow: 0 0 25px rgba(154, 0, 2, 0.6);
+      transform: scale(1.02);
+    }
+
+    /* -------------------------------------------------------------
+       HEADER & NAVIGATION
+       ------------------------------------------------------------- */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 1.5rem 0;
+      z-index: 100;
+      background: rgba(10, 10, 10, 0.7);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-color);
+      transition: padding 0.3s ease;
+    }
+
+    header.scrolled {
+      padding: 1rem 0;
+      background: rgba(10, 10, 10, 0.92);
+      border-bottom: 1px solid rgba(154, 0, 2, 0.15);
+    }
+
+    .header-wrap {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-family: var(--font-heading);
+      font-size: 1.5rem;
+      font-weight: 900;
+      letter-spacing: 2px;
+      color: var(--text);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .logo span {
+      background: linear-gradient(135deg, var(--cherry), var(--cream));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .logo i {
+      color: var(--cherry);
+      font-size: 1.3rem;
+    }
+
+    nav {
+      display: flex;
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    .nav-link {
+      font-family: var(--font-heading);
+      font-size: 0.8rem;
+      letter-spacing: 1px;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-decoration: none;
+      text-transform: uppercase;
+      position: relative;
+      transition: color 0.3s;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 0;
+      height: 1.5px;
+      background: linear-gradient(90deg, var(--cherry), var(--cream));
+      transition: width 0.3s ease;
+    }
+
+    .nav-link:hover {
+      color: var(--cream);
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    /* -------------------------------------------------------------
+       HERO SECTION
+       ------------------------------------------------------------- */
+    .hero {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 0;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .hero-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -2;
+      overflow: hidden;
+    }
+
+    .hero-bg::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to top, var(--bg) 0%, rgba(10, 10, 10, 0.2) 40%, rgba(10, 10, 10, 0.6) 100%);
+    }
+
+    .hero-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.25;
+      transform: scale(1.05);
+    }
+
+    #fog-canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: -1;
+      opacity: 0.4;
+    }
+
+    .hero-content {
+      width: 100%;
+      max-width: 800px;
+    }
+
+    .hero-pre {
+      font-family: var(--font-heading);
+      color: var(--cherry);
+      font-size: 1rem;
+      letter-spacing: 6px;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      text-shadow: 0 0 10px rgba(154, 0, 2, 0.3);
+    }
+
+    .hero-title {
+      font-size: 5.5rem;
+      font-weight: 900;
+      line-height: 0.95;
+      margin-bottom: 2rem;
+      perspective: 1000px;
+      background: linear-gradient(135deg, var(--cream) 40%, var(--cream-dark) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-title span {
+      display: inline-block;
+      transform-origin: bottom center;
+    }
+
+    .hero-subtitle {
+      font-size: 1.25rem;
+      max-width: 600px;
+      margin-bottom: 3.5rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .scroll-down {
+      position: absolute;
+      bottom: 2.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--text-muted);
+      font-size: 0.75rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-family: var(--font-heading);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .scroll-down:hover {
+      color: var(--cherry);
+    }
+
+    .scroll-down i {
+      animation: bounce 2s infinite;
+      font-size: 0.875rem;
+      color: var(--cherry);
+    }
+
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+      40% { transform: translateY(-8px); }
+      60% { transform: translateY(-4px); }
+    }
+
+    /* -------------------------------------------------------------
+       ABOUT SECTION
+       ------------------------------------------------------------- */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: center;
+    }
+
+    .about-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .about-text h2 {
+      font-size: 3rem;
+      font-weight: 900;
+      line-height: 1.1;
+      margin-bottom: 2rem;
+      background: linear-gradient(135deg, var(--cream) 60%, var(--cream-dark) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .about-highlight {
+      font-size: 1.25rem;
+      color: var(--cream);
+      font-weight: 500;
+      margin-bottom: 1.5rem;
+      border-left: 2px solid var(--cherry);
+      padding-left: 1.5rem;
+    }
+
+    .about-paragraph {
+      margin-bottom: 2rem;
+      text-align: justify;
+    }
+
+    .about-3d-frame {
+      width: 100%;
+      height: 480px;
+      border-radius: 12px;
+      border: 1px solid var(--border-color);
+      background: radial-gradient(circle at 50% 50%, rgba(var(--surface-rgb), 0.6) 0%, rgba(10, 10, 10, 0.4) 100%);
+      backdrop-filter: blur(10px);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.4);
+    }
+
+    .about-3d-frame::before {
+      content: '';
+      position: absolute;
+      inset: -1px;
+      border-radius: 12px;
+      padding: 1px;
+      background: linear-gradient(135deg, var(--cherry), var(--cream));
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+    }
+
+    .about-3d-instructions {
+      position: absolute;
+      bottom: 1.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: var(--font-heading);
+      font-size: 0.65rem;
+      letter-spacing: 2px;
+      color: var(--text-muted);
+      pointer-events: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(10, 10, 10, 0.8);
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      border: 1px solid var(--border-color);
+    }
+
+    .about-3d-instructions i {
+      color: var(--cherry);
+    }
+
+    /* -------------------------------------------------------------
+       PROGRAMS SECTION
+       ------------------------------------------------------------- */
+    .programs-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    .programs-grid .tilt-card:nth-child(4) {
+      grid-column: span 1.5;
+    }
+
+    .tilt-card {
+      background: rgba(var(--surface-rgb), 0.25);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 3rem 2.5rem;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      transform-style: preserve-3d;
+      transition: border-color 0.3s, box-shadow 0.3s;
+      display: flex;
+      flex-direction: column;
+      min-height: 380px;
+    }
+
+    .tilt-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(154, 0, 2, 0.06) 0%, rgba(239, 230, 221, 0.03) 100%);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .tilt-card::after {
+      content: '';
+      position: absolute;
+      inset: -1px;
+      border-radius: 12px;
+      padding: 1px;
+      background: linear-gradient(135deg, var(--cherry), var(--cream));
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      pointer-events: none;
+    }
+
+    .tilt-card:hover::after {
+      opacity: 1;
+    }
+
+    .tilt-card:hover {
+      border-color: rgba(154, 0, 2, 0.2);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5), 0 0 25px rgba(154, 0, 2, 0.05);
+    }
+
+    .card-icon {
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      transform: translateZ(30px);
+      display: inline-block;
+      color: var(--cherry);
+      text-shadow: 0 0 15px rgba(154, 0, 2, 0.3);
+    }
+
+    .card-title {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      transform: translateZ(40px);
+      background: linear-gradient(135deg, var(--cream) 60%, var(--cream-dark) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .card-desc {
+      transform: translateZ(20px);
+      margin-bottom: 2rem;
+      font-size: 0.95rem;
+    }
+
+    .card-link {
+      margin-top: auto;
+      font-family: var(--font-heading);
+      font-size: 0.75rem;
+      letter-spacing: 2px;
+      font-weight: 700;
+      color: var(--text);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transform: translateZ(30px);
+      transition: color 0.3s;
+    }
+
+    .tilt-card:hover .card-link {
+      color: var(--cherry);
+    }
+
+    .card-link i {
+      transition: transform 0.3s;
+    }
+
+    .tilt-card:hover .card-link i {
+      transform: translateX(5px);
+    }
+
+    /* -------------------------------------------------------------
+       TRAINERS SECTION
+       ------------------------------------------------------------- */
+    .trainers-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+    }
+
+    .trainer-card {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      height: 480px;
+      border: 1px solid var(--border-color);
+      background: var(--surface);
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+
+    .trainer-card::before {
+      content: '';
+      position: absolute;
+      inset: -1px;
+      border-radius: 12px;
+      padding: 1px;
+      background: linear-gradient(135deg, var(--cherry), var(--cream));
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+      pointer-events: none;
+      z-index: 5;
+    }
+
+    .trainer-card:hover::before {
+      opacity: 1;
+    }
+
+    .trainer-img-wrap {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      overflow: hidden;
+    }
+
+    .trainer-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.4;
+      filter: grayscale(100%);
+      transition: opacity 0.5s, transform 0.5s, filter 0.5s;
+    }
+
+    .trainer-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to top, rgba(10, 10, 10, 0.95) 0%, rgba(10, 10, 10, 0.6) 40%, rgba(10, 10, 10, 0) 100%);
+      z-index: 2;
+    }
+
+    .trainer-info {
+      position: relative;
+      z-index: 3;
+      padding: 2rem 1.5rem;
+      transform: translateY(20px);
+      transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    .trainer-card:hover .trainer-img {
+      opacity: 0.8;
+      filter: grayscale(0%);
+      transform: scale(1.05);
+    }
+
+    .trainer-card:hover .trainer-info {
+      transform: translateY(0);
+    }
+
+    .trainer-role {
+      font-family: var(--font-heading);
+      color: var(--cherry);
+      font-size: 0.75rem;
+      letter-spacing: 2px;
+      font-weight: 700;
+      margin-bottom: 0.25rem;
+    }
+
+    .trainer-name {
+      font-size: 1.5rem;
+      margin-bottom: 0.75rem;
+      background: linear-gradient(135deg, var(--cream) 60%, var(--cream-dark) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .trainer-bio {
+      font-size: 0.875rem;
+      opacity: 0;
+      max-height: 0;
+      overflow: hidden;
+      transition: opacity 0.3s, max-height 0.5s, margin-bottom 0.3s;
+    }
+
+    .trainer-card:hover .trainer-bio {
+      opacity: 1;
+      max-height: 100px;
+      margin-bottom: 1rem;
+    }
+
+    .trainer-socials {
+      display: flex;
+      gap: 1rem;
+      opacity: 0;
+      transition: opacity 0.3s 0.2s;
+    }
+
+    .trainer-card:hover .trainer-socials {
+      opacity: 1;
+    }
+
+    .trainer-socials a {
+      color: var(--text-muted);
+      font-size: 1rem;
+      transition: color 0.3s;
+    }
+
+    .trainer-socials a:hover {
+      color: var(--cherry);
+    }
+
+    /* -------------------------------------------------------------
+       GALLERY SECTION
+       ------------------------------------------------------------- */
+    .gallery-section {
+      height: 300vh;
+      position: relative;
+      overflow: visible;
+      padding: 0;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .gallery-pin-wrap {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .gallery-header {
+      padding: 0 8%;
+      margin-bottom: 3rem;
+    }
+
+    .gallery-container {
+      display: flex;
+      padding-left: 8%;
+      gap: 4rem;
+      width: max-content;
+    }
+
+    .gallery-slide {
+      position: relative;
+      width: 600px;
+      height: 420px;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border-color);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+      transition: border-color 0.3s;
+    }
+
+    .gallery-slide::before {
+      content: '';
+      position: absolute;
+      inset: -1px;
+      border-radius: 12px;
+      padding: 1px;
+      background: linear-gradient(135deg, var(--cherry), var(--cream));
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    .gallery-slide:hover::before {
+      opacity: 1;
+    }
+
+    .gallery-slide::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to top, rgba(10, 10, 10, 0.8) 0%, rgba(10, 10, 10, 0) 60%);
+      z-index: 1;
+    }
+
+    .gallery-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    .gallery-slide:hover img {
+      transform: scale(1.06);
+    }
+
+    .gallery-slide:hover {
+      border-color: rgba(154, 0, 2, 0.3);
+    }
+
+    .slide-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 2.5rem 2rem 2rem;
+      color: white;
+      z-index: 2;
+    }
+
+    .slide-caption h4 {
+      font-family: var(--font-heading);
+      font-size: 1.5rem;
+      margin-bottom: 0.25rem;
+      color: var(--cherry);
+      text-shadow: 0 0 10px rgba(154, 0, 2, 0.3);
+    }
+
+    .slide-caption p {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+    }
+
+    /* -------------------------------------------------------------
+       ACHIEVEMENTS (COUNTERS)
+       ------------------------------------------------------------- */
+    .achievements-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 3rem;
+    }
+
+    .counter-card {
+      background: rgba(var(--surface-rgb), 0.25);
+      border: 1px solid var(--border-color);
+      padding: 3rem 2rem;
+      border-radius: 12px;
+      text-align: center;
+      transition: border-color 0.3s, box-shadow 0.3s;
+      position: relative;
+    }
+
+    .counter-card::before {
+      content: '';
+      position: absolute;
+      inset: -1px;
+      border-radius: 12px;
+      padding: 1px;
+      background: linear-gradient(135deg, var(--cherry), var(--cream));
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      pointer-events: none;
+    }
+
+    .counter-card:hover::before {
+      opacity: 1;
+    }
+
+    .counter-card:hover {
+      border-color: rgba(154, 0, 2, 0.2);
+      box-shadow: 0 10px 30px rgba(154, 0, 2, 0.05);
+    }
+
+    .counter-num {
+      font-family: var(--font-heading);
+      font-size: 4rem;
+      font-weight: 900;
+      color: var(--cherry);
+      line-height: 1;
+      margin-bottom: 1rem;
+      text-shadow: 0 0 20px rgba(154, 0, 2, 0.2);
+    }
+
+    .counter-num span {
+      font-family: var(--font-heading);
+    }
+
+    .counter-label {
+      font-family: var(--font-heading);
+      font-size: 0.75rem;
+      letter-spacing: 2px;
+      font-weight: 700;
+      color: var(--text-muted);
+    }
+
+    /* -------------------------------------------------------------
+       TESTIMONIALS SECTION
+       ------------------------------------------------------------- */
+    .testimonials-wrap {
+      max-width: 900px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .testimonial-slide {
+      background: rgba(var(--surface-rgb), 0.3);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 4.5rem 4rem;
+      backdrop-filter: blur(10px);
+      position: relative;
+    }
+
+    .testimonial-slide::before {
+      content: '';
+      position: absolute;
+      inset: -1px;
+      border-radius: 16px;
+      padding: 1px;
+      background: linear-gradient(135deg, var(--cherry), var(--cream));
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      opacity: 0.5;
+      pointer-events: none;
+    }
+
+    .testimonial-slide i.quote-icon {
+      position: absolute;
+      top: 2rem;
+      left: 2.5rem;
+      font-size: 4rem;
+      color: rgba(154, 0, 2, 0.08);
+    }
+
+    .testimonial-text {
+      font-size: 1.4rem;
+      font-weight: 300;
+      color: var(--text);
+      line-height: 1.7;
+      margin-bottom: 2.5rem;
+      font-style: italic;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .author-img {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      border: 2px solid var(--cherry);
+      object-fit: cover;
+      box-shadow: 0 0 15px rgba(154, 0, 2, 0.3);
+    }
+
+    .author-info h5 {
+      font-size: 1.1rem;
+      margin-bottom: 0.25rem;
+      background: linear-gradient(135deg, var(--cream) 60%, var(--cream-dark) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .author-info p {
+      font-size: 0.85rem;
+      color: var(--cherry);
+      font-family: var(--font-heading);
+      letter-spacing: 1px;
+    }
+
+    /* Slider dots */
+    .slider-nav {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 3rem;
+    }
+
+    .slide-dot {
+      width: 10px;
+      height: 10px;
+    </style>
+</head>
+<body>
+
+  <!-- Background Layer -->
+  <div class="concrete-bg"></div>
+  <div class="cursor-glow"></div>
+  <div class="custom-cursor"></div>
+  <div class="custom-cursor-dot"></div>
+  
+  <!-- Scroll Progress -->
+  <div class="scroll-progress-container">
+    <div class="scroll-progress-bar" id="progressBar"></div>
+  </div>
+
+  <!-- Three.js 3D Background Canvas -->
+  <canvas id="three-canvas"></canvas>
+
+  <!-- -------------------------------------------------------------
+       HEADER & NAVIGATION
+       ------------------------------------------------------------- -->
+  <header id="header">
+    <div class="container header-wrap">
+      <a href="#" class="logo">
+        <i class="fa-solid fa-weight-hanging" style="color: var(--purple);"></i>
+        365<span>DEGREE</span>
+      </a>
+      
+      <nav>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#programs" class="nav-link">Programs</a>
+        <a href="#trainers" class="nav-link">Trainers</a>
+        <a href="#gallery" class="nav-link">Sanctuary</a>
+        <a href="#pricing" class="nav-link">Memberships</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
+      
+      <div class="header-actions">
+        <a href="#contact" class="btn-neon btn-neon-secondary" style="padding: 0.75rem 1.5rem; font-size: 0.75rem;">BOOK WORKOUT</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- -------------------------------------------------------------
+       HERO SECTION
+       ------------------------------------------------------------- -->
+  <section class="hero" id="home">
+    <div class="hero-bg">
+      <img src="https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?q=80&w=1920&auto=format&fit=crop" class="hero-img" alt="Elite Gym Training">
+      <!-- 2D Canvas Overlay for moving fog -->
+      <canvas id="fog-canvas"></canvas>
+    </div>
+    
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-pre">365 DEGREE</div>
+        <h1 class="hero-title" id="hero-title">DEFY GRAVITY.</h1>
+        <p class="hero-subtitle">Train harder. Lift heavier. Become unstoppable. The ultimate luxury facility for human power and athletic transformation.</p>
+        <div class="hero-buttons">
+          <a href="#pricing" class="btn-neon btn-neon-primary">JOIN THE MOVEMENT</a>
+          <a href="#programs" class="btn-neon btn-neon-secondary">VIEW PROGRAMS</a>
+        </div>
+      </div>
+    </div>
+    
+    <a href="#about" class="scroll-down">
+      Scroll Down
+      <i class="fa-solid fa-chevron-down"></i>
+    </a>
+  </section>
+
+  <!-- -------------------------------------------------------------
+       ABOUT SECTION ("OUR MISSION")
+       ------------------------------------------------------------- -->
+  <section id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-text">
+          <span class="section-num">01 // THE ARCHITECTURE OF POWER</span>
+          <h2 class="section-title">OUR MISSION</h2>
+          <div class="about-highlight">We refuse to accept limitations. We train to break them.</div>
+          <p class="about-paragraph">
+            365 DEGREE is not a gym. It is a high-performance sanctuary engineered for the elite. We combine dark, industrial aesthetics with heavy iron and state-of-the-art bio-density diagnostics.
+          </p>
+          <p class="about-paragraph">
+            Our concrete walls echo with the sound of steel plates and focused intensity. Here, anti-gravity isn't about floating in space—it is the mental and physical force required to push loads that warp expectation.
+          </p>
+          <div>
+            <a href="#contact" class="btn-neon btn-neon-outline">EXPLORE THE LAB</a>
+          </div>
+        </div>
+        
+        <!-- Three.js Integrated Interactive Box -->
+        <div class="about-3d-frame" id="about-3d-anchor">
+          <!-- Instruction overlay -->
+          <div class="about-3d-instructions">
+            <i class="fa-solid fa-arrows-spin"></i> DRAG TO ROTATE DEFY CORE
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- -------------------------------------------------------------
+       PROGRAMS SECTION
+       ------------------------------------------------------------- -->
+  <section id="programs">
+    <div class="container">
+      <div class="text-center" style="text-align: center; margin-bottom: 2rem;">
+        <span class="section-num">02 // PROTOCOLS</span>
+        <h2 class="section-title" style="margin-bottom: 0.5rem;">TRAINING PROTOCOLS</h2>
+        <p style="max-width: 600px; margin: 0 auto 4rem;">Choose your methodology. Each track is designed for complete physiological supremacy.</p>
+      </div>
+      
+      <div class="programs-grid">
+        
+        <!-- Card 1 -->
+        <div class="tilt-card cyan-glow" data-tilt>
+          <div class="card-icon"><i class="fa-solid fa-dumbbell"></i></div>
+          <h3 class="card-title">STRENGTH</h3>
+          <p class="card-desc">Master compound lifting mechanics. Focus on progressive overload, raw power cages, and specialized barbell protocols.</p>
+          <a href="#contact" class="card-link">CHOOSE STRENGTH <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+        
+        <!-- Card 2 -->
+        <div class="tilt-card gold-glow" data-tilt>
+          <div class="card-icon"><i class="fa-solid fa-weight-scale"></i></div>
+          <h3 class="card-title">POWERLIFTING</h3>
+          <p class="card-desc">Maximize your Squat, Bench, and Deadlift. Calibrated steel, IPF-spec racks, and personalized mechanical analysis.</p>
+          <a href="#contact" class="card-link">CHOOSE POWER <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+        
+        <!-- Card 3 -->
+        <div class="tilt-card purple-glow" data-tilt>
+          <div class="card-icon"><i class="fa-solid fa-fire-flame-curved"></i></div>
+          <h3 class="card-title">BODYBUILDING</h3>
+          <p class="card-desc">Targeted hypertrophy, mechanical tension optimization, and absolute density. Unlock physical perfection.</p>
+          <a href="#contact" class="card-link">CHOOSE BODYBUILDING <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+        
+        <!-- Card 4 -->
+        <div class="tilt-card cyan-glow" data-tilt>
+          <div class="card-icon"><i class="fa-solid fa-bolt"></i></div>
+          <h3 class="card-title">FAT LOSS</h3>
+          <p class="card-desc">High-density metabolic conditioning designed to force lipid oxidation while maintaining absolute lean muscle mass.</p>
+          <a href="#contact" class="card-link">CHOOSE CONDITIONAL <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+        
+        <!-- Card 5 -->
+        <div class="tilt-card gold-glow" data-tilt>
+          <div class="card-icon"><i class="fa-solid fa-person-running"></i></div>
+          <h3 class="card-title">ATHLETIC CONDITIONING</h3>
+          <p class="card-desc">Dynamic speed, multidirectional power, and metabolic endurance. Built to make elite athletes perform without limits.</p>
+          <a href="#contact" class="card-link">CHOOSE ATHLETICS <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+
+  <!-- -------------------------------------------------------------
+       TRAINERS SECTION
+       ------------------------------------------------------------- -->
+  <section id="trainers">
+    <div class="container">
+      <span class="section-num">03 // THE GRAVITY ARCHITECTS</span>
+      <h2 class="section-title">ELITE COACHING STAFF</h2>
+      
+      <div class="trainers-grid">
+        
+        <!-- Trainer 1 -->
+        <div class="trainer-card">
+          <div class="trainer-img-wrap">
+            <img src="https://images.unsplash.com/photo-1567013127542-490d757e51fc?auto=format&fit=crop&w=800&q=80" class="trainer-img" alt="Marcus Vane">
+          </div>
+          <div class="trainer-overlay"></div>
+          <div class="trainer-info">
+            <span class="trainer-role">HEAD OF STRENGTH</span>
+            <h3 class="trainer-name">MARCUS VANE</h3>
+            <p class="trainer-bio">Former Olympic competitor. Specializes in force-velocity curves and maximal load mechanics.</p>
+            <div class="trainer-socials">
+              <a href="#"><i class="fa-brands fa-instagram"></i></a>
+              <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+              <a href="#"><i class="fa-solid fa-circle-play"></i></a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Trainer 2 -->
+        <div class="trainer-card">
+          <div class="trainer-img-wrap">
+            <img src="https://images.unsplash.com/photo-1507398941214-572c25f4b1dc?auto=format&fit=crop&w=800&q=80" class="trainer-img" alt="Sarah Kai">
+          </div>
+          <div class="trainer-overlay"></div>
+          <div class="trainer-info">
+            <span class="trainer-role">POWERLIFTING DIRECTOR</span>
+            <h3 class="trainer-name">SARAH KAI</h3>
+            <p class="trainer-bio">IPF World Medalist. Architect of elite Squat and Deadlift leverages and competition coaching.</p>
+            <div class="trainer-socials">
+              <a href="#"><i class="fa-brands fa-instagram"></i></a>
+              <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+              <a href="#"><i class="fa-solid fa-circle-play"></i></a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Trainer 3 -->
+        <div class="trainer-card">
+          <div class="trainer-img-wrap">
+            <img src="https://images.unsplash.com/photo-1605296867424-35fc25c9212a?auto=format&fit=crop&w=800&q=80" class="trainer-img" alt="Elijah Drake">
+          </div>
+          <div class="trainer-overlay"></div>
+          <div class="trainer-info">
+            <span class="trainer-role">HYPERTROPHY SPECIALIST</span>
+            <h3 class="trainer-name">ELIJAH DRAKE</h3>
+            <p class="trainer-bio">IFBB Pro. Combines clinical hypertrophy research with high-intensity execution protocols.</p>
+            <div class="trainer-socials">
+              <a href="#"><i class="fa-brands fa-instagram"></i></a>
+              <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+              <a href="#"><i class="fa-solid fa-circle-play"></i></a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Trainer 4 -->
+        <div class="trainer-card">
+          <div class="trainer-img-wrap">
+            <img src="https://images.unsplash.com/photo-1548690312-e3b507d8c110?auto=format&fit=crop&w=800&q=80" class="trainer-img" alt="Athena Chen">
+          </div>
+          <div class="trainer-overlay"></div>
+          <div class="trainer-info">
+            <span class="trainer-role">ATHLETIC CONDITIONING</span>
+            <h3 class="trainer-name">ATHENA CHEN</h3>
+            <p class="trainer-bio">D1 Sprinter coach. Expert in deceleration mechanics, elastic recoil, and metabolic capacity.</p>
+            <div class="trainer-socials">
+              <a href="#"><i class="fa-brands fa-instagram"></i></a>
+              <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+              <a href="#"><i class="fa-solid fa-circle-play"></i></a>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+
+  <!-- -------------------------------------------------------------
+       GALLERY SECTION (HORIZONTAL SCROLLING)
+       ------------------------------------------------------------- -->
+  <section id="gallery" class="gallery-section">
+    <div class="gallery-pin-wrap">
+      <div class="gallery-header">
+        <span class="section-num">04 // SHADOW & IRON</span>
+        <h2 class="section-title" style="margin-bottom: 0;">THE SANCTUARY</h2>
+      </div>
+      <div class="gallery-container">
+        
+        <!-- Slide 1 -->
+        <div class="gallery-slide">
+          <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1000&q=80" alt="Massive Racks">
+          <div class="slide-caption">
+            <h4>MATTE BLACK STEEL</h4>
+            <p>Our heavy-duty squat racks are built to withstand immense pressure.</p>
+          </div>
+        </div>
+        
+        <!-- Slide 2 -->
+        <div class="gallery-slide">
+          <img src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=1000&q=80" alt="Deadlift platform">
+          <div class="slide-caption">
+            <h4>THE DEADLIFT ZONE</h4>
+            <p>Calibrated steel plates, chalk, and vibration-dampening platforms.</p>
+          </div>
+        </div>
+        
+        <!-- Slide 3 -->
+        <div class="gallery-slide">
+          <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?auto=format&fit=crop&w=1000&q=80" alt="LED Cage">
+          <div class="slide-caption">
+            <h4>LED INDUSTRIAL ARCHITECTURE</h4>
+            <p>Dynamic lighting systems aligned to match human cortisol curves.</p>
+          </div>
+        </div>
+        
+        <!-- Slide 4 -->
+        <div class="gallery-slide">
+          <img src="https://images.unsplash.com/photo-1593079831268-3381b0db4a77?auto=format&fit=crop&w=1000&q=80" alt="Olympic Barbell">
+          <div class="slide-caption">
+            <h4>OLYMPIC PLATFORMS</h4>
+            <p>IWF-certified barbells and dropzones for elite power lifting.</p>
+          </div>
+        </div>
+        
+        <!-- Slide 5 -->
+        <div class="gallery-slide">
+          <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=1000&q=80" alt="Premium Gym Equipment">
+          <div class="slide-caption">
+            <h4>RECOVERY LOUNGE</h4>
+            <p>State of the art cold plunge and heat therapy infra-cabins.</p>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+
+  <!-- -------------------------------------------------------------
+       ACHIEVEMENTS
+       ------------------------------------------------------------- -->
+  <section id="achievements">
+    <div class="container">
+      <div class="achievements-grid">
+        
+        <!-- Counter 1 -->
+        <div class="counter-card">
+          <div class="counter-num" id="count-space"><span class="counter-val" data-target="12000">0</span>+</div>
+          <div class="counter-label">SQ. FT. SANCTUARY</div>
+        </div>
+        
+        <!-- Counter 2 -->
+        <div class="counter-card">
+          <div class="counter-num" id="count-coaches"><span class="counter-val" data-target="25">0</span>+</div>
+          <div class="counter-label">ELITE MASTER COACHES</div>
+        </div>
+        
+        <!-- Counter 3 -->
+        <div class="counter-card">
+          <div class="counter-num" id="count-steel"><span class="counter-val" data-target="100">0</span>+</div>
+          <div class="counter-label">OLYMPIC BARBELLS</div>
+        </div>
+        
+        <!-- Counter 4 -->
+        <div class="counter-card" style="border-color: rgba(251, 191, 36, 0.2);">
+          <div class="counter-num" style="color: var(--gold);"><span class="counter-val" data-target="0">0</span>%</div>
+          <div class="counter-label" style="color: var(--gold);">LIMITATIONS ACCEPTED</div>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+
+  <!-- -------------------------------------------------------------
+       TESTIMONIALS SECTION
+       ------------------------------------------------------------- -->
+  <section id="testimonials">
+    <div class="container">
+      <div class="text-center" style="text-align: center; margin-bottom: 4rem;">
+        <span class="section-num">05 // ATHLETE REPORTS</span>
+        <h2 class="section-title">THE TRIBE'S VOICE</h2>
+      </div>
+      
+      <div class="testimonials-wrap">
+        
+        <!-- Slides -->
+        <div class="testimonial-slide" id="testimonial-container">
+          <i class="fa-solid fa-quote-left quote-icon"></i>
+          <p class="testimonial-text" id="testimonial-quote">
+            "Training here completely redefined my threshold for physical limits. The visual layout, concrete feel, and high-caliber athletes surrounding you creates an competitive energy that you cannot replicate elsewhere."
+          </p>
+          <div class="testimonial-author">
+            <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=150&q=80" id="testimonial-author-img" class="author-img" alt="David G.">
+            <div class="author-info">
+              <h5 id="testimonial-author-name">DAVID GALE</h5>
+              <p id="testimonial-author-title">WORLD RECORD RAW POWERLIFTER</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Navigation -->
+        <div class="slider-nav">
+          <div class="slide-dot active" data-index="0"></div>
+          <div class="slide-dot" data-index="1"></div>
+          <div class="slide-dot" data-index="2"></div>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+
+  <!-- -------------------------------------------------------------
+       MEMBERSHIP PLANS (PRICING)
+       ------------------------------------------------------------- -->
+  <section id="pricing">
+    <div class="container">
+      <div class="pricing-header-wrap">
+        <span class="section-num">06 // MEMBERSHIP PLANS</span>
+        <h2 class="section-title">CHOOSE YOUR ACCESS TIER</h2>
+        
+        <div class="pricing-toggle-wrap">
+          <button class="toggle-btn active" id="btn-monthly">MONTHLY</button>
+          <button class="toggle-btn" id="btn-annual">ANNUAL (20% OFF)</button>
+        </div>
+      </div>
+      
+      <div class="pricing-grid">
+        
+        <!-- Plan 1 -->
+        <div class="pricing-card">
+          <h3 class="plan-name">IRON ACCESS</h3>
+          <div class="plan-price-wrap">
+            <span class="price-currency">$</span>
+            <span class="plan-price" id="price-iron" data-monthly="149" data-annual="119">149</span>
+            <span class="price-period">/ month</span>
+          </div>
+          <ul class="plan-features">
+            <li><i class="fa-solid fa-circle-check"></i> Unlimited Access to Strength Zones</li>
+            <li><i class="fa-solid fa-circle-check"></i> Standard Barbell & Dumbbell Stations</li>
+            <li><i class="fa-solid fa-circle-check"></i> Premium Locker Room & Sauna access</li>
+            <li><i class="fa-solid fa-circle-check"></i> Biometric tracking app support</li>
+          </ul>
+          <a href="#contact" class="btn-neon btn-neon-secondary plan-btn">SELECT ACCESS</a>
+        </div>
+        
+        <!-- Plan 2 -->
+        <div class="pricing-card featured">
+          <span class="plan-tag">RECOMMENDED</span>
+          <h3 class="plan-name">ELITE STRENGTH</h3>
+          <div class="plan-price-wrap">
+            <span class="price-currency">$</span>
+            <span class="plan-price" id="price-elite" data-monthly="299" data-annual="239">299</span>
+            <span class="price-period">/ month</span>
+          </div>
+          <ul class="plan-features">
+            <li><i class="fa-solid fa-circle-check"></i> Everything in Iron Access</li>
+            <li><i class="fa-solid fa-circle-check"></i> 4x Monthly Sessions with Elite Coaches</li>
+            <li><i class="fa-solid fa-circle-check"></i> Calibrated Competition Cage Platforms</li>
+            <li><i class="fa-solid fa-circle-check"></i> Infrared recovery lounge & cold plunge</li>
+            <li><i class="fa-solid fa-circle-check"></i> Personalized mechanical video feedback</li>
+          </ul>
+          <a href="#contact" class="btn-neon btn-neon-primary plan-btn">SELECT ELITE</a>
+        </div>
+        
+        <!-- Plan 3 -->
+        <div class="pricing-card purple-glow">
+          <span class="plan-tag">ELITE ONLY</span>
+          <h3 class="plan-name">GRAVITY ZERO</h3>
+          <div class="plan-price-wrap">
+            <span class="price-currency">$</span>
+            <span class="plan-price" id="price-zero" data-monthly="590" data-annual="472">590</span>
+            <span class="price-period">/ month</span>
+          </div>
+          <ul class="plan-features">
+            <li><i class="fa-solid fa-circle-check"></i> Everything in Elite Strength</li>
+            <li><i class="fa-solid fa-circle-check"></i> Daily personal coaching & nutrition programming</li>
+            <li><i class="fa-solid fa-circle-check"></i> 24/7 keycard entry & private locker room</li>
+            <li><i class="fa-solid fa-circle-check"></i> Full recovery bar & supplement allowance</li>
+            <li><i class="fa-solid fa-circle-check"></i> Dynamic biomechanics checkups twice a month</li>
+          </ul>
+          <a href="#contact" class="btn-neon btn-neon-outline plan-btn">SELECT ZERO</a>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+
+  <!-- -------------------------------------------------------------
+       CONTACT SECTION
+       ------------------------------------------------------------- -->
+  <section id="contact" style="border-bottom: none;">
+    <div class="container">
+      <div class="contact-grid">
+        
+        <div class="contact-info">
+          <div>
+            <span class="section-num">07 // COMMENCE TRAINING</span>
+            <h2 class="section-title">JOIN THE LAB</h2>
+            <p style="max-width: 500px;">
+              Ready to break human limits? Submit your credentials to request an intake evaluation at the 365 DEGREE facility.
+            </p>
+          </div>
+          
+          <div class="contact-details">
+            
+            <div class="detail-item">
+              <div class="detail-icon"><i class="fa-solid fa-location-dot"></i></div>
+              <div class="detail-content">
+                <h4>HQ LOCATION</h4>
+                <p>100 Steel Core Boulevard, Concrete District, CD 10101</p>
+              </div>
+            </div>
+            
+            <div class="detail-item">
+              <div class="detail-icon"><i class="fa-solid fa-phone"></i></div>
+              <div class="detail-content">
+                <h4>VOICE INTAKE</h4>
+                <a href="tel:+18005553650">+1 (800) 555-3650</a>
+              </div>
+            </div>
+            
+            <div class="detail-item">
+              <div class="detail-icon"><i class="fa-solid fa-envelope"></i></div>
+              <div class="detail-content">
+                <h4>SECURE EMAIL</h4>
+                <a href="mailto:intake@365degree.fit">intake@365degree.fit</a>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+        
+        <div class="contact-form-wrap">
+          <form class="contact-form" id="intake-form">
+            
+            <div class="form-group">
+              <input type="text" id="name" class="form-input" placeholder=" " required autocomplete="off">
+              <label for="name" class="form-label">FULL NAME</label>
+            </div>
+            
+            <div class="form-group">
+              <input type="email" id="email" class="form-input" placeholder=" " required autocomplete="off">
+              <label for="email" class="form-label">EMAIL ADDRESS</label>
+            </div>
+            
+            <div class="form-group">
+              <input type="text" id="goals" class="form-input" placeholder=" " required autocomplete="off">
+              <label for="goals" class="form-label">PRIMARY DISCIPLINE (e.g. Powerlifting)</label>
+            </div>
+            
+            <div class="form-group">
+              <textarea id="message" class="form-input" placeholder=" " required></textarea>
+              <label for="message" class="form-label">INTAKE NOTES / CURRENT MAX LIFTS</label>
+            </div>
+            
+            <button type="submit" class="btn-neon btn-neon-primary" style="margin-top: 1.5rem;">
+              SUBMIT credentials <i class="fa-solid fa-arrow-right-to-bracket"></i>
+            </button>
+            
+          </form>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+
+  <!-- -------------------------------------------------------------
+       FOOTER
+       ------------------------------------------------------------- -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        
+        <div class="footer-brand">
+          <a href="#" class="logo" style="margin-bottom: 1rem; display: inline-flex;">
+            <i class="fa-solid fa-weight-hanging" style="color: var(--purple);"></i>
+            365<span>DEGREE</span>
+          </a>
+          <p>DEFY GRAVITY. EVERY SINGLE DAY. High-end training systems, concrete sanctuaries, and zero physical limits.</p>
+        </div>
+        
+        <div>
+          <h4 class="footer-title">NAVIGATION</h4>
+          <ul class="footer-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#programs">Protocols</a></li>
+            <li><a href="#trainers">Architects</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="footer-title">LEGAL / DATA</h4>
+          <ul class="footer-links">
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Protocol</a></li>
+            <li><a href="#">Biometric Waiver</a></li>
+            <li><a href="#">HQ Access Rules</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="footer-title">THE TRANSMISSION</h4>
+          <p style="font-size: 0.85rem; margin-bottom: 1rem;">Subscribe to secure training insights, intake openings, and private events.</p>
+          <form class="newsletter-form" id="newsletter-form">
+            <div class="newsletter-input-wrap">
+              <input type="email" class="newsletter-input" placeholder="ENTER SECURE EMAIL" required autocomplete="off">
+              <button type="submit" class="newsletter-btn"><i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+          </form>
+        </div>
+        
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2026 365 DEGREE GYM. ALL RIGHTS PROTECTED. UNDER THE GRAVITY PROTOCOL.</p>
+        <div class="social-icons">
+          <a href="#"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#"><i class="fa-brands fa-youtube"></i></a>
+          <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- -------------------------------------------------------------
+       SCRIPT LIBRARIES (CDNs)
+       ------------------------------------------------------------- -->
+  <!-- Three.js (3D Scenes) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <!-- GSAP & ScrollTrigger (Smooth animations) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <!-- Lenis (Smooth scrolling) -->
+  <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
+  <!-- VanillaTilt (3D Tilt effect) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
+
+  <script>
+    /* -------------------------------------------------------------
+       CUSTOM CURSOR & GLOW BACKDROP
+       ------------------------------------------------------------- */
+    const cursor = document.querySelector('.custom-cursor');
+    const cursorDot = document.querySelector('.custom-cursor-dot');
+    const cursorGlow = document.querySelector('.cursor-glow');
+
+    let cX = 0, cY = 0, tX = 0, tY = 0;
+
+    window.addEventListener('mousemove', (e) => {
+      tX = e.clientX;
+      tY = e.clientY;
+    });
+
+    function updateCursor() {
+      cX += (tX - cX) * 0.15;
+      cY += (tY - cY) * 0.15;
+      
+      cursor.style.left = cX + 'px';
+      cursor.style.top = cY + 'px';
+      
+      cursorDot.style.left = tX + 'px';
+      cursorDot.style.top = tY + 'px';
+      
+      cursorGlow.style.left = tX + 'px';
+      cursorGlow.style.top = tY + 'px';
+      
+      requestAnimationFrame(updateCursor);
+    }
+    updateCursor();
+
+    // Expand cursor on hover
+    document.querySelectorAll('a, button, .tilt-card, .trainer-card, .btn-neon, .slide-dot, .toggle-btn').forEach(el => {
+      el.addEventListener('mouseenter', () => {
+        cursor.style.width = '55px';
+        cursor.style.height = '55px';
+        cursor.style.borderColor = 'var(--purple)';
+        cursor.style.boxShadow = '0 0 15px rgba(139, 92, 246, 0.4)';
+      });
+      el.addEventListener('mouseleave', () => {
+        cursor.style.width = '24px';
+        cursor.style.height = '24px';
+        cursor.style.borderColor = 'var(--cyan)';
+        cursor.style.boxShadow = 'none';
+      });
+    });
+
+    /* -------------------------------------------------------------
+       SCROLL PROGRESS BAR
+       ------------------------------------------------------------- */
+    window.addEventListener('scroll', () => {
+      const progressBar = document.getElementById('progressBar');
+      const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      progressBar.style.width = scrolled + '%';
+    });
+
+    /* -------------------------------------------------------------
+       HERO CINEMATIC 2D FOG CANVAS
+       ------------------------------------------------------------- */
+    const fogCanvas = document.getElementById('fog-canvas');
+    const fCtx = fogCanvas.getContext('2d');
+    let fWidth = fogCanvas.width = fogCanvas.offsetWidth;
+    let fHeight = fogCanvas.height = fogCanvas.offsetHeight;
+
+    window.addEventListener('resize', () => {
+      fWidth = fogCanvas.width = fogCanvas.offsetWidth;
+      fHeight = fogCanvas.height = fogCanvas.offsetHeight;
+    });
+
+    const fogParticles = [];
+    for (let i = 0; i < 40; i++) {
+      fogParticles.push({
+        x: Math.random() * fWidth,
+        y: Math.random() * fHeight * 0.4 + fHeight * 0.5, // concentrated at the bottom half
+        r: Math.random() * 180 + 120,
+        vx: Math.random() * 0.2 + 0.05, // drifting horizontally rightward
+        vy: Math.random() * 0.05 - 0.025,
+        alpha: Math.random() * 0.12 + 0.03
+      });
+    }
+
+    function animateFog() {
+      fCtx.clearRect(0, 0, fWidth, fHeight);
+      fogParticles.forEach(p => {
+        p.x += p.vx;
+        p.y += p.vy;
+        
+        // Boundaries
+        if (p.x - p.r > fWidth) p.x = -p.r;
+        if (p.x + p.r < 0) p.x = fWidth + p.r;
+        if (p.y - p.r > fHeight) p.y = fHeight + p.r;
+        if (p.y + p.r < 0) p.y = -p.r;
+        
+        const grad = fCtx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.r);
+        grad.addColorStop(0, `rgba(18, 18, 26, ${p.alpha})`);
+        grad.addColorStop(0.5, `rgba(11, 11, 15, ${p.alpha * 0.4})`);
+        grad.addColorStop(1, 'rgba(11, 11, 15, 0)');
+        
+        fCtx.fillStyle = grad;
+        fCtx.beginPath();
+        fCtx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        fCtx.fill();
+      });
+      requestAnimationFrame(animateFog);
+    }
+    animateFog();
+
+    /* -------------------------------------------------------------
+       THREE.JS INTERACTIVE 3D ENVIRONMENT (BACKGROUND SCROLL-COUPLED)
+       ------------------------------------------------------------- */
+    const tCanvas = document.getElementById('three-canvas');
+    const scene = new THREE.Scene();
+    
+    // Set subtle scene fog to blend background elements into the abyss
+    scene.fog = new THREE.FogExp2(0x0B0B0F, 0.025);
+
+    const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 100);
+    camera.position.set(0, 0, 5);
+
+    const renderer = new THREE.WebGLRenderer({
+      canvas: tCanvas,
+      antialias: true,
+      alpha: true
+    });
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.shadowMap.enabled = true;
+    renderer.toneMapping = THREE.ACESFilmicToneMapping;
+
+    // Responsive Canvas Resize
+    window.addEventListener('resize', () => {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+
+    // Lights
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.15);
+    scene.add(ambientLight);
+
+    // Dynamic light color accents
+    const purpleLight = new THREE.PointLight(0x8B5CF6, 2.5, 20);
+    purpleLight.position.set(5, 5, 2);
+    scene.add(purpleLight);
+
+    const cyanLight = new THREE.PointLight(0x06B6D4, 2.5, 20);
+    cyanLight.position.set(-5, -5, 2);
+    scene.add(cyanLight);
+
+    // Mouse Spotlight following cursor
+    const mouseLight = new THREE.SpotLight(0xFBBF24, 6, 25, Math.PI / 6, 0.5, 1);
+    mouseLight.position.set(0, 0, 8);
+    scene.add(mouseLight);
+    scene.add(mouseLight.target);
+
+    // Procedural dumbbell geometry constructor
+    function createDumbbell() {
+      const dbGroup = new THREE.Group();
+      
+      // Handle
+      const handleGeom = new THREE.CylinderGeometry(0.06, 0.06, 1.2, 16);
+      const metalMat = new THREE.MeshStandardMaterial({
+        color: 0x8e8e9c,
+        metalness: 0.9,
+        roughness: 0.25
+      });
+      const handle = new THREE.Mesh(handleGeom, metalMat);
+      handle.rotation.x = Math.PI / 2;
+      dbGroup.add(handle);
+
+      // Plates
+      const plateMat = new THREE.MeshStandardMaterial({
+        color: 0x1f1f2e,
+        metalness: 0.75,
+        roughness: 0.55
+      });
+      
+      const sizes = [
+        { r: 0.35, t: 0.1, z: 0.4 },
+        { r: 0.30, t: 0.1, z: 0.52 },
+        { r: 0.25, t: 0.08, z: 0.62 }
+      ];
+
+      sizes.forEach(sz => {
+        // Left end
+        const plGeom = new THREE.CylinderGeometry(sz.r, sz.r, sz.t, 32);
+        const pl = new THREE.Mesh(plGeom, plateMat);
+        pl.rotation.x = Math.PI / 2;
+        pl.position.z = -sz.z;
+        dbGroup.add(pl);
+
+        // Right end
+        const pr = pl.clone();
+        pr.position.z = sz.z;
+        dbGroup.add(pr);
+      });
+
+      // Knurling/Locks
+      const lockGeom = new THREE.CylinderGeometry(0.09, 0.09, 0.08, 16);
+      const lockL = new THREE.Mesh(lockGeom, metalMat);
+      lockL.rotation.x = Math.PI / 2;
+      lockL.position.z = -0.68;
+      dbGroup.add(lockL);
+
+      const lockR = lockL.clone();
+      lockR.position.z = 0.68;
+      dbGroup.add(lockR);
+
+      return dbGroup;
+    }
+
+    // Procedural weight plate geometry constructor
+    function createWeightPlate() {
+      const plateGroup = new THREE.Group();
+      
+      const plateMat = new THREE.MeshStandardMaterial({
+        color: 0x111116,
+        metalness: 0.8,
+        roughness: 0.5
+      });
+
+      const metalMat = new THREE.MeshStandardMaterial({
+        color: 0x777788,
+        metalness: 0.9,
+        roughness: 0.25
+      });
+
+      // Disc
+      const discGeom = new THREE.CylinderGeometry(0.7, 0.7, 0.1, 32);
+      const disc = new THREE.Mesh(discGeom, plateMat);
+      disc.rotation.x = Math.PI / 2;
+      plateGroup.add(disc);
+
+      // Rim
+      const rimGeom = new THREE.TorusGeometry(0.7, 0.06, 12, 32);
+      const rim = new THREE.Mesh(rimGeom, plateMat);
+      rim.rotation.x = Math.PI / 2;
+      plateGroup.add(rim);
+
+      // Steel center insert
+      const centerGeom = new THREE.CylinderGeometry(0.15, 0.15, 0.12, 16);
+      const center = new THREE.Mesh(centerGeom, metalMat);
+      center.rotation.x = Math.PI / 2;
+      plateGroup.add(center);
+
+      // Neon brand line
+      const ringGeom = new THREE.TorusGeometry(0.45, 0.012, 8, 32);
+      const neonMat = new THREE.MeshBasicMaterial({ color: 0x06B6D4 });
+      const ring = new THREE.Mesh(ringGeom, neonMat);
+      ring.position.z = 0.06;
+      plateGroup.add(ring);
+
+      return plateGroup;
+    }
+
+    // Create 3D Gyroscope-styled gym logo core
+    function createGyroscopeCore() {
+      const gyroGroup = new THREE.Group();
+      
+      // Center sphere
+      const coreGeom = new THREE.OctahedronGeometry(0.4, 1);
+      const coreMat = new THREE.MeshStandardMaterial({
+        color: 0xFBBF24,
+        metalness: 0.9,
+        roughness: 0.2,
+        emissive: 0xFBBF24,
+        emissiveIntensity: 0.3
+      });
+      const core = new THREE.Mesh(coreGeom, coreMat);
+      gyroGroup.add(core);
+
+      // Inner Ring (Cyan)
+      const ring1Geom = new THREE.TorusGeometry(0.7, 0.02, 8, 64);
+      const ring1Mat = new THREE.MeshBasicMaterial({ color: 0x06B6D4 });
+      const ring1 = new THREE.Mesh(ring1Geom, ring1Mat);
+      gyroGroup.add(ring1);
+
+      // Middle Ring (Purple)
+      const ring2Geom = new THREE.TorusGeometry(0.95, 0.02, 8, 64);
+      const ring2Mat = new THREE.MeshBasicMaterial({ color: 0x8B5CF6 });
+      const ring2 = new THREE.Mesh(ring2Geom, ring2Mat);
+      ring2.rotation.x = Math.PI / 4;
+      gyroGroup.add(ring2);
+
+      // Outer Ring (Gold)
+      const ring3Geom = new THREE.TorusGeometry(1.2, 0.02, 8, 64);
+      const ring3Mat = new THREE.MeshBasicMaterial({ color: 0xFBBF24 });
+      const ring3 = new THREE.Mesh(ring3Geom, ring3Mat);
+      ring3.rotation.y = Math.PI / 4;
+      gyroGroup.add(ring3);
+
+      return { group: gyroGroup, core, ring1, ring2, ring3 };
+    }
+
+    // Populate objects inside scene at staggered depths (Y coordinates)
+    const objects = [];
+
+    // 1. Gyroscope Logo in Hero Section (Y ≈ 0)
+    const gyro = createGyroscopeCore();
+    gyro.group.position.set(0, 0.5, 0);
+    scene.add(gyro.group);
+    objects.push({ mesh: gyro.group, type: 'gyro', speedX: 0.005, speedY: 0.01 });
+
+    // 2. Staggered floating dumbbells & weight plates down the Y axis
+    const floaters = [
+      { creator: createDumbbell, pos: [-2.2, -6, -2], rot: [0.5, 0.8, 0.2] },
+      { creator: createWeightPlate, pos: [2.5, -9, -1], rot: [0.1, 0.3, 0.9] },
+      
+      { creator: createDumbbell, pos: [2.2, -16, -2], rot: [0.6, 0.2, 0.5] },
+      { creator: createWeightPlate, pos: [-2.4, -20, -1], rot: [0.8, 0.9, 0.1] },
+
+      { creator: createDumbbell, pos: [-2.0, -28, -2], rot: [0.2, 0.4, 0.9] },
+      { creator: createWeightPlate, pos: [2.3, -33, -1], rot: [0.9, 0.1, 0.5] },
+
+      { creator: createWeightPlate, pos: [-2.5, -42, -2], rot: [0.4, 0.8, 0.2] }
+    ];
+
+    floaters.forEach(fl => {
+      const mesh = fl.creator();
+      mesh.position.set(fl.pos[0], fl.pos[1], fl.pos[2]);
+      mesh.rotation.set(fl.rot[0], fl.rot[1], fl.rot[2]);
+      scene.add(mesh);
+      objects.push({ 
+        mesh: mesh, 
+        type: 'floater', 
+        speedX: Math.random() * 0.008 + 0.002, 
+        speedY: Math.random() * 0.008 + 0.002,
+        baseY: fl.pos[1]
+      });
+    });
+
+    // 3. Floating Dust Particles/Sparks
+    const pCount = 500;
+    const pGeometry = new THREE.BufferGeometry();
+    const pPositions = new Float32Array(pCount * 3);
+
+    for (let i = 0; i < pCount; i++) {
+      pPositions[i * 3] = (Math.random() - 0.5) * 12; // x
+      pPositions[i * 3 + 1] = Math.random() * -50 + 5; // y (spread along vertical axis)
+      pPositions[i * 3 + 2] = (Math.random() - 0.5) * 6;  // z
+    }
+
+    pGeometry.setAttribute('position', new THREE.BufferAttribute(pPositions, 3));
+    
+    const pMaterial = new THREE.PointsMaterial({
+      color: 0x06B6D4,
+      size: 0.04,
+      transparent: true,
+      opacity: 0.5
+    });
+
+    const particleField = new THREE.Points(pGeometry, pMaterial);
+    scene.add(particleField);
+
+    // About Section 3D Viewport Support
+    // We will place a duplicate miniature gyroscope inside the about section frame
+    const aboutAnchor = document.getElementById('about-3d-anchor');
+    const aboutScene = new THREE.Scene();
+    
+    // Safely get width and height with fallbacks
+    let aboutW = aboutAnchor.clientWidth || 400;
+    let aboutH = aboutAnchor.clientHeight || 480;
+    
+    const aboutCamera = new THREE.PerspectiveCamera(45, aboutW / aboutH, 0.1, 100);
+    aboutCamera.position.set(0, 0, 4);
+
+    const aboutRenderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    aboutRenderer.setSize(aboutW, aboutH);
+    aboutRenderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    aboutAnchor.appendChild(aboutRenderer.domElement);
+
+    const aboutAmbient = new THREE.AmbientLight(0xffffff, 0.2);
+    aboutScene.add(aboutAmbient);
+
+    const aboutLight1 = new THREE.PointLight(0x8B5CF6, 3, 10);
+    aboutLight1.position.set(2, 2, 2);
+    aboutScene.add(aboutLight1);
+
+    const aboutLight2 = new THREE.PointLight(0x06B6D4, 3, 10);
+    aboutLight2.position.set(-2, -2, 2);
+    aboutScene.add(aboutLight2);
+
+    const aboutGyro = createGyroscopeCore();
+    aboutScene.add(aboutGyro.group);
+
+    // Interactive Drag rotation on about section Gyro
+    let isDragging = false;
+    let prevMousePos = { x: 0, y: 0 };
+
+    aboutAnchor.addEventListener('mousedown', (e) => {
+      isDragging = true;
+      prevMousePos = { x: e.clientX, y: e.clientY };
+    });
+
+    window.addEventListener('mouseup', () => {
+      isDragging = false;
+    });
+
+    aboutAnchor.addEventListener('mousemove', (e) => {
+      if (!isDragging) return;
+      const deltaX = e.clientX - prevMousePos.x;
+      const deltaY = e.clientY - prevMousePos.y;
+
+      aboutGyro.group.rotation.y += deltaX * 0.01;
+      aboutGyro.group.rotation.x += deltaY * 0.01;
+
+      prevMousePos = { x: e.clientX, y: e.clientY };
+    });
+
+    // Touch support for about drag
+    aboutAnchor.addEventListener('touchstart', (e) => {
+      isDragging = true;
+      prevMousePos = { x: e.touches[0].clientX, y: e.touches[0].clientY };
+    });
+
+    window.addEventListener('touchend', () => {
+      isDragging = false;
+    });
+
+    aboutAnchor.addEventListener('touchmove', (e) => {
+      if (!isDragging) return;
+      const deltaX = e.touches[0].clientX - prevMousePos.x;
+      const deltaY = e.touches[0].clientY - prevMousePos.y;
+
+      aboutGyro.group.rotation.y += deltaX * 0.01;
+      aboutGyro.group.rotation.x += deltaY * 0.01;
+
+      prevMousePos = { x: e.touches[0].clientX, y: e.touches[0].clientY };
+    });
+
+    // Handle About Viewport Resize
+    window.addEventListener('resize', () => {
+      let w = aboutAnchor.clientWidth || 400;
+      let h = aboutAnchor.clientHeight || 480;
+      aboutCamera.aspect = w / h;
+      aboutCamera.updateProjectionMatrix();
+      aboutRenderer.setSize(w, h);
+    });
+
+
+    // Scroll Coupling Camera Movement Variables
+    const scrollTracker = { y: 0 };
+    window.addEventListener('scroll', () => {
+      const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+      const ratio = window.scrollY / (maxScroll || 1);
+      // Map scroll ratio to camera depth Y (from 0 to -42)
+      scrollTracker.y = -ratio * 40;
+    });
+
+    // Mouse coordinates mapping for light direction
+    const mouseCoord = { x: 0, y: 0, targetX: 0, targetY: 0 };
+    window.addEventListener('mousemove', (e) => {
+      mouseCoord.targetX = (e.clientX / window.innerWidth) * 2 - 1;
+      mouseCoord.targetY = -(e.clientY / window.innerHeight) * 2 + 1;
+    });
+
+    // Unified animation tick loop
+    const clock = new THREE.Clock();
+
+    function tick() {
+      const elapsedTime = clock.getElapsedTime();
+
+      // 1. Lerp camera Y position for scrolling drift
+      camera.position.y += (scrollTracker.y - camera.position.y) * 0.05;
+
+      // 2. Parallax camera drift based on mouse coordinates
+      mouseCoord.x += (mouseCoord.targetX - mouseCoord.x) * 0.08;
+      mouseCoord.y += (mouseCoord.targetY - mouseCoord.y) * 0.08;
+      camera.position.x = mouseCoord.x * 0.6;
+
+      // 3. Update mouse tracking spot light
+      mouseLight.position.x = camera.position.x + mouseCoord.x * 5;
+      mouseLight.position.y = camera.position.y + mouseCoord.y * 5;
+      mouseLight.target.position.set(camera.position.x, camera.position.y, -3);
+
+      // 4. Animate Background objects
+      objects.forEach(obj => {
+        if (obj.type === 'gyro') {
+          // Inner core rotation
+          obj.mesh.rotation.y += obj.speedY;
+          obj.mesh.rotation.x += obj.speedX;
+          
+          gyro.ring1.rotation.z -= 0.01;
+          gyro.ring2.rotation.y += 0.008;
+          gyro.ring3.rotation.x -= 0.006;
+        } else if (obj.type === 'floater') {
+          // Drift rotation
+          obj.mesh.rotation.x += obj.speedX * 0.5;
+          obj.mesh.rotation.y += obj.speedY * 0.5;
+          
+          // Subtle floating up/down animation (sin wave)
+          obj.mesh.position.y = obj.baseY + Math.sin(elapsedTime * 0.8 + obj.baseY) * 0.15;
+        }
+      });
+
+      // 5. Slowly float sparks/dust particles
+      const positions = particleField.geometry.attributes.position.array;
+      for (let i = 0; i < pCount; i++) {
+        // move Y slightly upwards
+        positions[i * 3 + 1] += 0.015;
+        // loop back down if particles exit top boundary
+        if (positions[i * 3 + 1] > 5) {
+          positions[i * 3 + 1] = -45;
+        }
+        // slight drift along X and Z
+        positions[i * 3] += Math.sin(elapsedTime + i) * 0.002;
+      }
+      particleField.geometry.attributes.position.needsUpdate = true;
+
+      // Render main background
+      renderer.render(scene, camera);
+
+      // 6. Animate About Miniature Gyro
+      if (!isDragging) {
+        aboutGyro.group.rotation.y += 0.01;
+        aboutGyro.group.rotation.x += 0.005;
+      }
+      aboutGyro.ring1.rotation.z -= 0.015;
+      aboutGyro.ring2.rotation.y += 0.01;
+      aboutGyro.ring3.rotation.x -= 0.008;
+
+      // Render about scene
+      aboutRenderer.render(aboutScene, aboutCamera);
+
+      requestAnimationFrame(tick);
+    }
+    tick();
+
+    /* -------------------------------------------------------------
+       GSAP + SCROLLTRIGGER ANIMATIONS
+       ------------------------------------------------------------- */
+    // Initialize Lenis Smooth Scroll
+    const lenis = new Lenis({
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      smooth: true,
+      mouseMultiplier: 0.9,
+      infinite: false
+    });
+
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+    requestAnimationFrame(raf);
+
+    // Sync Lenis scroll with GSAP ScrollTrigger
+    lenis.on('scroll', ScrollTrigger.update);
+    gsap.ticker.add((time) => {
+      lenis.raf(time * 1000);
+    });
+    gsap.ticker.lagSmoothing(0);
+
+    // Register ScrollTrigger plugin
+    gsap.registerPlugin(ScrollTrigger);
+
+    // 1. Split Text Reveal Animation for Hero Title
+    const heroTitle = document.getElementById('hero-title');
+    const text = heroTitle.innerText;
+    heroTitle.innerHTML = '';
+    text.split('').forEach(char => {
+      const span = document.createElement('span');
+      span.innerText = char === ' ' ? '\u00A0' : char;
+      heroTitle.appendChild(span);
+    });
+
+    gsap.from('#hero-title span', {
+      opacity: 0,
+      y: 60,
+      rotateX: -70,
+      stagger: 0.06,
+      duration: 1.2,
+      ease: 'power4.out',
+      delay: 0.2
+    });
+
+    gsap.from('.hero-pre', {
+      opacity: 0,
+      y: -20,
+      duration: 0.8,
+      ease: 'power3.out'
+    });
+
+    gsap.from('.hero-subtitle', {
+      opacity: 0,
+      y: 30,
+      duration: 1,
+      ease: 'power3.out',
+      delay: 0.8
+    });
+
+    gsap.from('.hero-buttons', {
+      opacity: 0,
+      y: 30,
+      duration: 1,
+      ease: 'power3.out',
+      delay: 1.0
+    });
+
+    // 2. Parallax Scrolling for Hero Image Background
+    gsap.to('.hero-img', {
+      yPercent: 20,
+      ease: 'none',
+      scrollTrigger: {
+        trigger: '.hero',
+        start: 'top top',
+        end: 'bottom top',
+        scrub: true
+      }
+    });
+
+    // 3. Staggered upward fade animation for sections
+    const fadeUpSections = [
+      { trigger: '#about', targets: '.about-text *, .about-3d-frame' },
+      { trigger: '#programs', targets: '.programs-grid .tilt-card' },
+      { trigger: '#trainers', targets: '.trainers-grid .trainer-card' },
+      { trigger: '#achievements', targets: '.counter-card' },
+      { trigger: '#testimonials', targets: '.testimonials-wrap' },
+      { trigger: '#pricing', targets: '.pricing-grid .pricing-card' },
+      { trigger: '#contact', targets: '.contact-info *, .contact-form-wrap' }
+    ];
+
+    fadeUpSections.forEach(sec => {
+      gsap.from(sec.targets, {
+        y: 80,
+        opacity: 0,
+        duration: 1,
+        stagger: 0.15,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: sec.trigger,
+          start: 'top 80%',
+          toggleActions: 'play none none none'
+        }
+      });
+    });
+
+    // 4. Horizontal Scrolling Gallery Setup
+    const galleryContainer = document.querySelector('.gallery-container');
+    gsap.to(galleryContainer, {
+      x: () => -(galleryContainer.scrollWidth - window.innerWidth + window.innerWidth * 0.08),
+      ease: 'none',
+      scrollTrigger: {
+        trigger: '.gallery-section',
+        pin: true,
+        scrub: 1,
+        start: 'top top',
+        end: '+=200%', // Scroll width mapping
+      }
+    });
+
+    // 5. Achievement numbers counting animations
+    const countItems = document.querySelectorAll('.counter-val');
+    countItems.forEach(item => {
+      const targetVal = parseInt(item.getAttribute('data-target'), 10);
+      const countObj = { value: 0 };
+      gsap.to(countObj, {
+        value: targetVal,
+        duration: 2.5,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: item,
+          start: 'top 85%'
+        },
+        onUpdate: () => {
+          item.innerText = Math.floor(countObj.value).toLocaleString();
+        }
+      });
+    });
+
+    /* -------------------------------------------------------------
+       TESTIMONIALS SLIDER INLINE SCRIPT
+       ------------------------------------------------------------- */
+    const testimonialData = [
+      {
+        quote: `"Training here completely redefined my threshold for physical limits. The visual layout, concrete feel, and high-caliber athletes surrounding you creates an competitive energy that you cannot replicate elsewhere."`,
+        author: "DAVID GALE",
+        title: "WORLD RECORD RAW POWERLIFTER",
+        img: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=150&q=80"
+      },
+      {
+        quote: `"365 DEGREE doesn't negotiate. You walk in, see the industrial cages and matte black steel under dynamic glowing neon lines, and you immediately add weight to the bar. The recovery chambers keep me functional."`,
+        author: "KEVIN SHIELD",
+        title: "IFBB ELITE BODYBUILDING COMPETITOR",
+        img: "https://images.unsplash.com/photo-1507398941214-572c25f4b1dc?auto=format&fit=crop&w=150&q=80"
+      },
+      {
+        quote: `"The athletic conditioning protocol is brutal. We're talking heavy chains, sled pulls, and max acceleration on concrete platforms. This facility is the ultimate training ground for sports longevity."`,
+        author: "CLARA COOPER",
+        title: "OLYMPIC TRIPLE JUMP RECORD HOLDER",
+        img: "https://images.unsplash.com/photo-1548690312-e3b507d8c110?auto=format&fit=crop&w=150&q=80"
+      }
+    ];
+
+    const quoteEl = document.getElementById('testimonial-quote');
+    const authorImgEl = document.getElementById('testimonial-author-img');
+    const authorNameEl = document.getElementById('testimonial-author-name');
+    const authorTitleEl = document.getElementById('testimonial-author-title');
+    const dots = document.querySelectorAll('.slide-dot');
+
+    dots.forEach(dot => {
+      dot.addEventListener('click', () => {
+        const index = parseInt(dot.getAttribute('data-index'), 10);
+        
+        // Remove active class
+        dots.forEach(d => d.classList.remove('active'));
+        dot.classList.add('active');
+
+        // Transition Slide Content smoothly
+        gsap.to('#testimonial-container', {
+          opacity: 0,
+          y: -10,
+          duration: 0.3,
+          onComplete: () => {
+            quoteEl.innerText = testimonialData[index].quote;
+            authorImgEl.src = testimonialData[index].img;
+            authorNameEl.innerText = testimonialData[index].author;
+            authorTitleEl.innerText = testimonialData[index].title;
+            
+            gsap.to('#testimonial-container', {
+              opacity: 1,
+              y: 0,
+              duration: 0.5,
+              ease: 'power2.out'
+            });
+          }
+        });
+      });
+    });
+
+    /* -------------------------------------------------------------
+       PRICING MEMBERSHIP PLANS TOGGLE SCRIPT
+       ------------------------------------------------------------- */
+    const btnMonthly = document.getElementById('btn-monthly');
+    const btnAnnual = document.getElementById('btn-annual');
+    const prices = [
+      { element: document.getElementById('price-iron'), monthly: 149, annual: 119 },
+      { element: document.getElementById('price-elite'), monthly: 299, annual: 239 },
+      { element: document.getElementById('price-zero'), monthly: 590, annual: 472 }
+    ];
+
+    btnMonthly.addEventListener('click', () => {
+      btnMonthly.classList.add('active');
+      btnAnnual.classList.remove('active');
+      
+      prices.forEach(p => {
+        animatePrice(p.element, p.monthly);
+      });
+    });
+
+    btnAnnual.addEventListener('click', () => {
+      btnAnnual.classList.add('active');
+      btnMonthly.classList.remove('active');
+      
+      prices.forEach(p => {
+        animatePrice(p.element, p.annual);
+      });
+    });
+
+    function animatePrice(element, targetVal) {
+      const obj = { val: parseInt(element.innerText, 10) };
+      gsap.to(obj, {
+        val: targetVal,
+        duration: 0.6,
+        ease: 'power2.out',
+        onUpdate: () => {
+          element.innerText = Math.round(obj.val);
+        }
+      });
+    }
+
+    /* -------------------------------------------------------------
+       INTAKE FORM SUMBISSION
+       ------------------------------------------------------------- */
+    const intakeForm = document.getElementById('intake-form');
+    intakeForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      
+      const submitBtn = intakeForm.querySelector('button[type="submit"]');
+      const originalText = submitBtn.innerHTML;
+      
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = 'VALIDATING CREDENTIALS... <i class="fa-solid fa-spinner fa-spin"></i>';
+      
+      // Mimic secure server validation timeout
+      setTimeout(() => {
+        gsap.to(submitBtn, {
+          backgroundColor: 'var(--cyan)',
+          borderColor: 'var(--cyan)',
+          boxShadow: '0 0 25px rgba(6, 182, 212, 0.8)',
+          duration: 0.3
+        });
+        submitBtn.innerHTML = 'CREDENTIALS RECEIVED // WELCOME <i class="fa-solid fa-circle-check"></i>';
+        intakeForm.reset();
+        
+        setTimeout(() => {
+          gsap.to(submitBtn, {
+            backgroundColor: 'var(--gold)',
+            borderColor: 'var(--gold)',
+            boxShadow: '0 0 15px rgba(251, 191, 36, 0.3)',
+            duration: 0.5
+          });
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = originalText;
+        }, 4000);
+      }, 2000);
+    });
+
+    // Newsletter Submission
+    const newsletterForm = document.getElementById('newsletter-form');
+    newsletterForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const input = newsletterForm.querySelector('input');
+      const btn = newsletterForm.querySelector('button');
+      
+      btn.innerHTML = '<i class="fa-solid fa-circle-check"></i>';
+      input.value = 'TRANSMISSION SECURED';
+      input.disabled = true;
+      btn.disabled = true;
+    });
+
+    /* -------------------------------------------------------------
+       VANILLA TILT CARDS INITIALIZATION
+       ------------------------------------------------------------- */
+    if (typeof VanillaTilt !== 'undefined') {
+      VanillaTilt.init(document.querySelectorAll("[data-tilt]"), {
+        max: 12,
+        speed: 400,
+        glare: true,
+        "max-glare": 0.15,
+      });
+    }
+
+    // Shrink header on scroll
+    window.addEventListener('scroll', () => {
+      const header = document.getElementById('header');
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+  </script>
+</body>
+</html>
