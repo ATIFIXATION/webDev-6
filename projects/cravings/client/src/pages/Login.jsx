@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { useAuth } from "../context/Auth.Context";
-import api from "../config/api.config";
+import { useAuth } from "../context/AuthContext";
+import api from "../config/ApiConfig";
 import { toast } from "react-hot-toast";
 import loginBg from "../assets/login.png";
 

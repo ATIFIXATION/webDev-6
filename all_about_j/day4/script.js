@@ -112,3 +112,19 @@
 
 // console.log(drivii)
 
+//accesing children of an elelmt 
+
+// console.log(document.childNodes)
+
+//parents and child
+
+// console.log(document.getElementsByClassName("first"))
+
+
+// elelmnt onlu navigation
+
+let b = document.body
+
+console.log("first child of b is :",b.firstChild)
+
+console.log("first child of b is :",b.firstElementChild)
