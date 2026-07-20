@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Header from "../Header";
 
 import RestaurantSidebar from "./RestaurantSidebar";
 import RestaurantOverview from "./RestaurantOverview";
@@ -9,20 +10,29 @@ const RestaurantDashboard = () => {
   const [activeTab, setActiveTab] = useState("overview");
 
   return (
-    <div className="h-[92vh] flex gap-2 m-2">
-      {/* Sidebar */}
-      <div className="w-3/12 bg-white rounded-lg shadow-md p-4">
-        <RestaurantSidebar
-          activeTab={activeTab}
-          setActiveTab={setActiveTab}
-        />
-      </div>
+    <div className="min-h-screen bg-gray-100">
 
-      {/* Main Content */}
-      <div className="w-9/12 bg-white rounded-lg shadow-md p-4">
-        {activeTab === "overview" && <RestaurantOverview />}
-        {activeTab === "orders" && <RestaurantOrders />}
-        {activeTab === "settings" && <RestaurantSettings />}
+      {/* Header */}
+      <Header />
+
+      {/* Dashboard */}
+      <div className="flex gap-4 p-4 h-[calc(100vh-88px)]">
+
+        {/* Sidebar */}
+        <div className="w-[280px] bg-white rounded-xl shadow-md p-4">
+          <RestaurantSidebar
+            activeTab={activeTab}
+            setActiveTab={setActiveTab}
+          />
+        </div>
+
+        {/* Main Content */}
+        <div className="flex-1 bg-white rounded-xl shadow-md p-6 overflow-y-auto">
+          {activeTab === "overview" && <RestaurantOverview />}
+          {activeTab === "orders" && <RestaurantOrders />}
+          {activeTab === "settings" && <RestaurantSettings />}
+        </div>
+
       </div>
     </div>
   );

@@ -3,42 +3,29 @@
 @import "tailwindcss";
 
 :root {
-  /* ===========================
-      Primary Brand (Neon Lime)
-  ============================ */
-  --color-primary: #d3f00a;
-  --color-primary-content: #0b0b0b;
+  /* Primary Brand */
+  --color-primary: #bd775c;
+  --color-primary-content: #ffffff;
 
-  /* ===========================
-      Secondary (Vibrant Red)
-  ============================ */
-  --color-secondary: #f9100c;
+  /* Secondary Text */
+  --color-secondary: #7a6b5d;
 
-  /* ===========================
-      Neutral
-  ============================ */
-  --color-neutral: #111111;
-  --color-neutral-content: #f8f8f8;
+  /* Neutral */
+  --color-neutral: #3b3129;
+  --color-neutral-content: #f7f3ef;
 
-  /* ===========================
-      Backgrounds
-  ============================ */
-  --color-base-100: #0b0b0b;
-  --color-base-200: #141414;
-  --color-base-300: #1e1e1e;
-  --color-base-content: #f8f8f8;
+  /* Backgrounds */
+  --color-base-100: #fffaf5;
+  --color-base-200: #f7efe6;
+  --color-base-300: #eadfce;
+  --color-base-content: #2b1d15;
 
-  /* ===========================
-      Success
-  ============================ */
-  --color-success: #5bea00;
+  /* Success */
+  --color-success: #4caf50;
 
-  /* ===========================
-      Error
-  ============================ */
-  --color-error: #f9100c;
+  /* Error */
+  --color-error: #873128;
 }
-
 @theme {
   --color-primary: var(--color-primary);
   --color-primary-content: var(--color-primary-content);
