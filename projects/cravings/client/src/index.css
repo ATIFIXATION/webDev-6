@@ -1,6 +1,64 @@
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap");
 
 @import "tailwindcss";
+@plugin "daisyui";
+
+/* ============================================================
+   daisyUI theme registration
+   This is the piece that was missing: daisyUI components
+   (btn, card, badge, modal, alert, etc.) read colors from a
+   registered @plugin "daisyui/theme" block, not from :root
+   or @theme. Without this, every daisyUI class silently falls
+   back to daisyUI's default palette instead of yours.
+   ============================================================ */
+@plugin "daisyui/theme" {
+  name: "cravings";
+  default: true;
+  prefersdark: false;
+  color-scheme: light;
+
+  --color-base-100: #fffaf5;
+  --color-base-200: #f7efe6;
+  --color-base-300: #eadfce;
+  --color-base-content: #2b1d15;
+
+  --color-primary: #bd775c;
+  --color-primary-content: #ffffff;
+
+  --color-secondary: #7a6b5d;
+  --color-secondary-content: #ffffff;
+
+  /* warm apricot accent — for highlights, ratings, "hot" badges */
+  --color-accent: #e08e42;
+  --color-accent-content: #2b1d15;
+
+  --color-neutral: #3b3129;
+  --color-neutral-content: #f7f3ef;
+
+  /* muted slate-blue, kept low-saturation so it doesn't fight the warm palette */
+  --color-info: #5b7c99;
+  --color-info-content: #ffffff;
+
+  --color-success: #4caf50;
+  --color-success-content: #ffffff;
+
+  /* dusty mustard — spice-level warnings, promo callouts */
+  --color-warning: #d9a441;
+  --color-warning-content: #2b1d15;
+
+  --color-error: #873128;
+  --color-error-content: #ffffff;
+
+  /* shape + finish tokens daisyUI v5 expects */
+  --radius-selector: 1rem;
+  --radius-field: 0.6rem;
+  --radius-box: 1.25rem;
+  --size-selector: 0.25rem;
+  --size-field: 0.25rem;
+  --border: 1px;
+  --depth: 1;
+  --noise: 0;
+}
 
 :root {
   /* Primary Brand */

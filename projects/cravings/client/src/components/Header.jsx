@@ -2,12 +2,17 @@ import logo from "../assets/logo.png";
 import { Link } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import { AiOutlineLogout } from "react-icons/ai";
+import headerVines from "../assets/ingredients/vinnes_header.png";
 
 function Header() {
   const { isLogin, logout } = useAuth();
 
   return (
-    <header className="bg-[#C95F31] shadow-lg sticky top-0 z-50">
+  <header className="relative bg-[#eb7340]">
+     <img
+    src={headerVines}
+    className="absolute inset-0 w-full h-full object-cover opacity-20"
+/>
       <div className="max-w-7xl mx-auto flex items-center justify-between px-8 py-4">
 
         {/* Logo */}
@@ -15,18 +20,18 @@ function Header() {
           <img src={logo} alt="logo" className="w-14" />
 
           <div>
-            <h1 className="text-white text-2xl font-bold">
+            <h1 className="text-black text-2xl font-bold">
               Cravings
             </h1>
 
-            <p className="text-orange-100 text-xs">
+            <p className="text-black-100 text-xs">
               Delicious Delivered
             </p>
           </div>
         </Link>
 
         {/* Navigation */}
-        <nav className="hidden md:flex items-center gap-3 bg-white/10 backdrop-blur-md rounded-full px-3 py-2">
+       <nav className="hidden md:flex items-center gap-1 bg-orange-900/80 backdrop-blur-xl rounded-3xl px-2 py-2 border border-white/5 shadow-2xl">
 
           <Link
             to="/"

@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- SEO Meta Tags -->
+  <title>Syed Properties — Trusted Real Estate in Bhopal | Buy, Sell, Rent</title>
+  <meta name="description" content="Syed Properties — Bhopal's trusted real estate agency for buying, selling, and renting plots, flats, duplexes, and land. 100+ verified listings. Call 7610377630." />
+  <meta name="keywords" content="real estate Bhopal, flats for sale Bhopal, plots for sale Bhopal, property in Bhopal, duplex Bhopal, land for sale Bhopal, Syed Properties, property dealer Bhopal, rent flat Bhopal, 3BHK Bhopal" />
+  <meta name="author" content="Syed Properties" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Syed Properties — Trusted Real Estate in Bhopal" />
+  <meta property="og:description" content="Buy, Sell or Rent Plots, Flats, Duplexes & Land in Bhopal. 100% Trusted Deals. 6200+ followers trust us." />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="en_IN" />
+
+  <!-- Favicon via inline SVG data URI -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%231A2F5A'/%3E%3Cpolygon points='16,4 28,14 4,14' fill='%23C9973A'/%3E%3Crect x='8' y='14' width='16' height='14' rx='1' fill='%23C9973A' opacity='0.7'/%3E%3C/svg%3E" />
+
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════
+     SCROLL PROGRESS BAR
+═══════════════════════════════════════════ -->
+<div id="scroll-progress" aria-hidden="true"></div>
+
+<!-- ═══════════════════════════════════════════
+     FLOATING WHATSAPP BUTTON
+═══════════════════════════════════════════ -->
+<div id="float-wa">
+  <span class="float-wa-tooltip" id="wa-tooltip">Chat on WhatsApp</span>
+  <a href="https://wa.me/917610377630?text=Hello%2C%20I%27m%20interested%20in%20a%20property%20from%20Syed%20Properties."
+     class="float-wa-btn"
+     id="float-wa-btn"
+     target="_blank"
+     rel="noopener noreferrer"
+     aria-label="Chat on WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+  </a>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     NAVBAR
+═══════════════════════════════════════════ -->
+<nav id="navbar" role="navigation" aria-label="Main Navigation">
+  <div class="container">
+    <div class="nav-inner">
+
+      <!-- Logo -->
+      <a href="#hero" class="nav-logo" aria-label="Syed Properties Home">
+        <img src="images/logo.png" alt="Syed Properties Logo" width="42" height="42" />
+        <div class="nav-logo-text">
+          <h1>Syed Properties</h1>
+          <span>Bhopal Property</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <ul class="nav-links" role="list">
+        <li><a href="#hero" class="active" id="nav-home">Home</a></li>
+        <li><a href="#properties" id="nav-properties">Properties</a></li>
+        <li><a href="#about" id="nav-about">About</a></li>
+        <li><a href="#services" id="nav-services">Services</a></li>
+        <li><a href="#contact" id="nav-contact">Contact</a></li>
+      </ul>
+
+      <!-- Desktop Actions -->
+      <div class="nav-actions">
+        <a href="tel:7610377630" class="nav-phone" aria-label="Call Syed Murtuza Ali">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 .18h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.09-1.09a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z"/></svg>
+          76103 77630
+        </a>
+        <a href="https://wa.me/917610377630?text=Hello%2C%20I%27m%20interested%20in%20a%20property."
+           class="nav-wa-btn"
+           target="_blank" rel="noopener noreferrer"
+           aria-label="WhatsApp Chat">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          WhatsApp
+        </a>
+      </div>
+
+      <!-- Hamburger (Mobile) -->
+      <button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle mobile menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+    </div>
+
+    <!-- Mobile Nav Drawer -->
+    <div class="nav-mobile" id="nav-mobile" role="navigation" aria-label="Mobile Navigation">
+      <a href="#hero" onclick="closeMobileNav()">🏠 Home</a>
+      <a href="#properties" onclick="closeMobileNav()">🏢 Properties</a>
+      <a href="#about" onclick="closeMobileNav()">ℹ️ About Us</a>
+      <a href="#services" onclick="closeMobileNav()">🔑 Services</a>
+      <a href="#contact" onclick="closeMobileNav()">📞 Contact</a>
+      <div class="mob-actions">
+        <a href="tel:7610377630" class="btn btn-navy" style="font-size:0.82rem;padding:0.55rem 1rem;">📞 76103 77630</a>
+        <a href="https://wa.me/917610377630" class="btn btn-wa" target="_blank" rel="noopener noreferrer" style="font-size:0.82rem;padding:0.55rem 1rem;">💬 WhatsApp</a>
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════════════════
+     HERO SECTION
+═══════════════════════════════════════════ -->
+<section id="hero" aria-label="Hero Banner">
+  <div class="hero-bg">
+    <img src="images/hero.png" alt="Bhopal city skyline and real estate" loading="eager" />
+  </div>
+
+  <div class="container">
+    <div class="hero-content">
+
+      <div class="hero-badge" aria-label="Trusted real estate badge">
+        <span class="hero-badge-dot"></span>
+        Bhopal's #1 Trusted Property Dealer
+      </div>
+
+      <h2 class="hero-headline">
+        Find Your Perfect
+        <span class="highlight">Property in Bhopal</span>
+      </h2>
+
+      <p class="hero-sub">
+        Syed Properties — your trusted partner for buying, selling &amp; renting plots, flats, duplexes &amp; land across Bhopal. 100% verified deals, zero hassle.
+      </p>
+
+      <div class="hero-cta">
+        <a href="#properties" class="btn btn-gold" id="hero-view-props">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+          View Properties
+        </a>
+        <a href="https://wa.me/917610377630?text=Hello%2C%20I%27m%20interested%20in%20a%20property%20from%20Syed%20Properties."
+           class="btn btn-outline-white"
+           target="_blank" rel="noopener noreferrer"
+           id="hero-wa-btn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Contact on WhatsApp
+        </a>
+      </div>
+
+      <div class="hero-stats" role="list" aria-label="Key statistics">
+        <div class="hero-stat" role="listitem">
+          <strong>100+</strong>
+          <span>Active Listings</span>
+        </div>
+        <div class="hero-stat" role="listitem">
+          <strong>6,200+</strong>
+          <span>Instagram Followers</span>
+        </div>
+        <div class="hero-stat" role="listitem">
+          <strong>100%</strong>
+          <span>Trusted Deals</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="hero-scroll" aria-hidden="true">
+    <div class="hero-scroll-dot"></div>
+    Scroll
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     ABOUT SECTION
+═══════════════════════════════════════════ -->
+<section id="about" aria-labelledby="about-heading">
+  <div class="container">
+    <div class="about-grid">
+
+      <!-- Image Column -->
+      <div class="about-image-wrap aos-fade-left">
+        <img src="images/hero.png" alt="Bhopal real estate properties by Syed Properties" loading="lazy" />
+        <div class="about-badge-trust" aria-label="100% Trusted Deals">
+          ✔ 100% Trusted Deals
+        </div>
+        <div class="about-badge-card">
+          <strong>5+</strong>
+          <span>Years of<br>Experience</span>
+        </div>
+      </div>
+
+      <!-- Content Column -->
+      <div class="about-content aos-fade-right">
+        <p class="section-label">About Us</p>
+        <h2 class="section-title" id="about-heading">
+          Bhopal's Most Trusted Property Partner
+        </h2>
+        <p class="section-sub">
+          Syed Properties is a premier real estate agency based in Bhopal, Madhya Pradesh. We specialize in connecting buyers, sellers, and tenants with the right properties — with transparency, speed, and zero compromise on trust.
+        </p>
+        <p class="section-sub" style="margin-top:0.75rem;">
+          Whether you're looking for your dream home, a prime plot for investment, or a comfortable rental — we have the local expertise and the verified listings to make it happen.
+        </p>
+
+        <!-- Highlights Grid -->
+        <div class="about-highlights" role="list">
+          <div class="about-highlight" role="listitem">
+            <div class="ah-icon" aria-hidden="true">📊</div>
+            <div class="ah-text">
+              <strong>100+</strong>
+              <span>Active Listings</span>
+            </div>
+          </div>
+          <div class="about-highlight" role="listitem">
+            <div class="ah-icon" aria-hidden="true">📱</div>
+            <div class="ah-text">
+              <strong>6,200+</strong>
+              <span>Instagram Followers</span>
+            </div>
+          </div>
+          <div class="about-highlight" role="listitem">
+            <div class="ah-icon" aria-hidden="true">🤝</div>
+            <div class="ah-text">
+              <strong>500+</strong>
+              <span>Happy Clients</span>
+            </div>
+          </div>
+          <div class="about-highlight" role="listitem">
+            <div class="ah-icon" aria-hidden="true">📍</div>
+            <div class="ah-text">
+              <strong>20+</strong>
+              <span>Localities Covered</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Deal Tags -->
+        <p style="font-size:0.82rem;font-weight:600;color:var(--charcoal-xs);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.6rem;">We Deal In</p>
+        <div class="about-deals" role="list">
+          <span class="deal-tag" role="listitem">Buy</span>
+          <span class="deal-tag" role="listitem">Sale</span>
+          <span class="deal-tag" role="listitem">Rent</span>
+          <span class="deal-tag" role="listitem">Plots</span>
+          <span class="deal-tag" role="listitem">Flats</span>
+          <span class="deal-tag" role="listitem">Duplexes</span>
+          <span class="deal-tag" role="listitem">Land</span>
+          <span class="deal-tag" role="listitem">3 BHK</span>
+          <span class="deal-tag" role="listitem">New Projects</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════════════════════════════════════════
+     SERVICES SECTION
+═══════════════════════════════════════════ -->
+<section id="services" aria-labelledby="services-heading">
+  <div class="container">
+    <div class="services-header aos-fade">
+      <p class="section-label">What We Offer</p>
+      <h2 class="section-title" id="services-heading">Our Property Services</h2>
+      <p class="section-sub">From new launch projects to ready-to-move flats and investment plots — we cover every real estate need in Bhopal.</p>
+    </div>
+
+    <div class="services-grid" role="list">
+
+      <article class="service-card aos-fade" style="transition-delay:0.05s;" role="listitem" tabindex="0">
+        <div class="service-icon" aria-hidden="true">🏗️</div>
+        <h3>New Projects</h3>
+        <p>Explore the latest residential and commercial project launches in Bhopal with early-bird pricing and prime locations.</p>
+        <a href="#contact" class="service-link">Enquire Now →</a>
+      </article>
+
+      <article class="service-card aos-fade" style="transition-delay:0.1s;" role="listitem" tabindex="0">
+        <div class="service-icon" aria-hidden="true">🏠</div>
+        <h3>3-BHK Flats</h3>
+        <p>Spacious, well-designed 3-bedroom flats across all major localities — from affordable to premium segments.</p>
+        <a href="#contact" class="service-link">Enquire Now →</a>
+      </article>
+
+      <article class="service-card aos-fade" style="transition-delay:0.15s;" role="listitem" tabindex="0">
+        <div class="service-icon" aria-hidden="true">🌿</div>
+        <h3>Lands &amp; Plots</h3>
+        <p>Residential &amp; commercial plots with verified documentation in developing and established areas of Bhopal.</p>
+        <a href="#contact" class="service-link">Enquire Now →</a>
+      </article>
+
+      <article class="service-card aos-fade" style="transition-delay:0.2s;" role="listitem" tabindex="0">
+        <div class="service-icon" aria-hidden="true">🔑</div>
+        <h3>Properties for Rent</h3>
+        <p>Find furnished, semi-furnished or bare rentals — flats, offices, and shops in top Bhopal localities.</p>
+        <a href="#contact" class="service-link">Enquire Now →</a>
+      </article>
+
+      <article class="service-card aos-fade" style="transition-delay:0.25s;" role="listitem" tabindex="0">
+        <div class="service-icon" aria-hidden="true">🏡</div>
+        <h3>Duplex Homes</h3>
+        <p>Independent duplex homes with spacious layouts, private terraces, and premium finishes in Bhopal.</p>
+        <a href="#contact" class="service-link">Enquire Now →</a>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════════════════════════════════════════
+     PROPERTIES / LISTINGS SECTION
+═══════════════════════════════════════════ -->
+<section id="properties" aria-labelledby="properties-heading">
+  <div class="container">
+
+    <div class="properties-header">
+      <div>
+        <p class="section-label">Our Listings</p>
+        <h2 class="section-title" id="properties-heading">Featured Properties</h2>
+      </div>
+      <a href="#contact" class="btn btn-outline-gold" id="view-all-btn">View All Listings</a>
+    </div>
+
+    <!-- Filter Bar -->
+    <div class="filter-bar" role="group" aria-label="Property filters">
+      <button class="filter-btn active" data-filter="all" id="filter-all">All</button>
+      <button class="filter-btn" data-filter="buy" id="filter-buy">For Sale</button>
+      <button class="filter-btn" data-filter="rent" id="filter-rent">For Rent</button>
+      <button class="filter-btn" data-filter="flat" id="filter-flat">Flats</button>
+      <button class="filter-btn" data-filter="plot" id="filter-plot">Plots</button>
+      <button class="filter-btn" data-filter="duplex" id="filter-duplex">Duplex</button>
+      <button class="filter-btn" data-filter="land" id="filter-land">Land</button>
+    </div>
+
+    <!-- Property Cards -->
+    <div class="properties-grid" id="properties-grid" role="list">
+
+      <!-- Card 1 -->
+      <article class="property-card aos-fade" data-category="buy flat" role="listitem">
+        <div class="property-card-img">
+          <img src="images/flat.png" alt="3 BHK Flat in Kolar Road, Bhopal" loading="lazy" />
+          <span class="property-tag tag-buy" aria-label="For Sale">For Sale</span>
+          <span class="tag-type" aria-label="Flat">Flat</span>
+          <button class="property-fav" aria-label="Save property">♡</button>
+        </div>
+        <div class="property-card-body">
+          <h3>3 BHK Luxury Flat — Kolar Road</h3>
+          <p class="prop-location">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Kolar Road, Bhopal, MP
+          </p>
+          <p class="prop-price">₹ 65 Lakh</p>
+          <p class="prop-price-note">Contact for final negotiation</p>
+          <div class="prop-features" aria-label="Property features">
+            <span class="prop-feat">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+              3 BHK
+            </span>
+            <span class="prop-feat">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/></svg>
+              1450 sq.ft.
+            </span>
+            <span class="prop-feat">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg>
+              2 Floor
+            </span>
+          </div>
+          <a href="https://wa.me/917610377630?text=Hi%2C%20I%20am%20interested%20in%20the%203BHK%20flat%20at%20Kolar%20Road."
+             class="prop-cta-btn" target="_blank" rel="noopener noreferrer">
+            💬 Contact for Details
+          </a>
+        </div>
+      </article>
+
+      <!-- Card 2 -->
+      <article class="property-card aos-fade" data-category="buy plot" role="listitem" style="transition-delay:0.08s;">
+        <div class="property-card-img">
+          <img src="images/plot.png" alt="Residential Plot in Misrod, Bhopal" loading="lazy" />
+          <span class="property-tag tag-buy" aria-label="For Sale">For Sale</span>
+          <span class="tag-type" aria-label="Plot">Plot</span>
+          <button class="property-fav" aria-label="Save property">♡</button>
+        </div>
+        <div class="property-card-body">
+          <h3>Residential Plot — Misrod</h3>
+          <p class="prop-location">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Misrod, Bhopal, MP
+          </p>
+          <p class="prop-price">₹ 28 Lakh</p>
+          <p class="prop-price-note">Ready for construction · RERA approved</p>
+          <div class="prop-features" aria-label="Property features">
+            <span class="prop-feat">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/></svg>
+              1200 sq.ft.
+            </span>
+            <span class="prop-feat">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>
+              Corner Plot
+            </span>
+            <span class="prop-feat">🛣️ Road Access</span>
+          </div>
+          <a href="https://wa.me/917610377630?text=Hi%2C%20I%20am%20interested%20in%20the%20plot%20at%20Misrod."
+             class="prop-cta-btn" target="_blank" rel="noopener noreferrer">
+            💬 Contact for Details
+          </a>
+        </div>
+      </article>
+
+      <!-- Card 3 -->
+      <article class="property-card aos-fade" data-category="buy duplex" role="listitem" style="transition-delay:0.16s;">
+        <div class="property-card-img">
+          <img src="images/flat.png" alt="Duplex Home in Arera Colony, Bhopal" loading="lazy" />
+          <span class="property-tag tag-buy" aria-label="For Sale">For Sale</span>
+          <span class="tag-type" aria-label="Duplex">Duplex</span>
+          <button class="property-fav" aria-label="Save property">♡</button>
+        </div>
+        <div class="property-card-body">
+          <h3>Premium Duplex Home — Arera Colony</h3>
+          <p class="prop-location">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Arera Colony, Bhopal, MP
+          </p>
+          <p class="prop-price">₹ 1.25 Cr</p>
+          <p class="prop-price-note">Independent duplex · Ready to move</p>
+          <div class="prop-features" aria-label="Property features">
+            <span class="prop-feat">🏠 4 BHK</span>
+            <span class="prop-feat">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/></svg>
+              2800 sq.ft.
+            </span>
+            <span class="prop-feat">🚗 Parking</span>
+          </div>
+          <a href="https://wa.me/917610377630?text=Hi%2C%20I%20am%20interested%20in%20the%20Duplex%20at%20Arera%20Colony."
+             class="prop-cta-btn" target="_blank" rel="noopener noreferrer">
+            💬 Contact for Details
+          </a>
+        </div>
+      </article>
+
+      <!-- Card 4 -->
+      <article class="property-card aos-fade" data-category="rent flat" role="listitem" style="transition-delay:0.24s;">
+        <div class="property-card-img">
+          <img src="images/flat.png" alt="2 BHK Flat for Rent in MP Nagar" loading="lazy" />
+          <span class="property-tag tag-rent" aria-label="For Rent">For Rent</span>
+          <span class="tag-type" aria-label="Flat">Flat</span>
+          <button class="property-fav" aria-label="Save property">♡</button>
+        </div>
+        <div class="property-card-body">
+          <h3>2 BHK Flat for Rent — MP Nagar</h3>
+          <p class="prop-location">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            MP Nagar, Bhopal, MP
+          </p>
+          <p class="prop-price">₹ 14,000<span style="font-size:0.8rem;font-weight:400">/month</span></p>
+          <p class="prop-price-note">Semi-furnished · Available Now</p>
+          <div class="prop-features" aria-label="Property features">
+            <span class="prop-feat">🛏️ 2 BHK</span>
+            <span class="prop-feat">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/></svg>
+              950 sq.ft.
+            </span>
+            <span class="prop-feat">🚿 2 Bath</span>
+          </div>
+          <a href="https://wa.me/917610377630?text=Hi%2C%20I%20am%20interested%20in%20the%202BHK%20flat%20for%20rent%20in%20MP%20Nagar."
+             class="prop-cta-btn" target="_blank" rel="noopener noreferrer">
+            💬 Contact for Details
+          </a>
+        </div>
+      </article>
+
+      <!-- Card 5 -->
+      <article class="property-card aos-fade" data-category="buy land" role="listitem" style="transition-delay:0.32s;">
+        <div class="property-card-img">
+          <img src="images/plot.png" alt="Agricultural Land for Sale near Bhopal" loading="lazy" />
+          <span class="property-tag tag-buy" aria-label="For Sale">For Sale</span>
+          <span class="tag-type" aria-label="Land">Land</span>
+          <button class="property-fav" aria-label="Save property">♡</button>
+        </div>
+        <div class="property-card-body">
+          <h3>Agricultural Land — Berasia Road</h3>
+          <p class="prop-location">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Berasia Road, Bhopal, MP
+          </p>
+          <p class="prop-price">₹ 18 Lakh</p>
+          <p class="prop-price-note">Per bigha · Verified documentation</p>
+          <div class="prop-features" aria-label="Property features">
+            <span class="prop-feat">🌾 5 Bigha</span>
+            <span class="prop-feat">🛣️ Highway Access</span>
+            <span class="prop-feat">📋 Clear Title</span>
+          </div>
+          <a href="https://wa.me/917610377630?text=Hi%2C%20I%20am%20interested%20in%20the%20land%20on%20Berasia%20Road."
+             class="prop-cta-btn" target="_blank" rel="noopener noreferrer">
+            💬 Contact for Details
+          </a>
+        </div>
+      </article>
+
+      <!-- Card 6 -->
+      <article class="property-card aos-fade" data-category="rent flat" role="listitem" style="transition-delay:0.40s;">
+        <div class="property-card-img">
+          <img src="images/flat.png" alt="3 BHK Furnished Flat for Rent in Shyamla Hills" loading="lazy" />
+          <span class="property-tag tag-rent" aria-label="For Rent">For Rent</span>
+          <span class="tag-type" aria-label="Flat">Flat</span>
+          <button class="property-fav" aria-label="Save property">♡</button>
+        </div>
+        <div class="property-card-body">
+          <h3>3 BHK Furnished Flat — Shyamla Hills</h3>
+          <p class="prop-location">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Shyamla Hills, Bhopal, MP
+          </p>
+          <p class="prop-price">₹ 22,000<span style="font-size:0.8rem;font-weight:400">/month</span></p>
+          <p class="prop-price-note">Fully furnished · Lake view</p>
+          <div class="prop-features" aria-label="Property features">
+            <span class="prop-feat">🛏️ 3 BHK</span>
+            <span class="prop-feat">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/></svg>
+              1350 sq.ft.
+            </span>
+            <span class="prop-feat">🌊 Lake View</span>
+          </div>
+          <a href="https://wa.me/917610377630?text=Hi%2C%20I%20am%20interested%20in%20the%20furnished%20flat%20in%20Shyamla%20Hills."
+             class="prop-cta-btn" target="_blank" rel="noopener noreferrer">
+            💬 Contact for Details
+          </a>
+        </div>
+      </article>
+
+    </div><!-- /.properties-grid -->
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════════════════════════════════════════
+     WHY CHOOSE US
+═══════════════════════════════════════════ -->
+<section id="why" aria-labelledby="why-heading">
+  <div class="container">
+    <div class="why-header aos-fade">
+      <p class="section-label">Why Syed Properties</p>
+      <h2 class="section-title" id="why-heading">Trusted by Thousands in Bhopal</h2>
+      <p class="section-sub">We don't just sell properties — we build lasting relationships grounded in transparency, expertise, and care.</p>
+    </div>
+
+    <div class="why-grid" role="list">
+
+      <div class="why-card aos-fade" role="listitem" style="transition-delay:0.05s;">
+        <div class="why-icon" aria-hidden="true">🛡️</div>
+        <h3>100% Trusted Deals</h3>
+        <p>Every listing is personally verified. No fake properties, no hidden charges. What you see is what you get — transparent dealing from day one.</p>
+      </div>
+
+      <div class="why-card aos-fade" role="listitem" style="transition-delay:0.1s;">
+        <div class="why-icon" aria-hidden="true">✅</div>
+        <h3>Verified Properties</h3>
+        <p>All documents — sale deed, encumbrance certificate, RERA registration — are checked before we list any property. Your investment is safe with us.</p>
+      </div>
+
+      <div class="why-card aos-fade" role="listitem" style="transition-delay:0.15s;">
+        <div class="why-icon" aria-hidden="true">🗺️</div>
+        <h3>Wide Range of Options</h3>
+        <p>Plots to penthouses, farm lands to furnished flats — our portfolio covers every budget and requirement across 20+ Bhopal localities.</p>
+      </div>
+
+      <div class="why-card aos-fade" role="listitem" style="transition-delay:0.2s;">
+        <div class="why-icon" aria-hidden="true">⚡</div>
+        <h3>Quick Response Support</h3>
+        <p>Available on WhatsApp, phone, and Instagram. We respond fast so you never miss a deal. Real people, real help — no bots, no delays.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     TESTIMONIALS
+═══════════════════════════════════════════ -->
+<section id="testimonials" aria-labelledby="testimonials-heading">
+  <div class="container">
+    <div class="testimonials-header aos-fade">
+      <p class="section-label">Client Reviews</p>
+      <h2 class="section-title" id="testimonials-heading">What Our Clients Say</h2>
+      <p class="section-sub" style="margin:0 auto;">Real stories from real people who found their perfect property through Syed Properties.</p>
+    </div>
+
+    <div class="testimonials-grid" role="list">
+
+      <div class="testimonial-card aos-fade" role="listitem" style="transition-delay:0.05s;">
+        <div class="testimonial-stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <blockquote>"Found exactly the plot I was looking for in Misrod. Syed Properties made the entire process smooth — from site visit to registration. Truly trustworthy!"</blockquote>
+        <div class="testimonial-author">
+          <div class="author-avatar" aria-hidden="true">R</div>
+          <div class="author-info">
+            <strong>Rakesh Sharma</strong>
+            <span>Purchased Plot, Misrod</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card aos-fade" role="listitem" style="transition-delay:0.1s;">
+        <div class="testimonial-stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <blockquote>"I was looking for a rental flat in MP Nagar. Got multiple options within a day and moved in within a week. The team is professional and responsive."</blockquote>
+        <div class="testimonial-author">
+          <div class="author-avatar" aria-hidden="true">P</div>
+          <div class="author-info">
+            <strong>Priya Verma</strong>
+            <span>Rented Flat, MP Nagar</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card aos-fade" role="listitem" style="transition-delay:0.15s;">
+        <div class="testimonial-stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <blockquote>"Bought a 3BHK through Syed Properties and the deal was amazing. All paperwork was clean, no surprises. I'd recommend them to everyone in Bhopal."</blockquote>
+        <div class="testimonial-author">
+          <div class="author-avatar" aria-hidden="true">A</div>
+          <div class="author-info">
+            <strong>Adnan Khan</strong>
+            <span>Purchased 3BHK, Kolar Road</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card aos-fade" role="listitem" style="transition-delay:0.2s;">
+        <div class="testimonial-stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <blockquote>"Sold my land through Syed Properties within 3 weeks at the right price. Their network in Bhopal is incredible. Very satisfied with the service."</blockquote>
+        <div class="testimonial-author">
+          <div class="author-avatar" aria-hidden="true">M</div>
+          <div class="author-info">
+            <strong>Mohammad Faiz</strong>
+            <span>Sold Land, Berasia Road</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card aos-fade" role="listitem" style="transition-delay:0.25s;">
+        <div class="testimonial-stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <blockquote>"The duplex I purchased through them is exactly what I dreamed of. Syed bhai was patient, showed multiple options, and got me the best price. Highly recommended!"</blockquote>
+        <div class="testimonial-author">
+          <div class="author-avatar" aria-hidden="true">S</div>
+          <div class="author-info">
+            <strong>Sunita Patel</strong>
+            <span>Purchased Duplex, Arera Colony</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card aos-fade" role="listitem" style="transition-delay:0.3s;">
+        <div class="testimonial-stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <blockquote>"Very professional team. Found a great flat for rent in Shyamla Hills with a beautiful view. They understood my requirements perfectly and delivered!"</blockquote>
+        <div class="testimonial-author">
+          <div class="author-avatar" aria-hidden="true">Z</div>
+          <div class="author-info">
+            <strong>Zainab Ali</strong>
+            <span>Rented Flat, Shyamla Hills</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     CONTACT SECTION
+═══════════════════════════════════════════ -->
+<section id="contact" aria-labelledby="contact-heading">
+  <div class="container">
+
+    <div style="text-align:center;margin-bottom:3rem;" class="aos-fade">
+      <p class="section-label">Get In Touch</p>
+      <h2 class="section-title" id="contact-heading">Contact Syed Properties</h2>
+      <p class="section-sub" style="margin:0 auto;">Ready to find your property or list yours? Reach out — we respond within minutes.</p>
+    </div>
+
+    <div class="contact-grid">
+
+      <!-- Left: Contact Info -->
+      <div>
+        <p class="contact-info-title aos-fade-left">Let's Talk Property</p>
+        <p style="font-size:0.9rem;color:var(--charcoal-xs);margin-bottom:1rem;" class="aos-fade-left">We're available 7 days a week, 9 AM – 8 PM. WhatsApp us anytime for quick replies.</p>
+
+        <div class="contact-cards aos-fade-left">
+
+          <a href="tel:7610377630" class="contact-card" id="contact-phone1" aria-label="Call Syed Murtuza Ali">
+            <div class="cc-icon" aria-hidden="true">📞</div>
+            <div class="cc-text">
+              <strong>Syed Murtuza Ali</strong>
+              <a href="tel:7610377630">76103 77630</a>
+            </div>
+          </a>
+
+          <a href="tel:8770772654" class="contact-card" id="contact-phone2" aria-label="Call Syed Mustafa Ali">
+            <div class="cc-icon" aria-hidden="true">📞</div>
+            <div class="cc-text">
+              <strong>Syed Mustafa Ali</strong>
+              <a href="tel:8770772654">87707 72654</a>
+            </div>
+          </a>
+
+          <a href="https://wa.me/917610377630" class="contact-card" target="_blank" rel="noopener noreferrer" id="contact-wa" aria-label="Chat on WhatsApp">
+            <div class="cc-icon" aria-hidden="true">💬</div>
+            <div class="cc-text">
+              <strong>WhatsApp</strong>
+              <a href="https://wa.me/917610377630">+91 76103 77630</a>
+            </div>
+          </a>
+
+          <a href="https://www.instagram.com/syed_properties_bhopal?igsh=cjh6OXZyaDA2ajQw" class="contact-card" target="_blank" rel="noopener noreferrer" id="contact-ig" aria-label="Follow on Instagram">
+            <div class="cc-icon" aria-hidden="true">📸</div>
+            <div class="cc-text">
+              <strong>Instagram · 6,200+ Followers</strong>
+              <a href="https://www.instagram.com/syed_properties_bhopal?igsh=cjh6OXZyaDA2ajQw">@syed_properties_bhopal</a>
+            </div>
+          </a>
+
+        </div>
+
+        <!-- Social Buttons -->
+        <div class="contact-social aos-fade-left">
+          <a href="https://www.instagram.com/syed_properties_bhopal?igsh=cjh6OXZyaDA2ajQw"
+             class="social-btn social-btn-ig"
+             target="_blank" rel="noopener noreferrer"
+             id="ig-follow-btn"
+             aria-label="Follow on Instagram">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+            Follow on Instagram
+          </a>
+          <a href="https://wa.me/917610377630?text=Hello%2C%20I%27d%20like%20to%20know%20more%20about%20your%20properties."
+             class="social-btn social-btn-wa"
+             target="_blank" rel="noopener noreferrer"
+             id="wa-chat-btn"
+             aria-label="Chat on WhatsApp">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Chat on WhatsApp
+          </a>
+        </div>
+
+        <!-- Google Map -->
+        <div class="contact-map aos-fade-left">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d234823.0568046628!2d77.2373504!3d23.2599333!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x397c428f8fd68fbd%3A0x2155716d572d4f8!2sBhopal%2C%20Madhya%20Pradesh!5e0!3m2!1sen!2sin!4v1700000000000"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Syed Properties location in Bhopal, Madhya Pradesh"
+            aria-label="Google Map showing Bhopal, Madhya Pradesh">
+          </iframe>
+        </div>
+      </div>
+
+      <!-- Right: Contact Form -->
+      <div class="contact-form-wrap aos-fade-right">
+        <h3 class="form-title">Send Us an Enquiry</h3>
+        <p class="form-sub">Fill the form and we'll get back to you within minutes.</p>
+
+        <form id="contact-form" novalidate aria-label="Property enquiry form">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="form-name">Full Name *</label>
+              <input type="text" id="form-name" name="name" placeholder="Your name" required autocomplete="name" />
+            </div>
+            <div class="form-group">
+              <label for="form-phone">Phone Number *</label>
+              <input type="tel" id="form-phone" name="phone" placeholder="+91 XXXXX XXXXX" required autocomplete="tel" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="form-interest">Property Interest</label>
+            <select id="form-interest" name="interest">
+              <option value="">Select Property Type</option>
+              <option value="flat-buy">Flat — Buy</option>
+              <option value="flat-rent">Flat — Rent</option>
+              <option value="plot-buy">Plot — Buy</option>
+              <option value="duplex-buy">Duplex — Buy</option>
+              <option value="land-buy">Land/Agricultural — Buy</option>
+              <option value="new-project">New Project</option>
+              <option value="sell">I Want to Sell My Property</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="form-budget">Budget Range</label>
+            <select id="form-budget" name="budget">
+              <option value="">Select Budget</option>
+              <option value="under-20L">Under ₹20 Lakh</option>
+              <option value="20-50L">₹20 – 50 Lakh</option>
+              <option value="50L-1Cr">₹50 Lakh – 1 Crore</option>
+              <option value="1Cr-plus">Above ₹1 Crore</option>
+              <option value="rental">Rental (specify in message)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="form-message">Message</label>
+            <textarea id="form-message" name="message" placeholder="Tell us about your requirements — preferred locality, size, timeline, etc."></textarea>
+          </div>
+
+          <button type="submit" class="form-submit" id="form-submit-btn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            Send Enquiry
+          </button>
+
+          <div class="form-success" id="form-success" role="alert">
+            <span style="font-size:2rem;">🎉</span>
+            <strong>Thank you for reaching out!</strong>
+            <p>Our team will contact you shortly. You can also WhatsApp us directly at 76103 77630.</p>
+          </div>
+        </form>
+
+      </div><!-- /.contact-form-wrap -->
+    </div><!-- /.contact-grid -->
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     FOOTER
+═══════════════════════════════════════════ -->
+<footer role="contentinfo">
+  <div class="container">
+    <div class="footer-grid">
+
+      <!-- Brand -->
+      <div class="footer-brand">
+        <img src="images/logo.png" alt="Syed Properties" />
+        <h3>Syed Properties</h3>
+        <p class="tagline">Bhopal Property</p>
+        <p>Your trusted real estate partner in Bhopal, MP. Buy, Sell &amp; Rent verified properties with 100% transparency.</p>
+        <div class="footer-social" role="list">
+          <a href="https://www.instagram.com/syed_properties_bhopal?igsh=cjh6OXZyaDA2ajQw" target="_blank" rel="noopener noreferrer" aria-label="Follow on Instagram" role="listitem">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          </a>
+          <a href="https://wa.me/917610377630" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp" role="listitem">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          </a>
+          <a href="tel:7610377630" aria-label="Call us" role="listitem">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 .18h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.09-1.09a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#properties">Properties</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Property Types -->
+      <div class="footer-col">
+        <h4>Property Types</h4>
+        <ul>
+          <li><a href="#properties">Flats &amp; Apartments</a></li>
+          <li><a href="#properties">Residential Plots</a></li>
+          <li><a href="#properties">Duplex Homes</a></li>
+          <li><a href="#properties">Agricultural Land</a></li>
+          <li><a href="#properties">New Projects</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact Info -->
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:7610377630">📞 76103 77630</a></li>
+          <li><a href="tel:8770772654">📞 87707 72654</a></li>
+          <li><a href="https://wa.me/917610377630" target="_blank" rel="noopener noreferrer">💬 WhatsApp</a></li>
+          <li><a href="https://www.instagram.com/syed_properties_bhopal?igsh=cjh6OXZyaDA2ajQw" target="_blank" rel="noopener noreferrer">📸 Instagram</a></li>
+          <li><a href="#contact">📍 Bhopal, MP</a></li>
+        </ul>
+      </div>
+
+    </div><!-- /.footer-grid -->
+
+    <!-- Footer Bottom -->
+    <div class="footer-bottom">
+      <p>© 2025 Syed Properties, Bhopal. All rights reserved.</p>
+      <div class="footer-bottom-links">
+        <a href="#hero">Privacy Policy</a>
+        <a href="#hero">Terms of Service</a>
+      </div>
+    </div>
+
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
