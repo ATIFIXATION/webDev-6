@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import RestaurantInformation from "./settings/RestaurantInformation";
-import RestaurantCoreDetails from "./settings/RestaurantCoreDetails";
+import RestaurantInformation from "./settings/restaurantInformation";
+import RestaurantCoreDetails from "./settings/coreDetails";
 import RestaurantPhotos from "./settings/RestaurantPhotos";
-
 const RestaurantSettings = () => {
   const tabs = [
     { id: "information", label: "Information" },
