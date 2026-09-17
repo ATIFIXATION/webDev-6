@@ -44,3 +44,58 @@
 
 
 // function loadscript(url,callback )
+
+// then catch
+
+// let result = new Promise((resolve,reject) =>
+// {
+//     let marks=65;
+
+//     if(marks>=45)
+//     {
+//         resolve('pass');
+//     }
+//     else
+//     {
+//         reject('fail');
+//     }
+// })
+
+// result.then((message) =>
+// {
+//     alert('congratulations you have '+message);
+// })
+
+// result.catch((message) =>
+// {
+//     alert('sorry you have '+message);
+// })
+
+
+// try {
+//     Atif
+// }
+
+// catch(error)
+//     {
+// console.log(error.message);
+//     }
+
+
+
+try{
+
+    let age=prompt('what is ur age');
+    age=Number.parseInt(age);
+
+    if(age>18 )
+{
+    throw new Error('age is greater than 18');
+}
+}
+
+
+catch(error)    
+{
+
+}
