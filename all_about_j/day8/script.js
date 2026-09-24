@@ -83,19 +83,40 @@
 
 
 
-try{
+// try{
 
-    let age=prompt('what is ur age');
-    age=Number.parseInt(age);
+//     let age=prompt('what is ur age');
+//     age=Number.parseInt(age);
 
-    if(age>18 )
+//     if(age>18 )
+// {
+//     throw new Error('age is greater than 18');
+// }
+// }
+
+
+// catch(error)    
+// {
+
+// }
+
+//finally 
+    try 
 {
-    throw new Error('age is greater than 18');
-}
-}
+
+    let a=0;
+    console.log("       it runs successfully");
 
 
-catch(error)    
+
+}
+
+catch(error)
 {
+    console.log(error.message);
+}
 
+finally
+{
+    console.log("tgis gonna work no matter wothappens");
 }
