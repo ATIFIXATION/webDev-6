@@ -156,27 +156,86 @@
 
 
 
-class animal{
-    constructor(name)
-    {
-        this.name =name
-    }   
+// class animal{
+//     constructor(name)
+//     {
+//         this.name =name
+//     }   
 
-    walk()
+//     walk()
+//     {
+//         console.log(    `${this.name} is walking`);
+//     }
+// }
+
+// j =new animal('jack')
+// j.walk()
+
+
+// class atif{
+//     static rollno(){
+//         console.log('roll no is 123');
+//     }
+// }
+
+// atif.rollno()
+
+// class animal{
+//     constructor(name)
+//     {
+//         this.name=name
+//     }
+
+//     fly()
+//     {
+//         alert("he is flying")
+//     }
+
+//     get name   (){
+//         return this._name   
+//     }
+// }
+
+// let a = new animal ()
+// a.fly()
+
+
+class phone
+{
+    get battery()
     {
-        console.log(    `${this.name} is walking`);
+        return 80
+    }
+
+    set battery(value){
+        console.log(value)
     }
 }
 
-j =new animal('jack')
-j.walk()
+let p = new phone()
+
+console.log(p.battery)
+
+p.battery=90;
 
 
-class atif{
-    static rollno(){
-        console.log('roll no is 123');
+
+
+
+class food{
+    get foodie()
+    {
+        return 'pizza'
+    }
+
+    set foodiee(khana)
+    {
+        console.log(khana)
     }
 }
 
-atif.rollno()
+let f=new food()
 
+console.log(f.foodie)
+
+f.foodiee='pozzi';
