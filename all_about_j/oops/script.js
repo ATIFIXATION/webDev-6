@@ -108,28 +108,75 @@
 
 //method overriding
 
-class employee {
-  login() {
-    conosle.log("login successful");
-  }
+// class employee {
+//   login() {
+//     conosle.log("login successful");
+//   }
 
-  logout() {
-    console.log("logout successful");
-  }
-  requestLeave() {
-    console.log("leave requested");
-  }
+//   logout() {
+//     console.log("logout successful");
+//   }
+//   requestLeave() {
+//     console.log("leave requested");
+//   }
+// }
+
+// class programmer extends employee {
+//   requestcoffe() {
+//     console.log("coffee requested");
+//   }
+// }
+
+// let e = new employee();
+// let p = new programmer();
+
+// e.login();
+// e.logout();
+// e.requestLeave();
+
+
+// class person
+
+// {
+//     constructor(eating)
+//     {
+//         this.eating=eating;
+//     }
+// }
+
+// class perosn2 extends person
+// {
+//     constructor(eating,drinking)    {
+//          super(eating)
+//     this.drinking=drinking; 
+
+//     }
+   
+// }
+
+
+
+class animal{
+    constructor(name)
+    {
+        this.name =name
+    }   
+
+    walk()
+    {
+        console.log(    `${this.name} is walking`);
+    }
 }
 
-class programmer extends employee {
-  requestcoffe() {
-    console.log("coffee requested");
-  }
+j =new animal('jack')
+j.walk()
+
+
+class atif{
+    static rollno(){
+        console.log('roll no is 123');
+    }
 }
 
-let e = new employee();
-let p = new programmer();
+atif.rollno()
 
-e.login();
-e.logout();
-e.requestLeave();
