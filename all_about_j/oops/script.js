@@ -200,42 +200,69 @@
 // a.fly()
 
 
-class phone
-{
-    get battery()
-    {
-        return 80
-    }
+// class phone
+// {
+//     get battery()
+//     {
+//         return 80
+//     }
 
-    set battery(value){
-        console.log(value)
-    }
-}
+//     set battery(value){
+//         console.log(value)
+//     }
+// }
 
-let p = new phone()
+// let p = new phone()
 
-console.log(p.battery)
+// console.log(p.battery)
 
-p.battery=90;
-
-
+// p.battery=90;
 
 
 
-class food{
-    get foodie()
-    {
-        return 'pizza'
-    }
 
-    set foodiee(khana)
-    {
-        console.log(khana)
-    }
-}
 
-let f=new food()
 
-console.log(f.foodie)
+// class food{
+//     get foodie()
+//     {
+//         return 'pizza'
+//     }
 
-f.foodiee='pozzi';
+//     set foodiee(khana)
+//     {
+//         console.log(khana)
+//     }
+// }
+
+// let f=new food()
+
+// console.log(f.foodie)
+
+// f.foodiee='pozzi';
+
+
+// console.log(f instanceof food)
+
+// function hello()
+// {
+//     console.log("this is hello")
+// }
+// (function ()
+// {
+//     console.log("hello atif")
+// })();
+
+
+
+//   function kahankhao(){
+//     console.log("khana khalo")
+// }
+
+// ((function (khajo){
+//     console.log("   + khanaaa")
+// }))(khalijiye)
+
+(function(){
+    console.log('this is to eat foodd')
+})()
