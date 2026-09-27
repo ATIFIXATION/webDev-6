@@ -263,6 +263,42 @@
 //     console.log("   + khanaaa")
 // }))(khalijiye)
 
-(function(){
-    console.log('this is to eat foodd')
-})()
+// (function(){
+//     console.log('this is to eat foodd')
+// })()
+
+// let names ={"atif","meraj","hamza"};
+
+// let{first ,second,third}=names;
+
+// console.log(first)
+
+// let fruits = ["apple", "banana", "mango"];
+
+// let [first, second, third] = fruits;
+
+// console.log(first);  // apple
+// console.log(second); // banana
+// console.log(third);  // mango
+
+
+// //destructing assignment
+
+// let rollno = [11,22,,44]
+
+// let[firsty,secondy,thirdy]=rollno
+
+// console.log(firsty)
+
+// let umi =
+// {
+
+// namii:'fudiu',
+
+// rollli:52
+
+// }
+
+// let{fudiu,rollli}=umi;
+
+// console.log(fudiu)
