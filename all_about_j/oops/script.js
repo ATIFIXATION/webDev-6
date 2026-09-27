@@ -302,3 +302,40 @@
 // let{fudiu,rollli}=umi;
 
 // console.log(fudiu)
+
+//spread operator
+
+// let a=[11,22,33]
+
+// let b=[...a]
+
+// console.log(b)
+
+
+// let c=[44,55,66]
+
+
+
+// let d=[...a,...c]
+
+// console.log(d)
+
+// let boj =
+// {
+//     namee:"meru",
+//     ght:"lala"
+// }
+
+// let cod={...boj,namee:"atif"}
+
+// console.log(cod)
+
+
+let name="atif"
+
+
+function hello()
+{
+    console.log(name)
+}
+
