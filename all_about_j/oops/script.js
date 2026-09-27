@@ -331,6 +331,8 @@
 // console.log(cod)
 
 
+//global scope
+
 let name="atif"
 
 
@@ -338,4 +340,6 @@ function hello()
 {
     console.log(name)
 }
+
+hello()
 
