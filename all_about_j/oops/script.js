@@ -346,22 +346,37 @@
 
 //closures in js
 
-function agiii() {
-    let age = 9;
+// function agiii() {
+//     let age = 9;
 
-    function hoi() {
-        console.log(age);
-    }
+//     function hoi() {
+//         console.log(age);
+//     }
 
-    return hoi;
-}
+//     return hoi;
+// }
 
-let y = agiii();
+// let y = agiii();
 
-y();
+// y();
+
+//arrow functionn
+
+// const add=(a,b) => a+b;
+
+// // const subs=(a-b) => a-b;
+
+// const subsiii=(c,d) =>  c*d;
+
+// function add(a,b)
+// {
+//     return a+b;
+
+// }
 
 
-
-
-
+// function square(v,n)
+// {
+//     return v*n
+// }
 
