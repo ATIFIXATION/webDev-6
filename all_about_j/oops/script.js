@@ -333,13 +333,35 @@
 
 //global scope
 
-let name="atif"
+// let name="atif"
 
 
-function hello()
-{
-    console.log(name)
+// function hello()
+// {
+//     console.log(name)
+// }
+
+// hello()
+
+
+//closures in js
+
+function agiii() {
+    let age = 9;
+
+    function hoi() {
+        console.log(age);
+    }
+
+    return hoi;
 }
 
-hello()
+let y = agiii();
+
+y();
+
+
+
+
+
 
