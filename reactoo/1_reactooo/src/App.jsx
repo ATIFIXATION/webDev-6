@@ -7,12 +7,10 @@ const App = () => {
   const age = 20;
   return (
     <div className="parent">
-      <div>
-        <Navbar />
-        <Card />
-          <Card />
-            <Card />  
-      </div>
+      <Navbar />
+      <Card user={user} age={age} img='random url' />
+      <Card user="john" age={25} img='random url' />
+      <Card user="jane" age={30} img='random url' />
     </div>
   );
 };
