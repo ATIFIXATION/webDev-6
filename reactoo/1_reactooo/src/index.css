@@ -38,8 +38,13 @@ select {
   border-radius: 10px;
   background-color: pink;
   margin: 20px;
+  height: 300px;
+  width: 200px;
 }
 
 .parent {
+
+  display: flex;
+  flex-wrap: wrap;
   
 }

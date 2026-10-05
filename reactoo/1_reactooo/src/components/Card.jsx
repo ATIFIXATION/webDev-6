@@ -6,7 +6,7 @@ const Card = (props) => {
     <div className="card">
       hi i am card
       
-      <h1>{props.user}, {props.age}</h1>
+      <h1>{props.user}, {props.age},    </h1>
     </div>
   );
 };
