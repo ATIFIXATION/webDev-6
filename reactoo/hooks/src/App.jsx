@@ -23,21 +23,42 @@
 
 
 
-import React, { useState, useEffect } from "react";
+// import { useEffect } from "react";
 
-function app()
-{
+// function App() {
+//   useEffect(() => {
+//     alert("use effect called");
+//   }, []);
 
+//   return (
+//     <div>
+//       <h1>use effect</h1>
+//     </div>
+//   );
+// }
+
+// export default App;
+
+
+//useref
+
+import { useRef } from "react";
+
+function App() {
+   const num = useRef(10)
+   console.log(num.current)
+   function changeNum() 
+   {
+
+    num.current = 20;
+    console.log(num.current);
+   }
+  return (
+    <div>
+      <h1>use ref</h1>
+      <button onClick={changeNum}>click</button>
+    </div>
+  );
 }
 
-useeefect(() => {
-  console.log("use effect called");
-}, []);
-
-return (
-  <div>
-    <h1>use effect</h1>
-  </div>
-);
-
-export default app; 
+export default App;
