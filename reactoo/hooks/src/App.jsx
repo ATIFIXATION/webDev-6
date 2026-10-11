@@ -65,22 +65,58 @@
 
 //use context
 
-import { createContext, useContext } from "react";
+// import { createContext, useContext } from "react";
 
-const MyContext = createContext();
+// const MyContext = createContext();
 
-function App() {
-  return (
-    <MyContext.Provider value={10}>
-      <Child />
-    </MyContext.Provider>
-  );
+// function App() {
+//   return (
+//     <MyContext.Provider value={10}>
+//       <Child />
+//     </MyContext.Provider>
+//   );
+// }
+
+// function Child() {
+//   const num = useContext(MyContext);
+
+//   return <h1>{num}</h1>;
+// }
+
+// export default App;
+
+//use reducer
+
+import { useReducer } from "react";
+
+function reducer(state, action) {
+  if (action === "add") {
+    return state + 1;
+  }
+
+  if (action === "remove") {
+    return state > 0 ? state - 1 : 0;
+  }
+
+  return state;
 }
 
-function Child() {
-  const num = useContext(MyContext);
+function App() {
+  const [quantity, dispatch] = useReducer(reducer, 0);
 
-  return <h1>{num}</h1>;
+  return (
+    <div>
+      <h1>Quantity: {quantity}</h1>
+
+      <button onClick={() => dispatch("add")}>
+        Add Item
+      </button>
+
+      <button onClick={() => dispatch("remove")}>
+        Remove Item
+      </button>
+    </div>
+  );
 }
 
 export default App;
