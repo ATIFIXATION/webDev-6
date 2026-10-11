@@ -42,23 +42,45 @@
 
 //useref
 
-import { useRef } from "react";
+// import { useRef } from "react";
+
+// function App() {
+//    const num = useRef(10)
+//    console.log(num.current)
+//    function changeNum() 
+//    {
+
+//     num.current = 20;
+//     console.log(num.current);
+//    }
+//   return (
+//     <div>
+//       <h1>use ref</h1>
+//       <button onClick={changeNum}>click</button>
+//     </div>
+//   );
+// }
+
+// export default App;
+
+//use context
+
+import { createContext, useContext } from "react";
+
+const MyContext = createContext();
 
 function App() {
-   const num = useRef(10)
-   console.log(num.current)
-   function changeNum() 
-   {
-
-    num.current = 20;
-    console.log(num.current);
-   }
   return (
-    <div>
-      <h1>use ref</h1>
-      <button onClick={changeNum}>click</button>
-    </div>
+    <MyContext.Provider value={10}>
+      <Child />
+    </MyContext.Provider>
   );
+}
+
+function Child() {
+  const num = useContext(MyContext);
+
+  return <h1>{num}</h1>;
 }
 
 export default App;
