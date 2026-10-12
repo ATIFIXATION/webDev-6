@@ -87,36 +87,57 @@
 
 //use reducer
 
-import { useReducer } from "react";
+// import { useReducer } from "react";
 
-function reducer(state, action) {
-  if (action === "add") {
-    return state + 1;
-  }
+// function reducer(state, action) {
+//   if (action === "add") {
+//     return state + 1;
+//   }
 
-  if (action === "remove") {
-    return state > 0 ? state - 1 : 0;
-  }
+//   if (action === "remove") {
+//     return state > 0 ? state - 1 : 0;
+//   }
 
-  return state;
-}
+//   return state;
+// }
 
-function App() {
-  const [quantity, dispatch] = useReducer(reducer, 0);
+// function App() {
+//   const [quantity, dispatch] = useReducer(reducer, 0);
 
-  return (
-    <div>
-      <h1>Quantity: {quantity}</h1>
+//   return (
+//     <div>
+//       <h1>Quantity: {quantity}</h1>
 
-      <button onClick={() => dispatch("add")}>
-        Add Item
-      </button>
+//       <button onClick={() => dispatch("add")}>
+//         Add Item
+//       </button>
 
-      <button onClick={() => dispatch("remove")}>
-        Remove Item
-      </button>
-    </div>
-  );
-}
+//       <button onClick={() => dispatch("remove")}>
+//         Remove Item
+//       </button>
+//     </div>
+//   );
+// }
 
-export default App;
+// export default App;
+
+//use callback
+
+// use local storage
+
+import react from "react";
+const user = {
+  name: "Atif",
+  age: 20,
+  course: "AI & DS"
+};
+
+// Convert the object into a JSON string
+localStorage.setItem("user", JSON.stringify(user));
+
+// Retrieve and convert it back into an object
+const savedUser = JSON.parse(
+  localStorage.getItem("user")
+);
+
+console.log(savedUser.name);
