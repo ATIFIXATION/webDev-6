@@ -125,19 +125,38 @@
 
 // use local storage
 
+// import react from "react";
+// const user = {
+//   name: "Atif",
+//   age: 20,
+//   course: "AI & DS"
+// };
+
+// // Convert the object into a JSON string
+// localStorage.setItem("user", JSON.stringify(user));
+
+// // Retrieve and convert it back into an object
+// const savedUser = JSON.parse(
+//   localStorage.getItem("user")
+// );
+
+// console.log(savedUser.name);
+
 import react from "react";
-const user = {
-  name: "Atif",
-  age: 20,
-  course: "AI & DS"
-};
+import axios from "axios";
+const app = () => { 
 
-// Convert the object into a JSON string
-localStorage.setItem("user", JSON.stringify(user));
 
-// Retrieve and convert it back into an object
-const savedUser = JSON.parse(
-  localStorage.getItem("user")
-);
+async function getdata() {
+    const res = await axios.get("https://jsonplaceholder.typicode.com/posts");
+    console.log(res.data);
+}
 
-console.log(savedUser.name);
+
+        return (        
+            
+                < button onClick={getdata}>Get Data</button>  
+        );
+};          
+
+export default app;
