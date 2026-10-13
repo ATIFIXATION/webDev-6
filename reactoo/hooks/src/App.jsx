@@ -21,8 +21,6 @@
 // export default App;
 //use effect
 
-
-
 // import { useEffect } from "react";
 
 // function App() {
@@ -39,7 +37,6 @@
 
 // export default App;
 
-
 //useref
 
 // import { useRef } from "react";
@@ -47,7 +44,7 @@
 // function App() {
 //    const num = useRef(10)
 //    console.log(num.current)
-//    function changeNum() 
+//    function changeNum()
 //    {
 
 //     num.current = 20;
@@ -142,21 +139,34 @@
 
 // console.log(savedUser.name);
 
-import react from "react";
-import axios from "axios";
-const app = () => { 
+// import react from "react";
+// import axios from "axios";
+// const app = () => {
 
+// async function getdata() {
+//     const res = await axios.get("https://jsonplaceholder.typicode.com/posts");
+//     console.log(res.data);
+// }
 
-async function getdata() {
-    const res = await axios.get("https://jsonplaceholder.typicode.com/posts");
-    console.log(res.data);
-}
+//         return (
 
+//                 < button onClick={getdata}>Get Data</button>
+//         );
+// };
 
-        return (        
-            
-                < button onClick={getdata}>Get Data</button>  
-        );
-};          
+// export default app;
 
-export default app;
+import React from "react";
+import { Route, Routes } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
+const App = () => {
+  return (
+    <div>
+      <Routes>
+        <Route path="/" element={<h1>Home</h1>} />
+      </Routes>
+    </div>
+  );
+};
+
+export default App;
