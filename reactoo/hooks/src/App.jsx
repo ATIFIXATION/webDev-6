@@ -156,16 +156,19 @@
 
 // export default app;
 
-import React from "react";
-import { Route, Routes } from "react-router-dom";
-import { BrowserRouter } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
+import Navbar from "./Navbar";
+
 const App = () => {
   return (
-    <div>
+    <>
+      <Navbar />
+
       <Routes>
-        <Route path="/" element={<h1>Home</h1>} />
+        <Route path="/" element={<h1>Home Page</h1>} />
+        <Route path="/about" element={<h1>About Page</h1>} />
       </Routes>
-    </div>
+    </>
   );
 };
 
