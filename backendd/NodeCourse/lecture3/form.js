@@ -32,23 +32,30 @@ const server = http.createServer((req, res) => {
 
   // Handle form submission
   // Handle form submission
-else if (
+  else if (
     req.url.toLowerCase() === "/submit-details" &&
     req.method === "POST"
-   
-) {
+  ) {
+    const body = [];
 
-  req.on('data',chunk => {
-    console.log(chunk)
-  });
- 
+    req.on("data", (chunk) => {
+      console.log(chunk);
+      body.push(chunk);
+    });
+
+    req.on('end',() => {
+   const fullbody =buffer.concat(body).toString()
+   console.log(fullbody)
+
+    })
+
     fs.writeFileSync("user.txt", "atif khan");
 
     res.statusCode = 302;
     res.setHeader("Location", "/");
 
     return res.end();
-}
+  }
 
   // Handle unknown routes
   res.statusCode = 404;
