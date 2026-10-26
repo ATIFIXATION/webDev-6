@@ -49,6 +49,7 @@ const server = http.createServer((req, res) => {
       const params = new URLSearchParams(fullbody);
 
       for (const [key, val] of params.entries()) {
+        bodyObject[key]=val
       }
     });
 
