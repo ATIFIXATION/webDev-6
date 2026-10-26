@@ -43,11 +43,14 @@ const server = http.createServer((req, res) => {
       body.push(chunk);
     });
 
-    req.on('end',() => {
-   const fullbody =buffer.concat(body).toString()
-   console.log(fullbody)
+    req.on("end", () => {
+      const fullbody = buffer.concat(body).toString();
+      console.log(fullbody);
+      const params = new URLSearchParams(fullbody);
 
-    })
+      for (const [key, val] of params.entries()) {
+      }
+    });
 
     fs.writeFileSync("user.txt", "atif khan");
 
