@@ -1,9 +1,9 @@
-const http =require('http');
+const http = require('http');
 
-const server =http.createServer()
+const server = http.createServer();
 
-const PORT=3000;
-server.listen(PORT,()=>{
+const PORT = 3000;
 
-    console.log(`server running on address http://localhost:${PORT}')
-})
+server.listen(PORT, () => {
+  console.log(`server running on address http://localhost:${PORT}`);
+});
